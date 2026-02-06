@@ -1,0 +1,169 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <title>Younes Accounts</title>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <link href="images/CURRENT.png" rel="icon">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
+  <link rel="stylesheet" href="admin/admin.css">
+</head>
+
+<body>
+
+  <div class="mobile-overlay" id="overlay"></div>
+
+  <!-- SIDEBAR -->
+  <div class="sidebar" id="sidebar">
+    <div class="sidebar-brand">
+      <img src="images/CURRENT.png" class="logo">
+    </div>
+    <ul class="sidebar-menu">
+      <li><a id="dashboardBtn"><i class="fa fa-chart-line"></i><span>Dashboard</span></a></li>
+      <li><a id="accountsBtn"><i class="fa fa-box"></i><span>Accounts</span></a></li>
+      <li><a id="logoutLink"><i class="fa fa-sign-out"></i><span>Logout</span></a></li>
+    </ul>
+  </div>
+
+  <!-- MAIN -->
+  <div class="main">
+
+    <header class="navbar">
+      <div class="nav-left">
+        <i class="fa fa-bars" id="toggleBtn"></i>
+        <span>Younes Accounts</span>
+      </div>
+      <div class="nav-right">
+        <div class="profile-icon" id="profileIcon">
+          <img src="images/sami.jpg">
+        </div>
+        <div class="dropdown-menu" id="dropdownMenu">
+          <a id="logoutLinks"><i class="fa fa-sign-out"></i> Logout</a>
+        </div>
+      </div>
+    </header>
+
+    <!-- DASHBOARD -->
+    <div class="dashboard" id="dashboardView">
+
+      <!-- HEADER WITH LOGO & GREETING -->
+      <div class="dashboard-header"
+        style="display:flex;justify-content:space-between;align-items:center;margin-bottom:20px;">
+        <div style="display:flex;align-items:center;gap:15px;">
+          <img src="images/CURRENT.png" alt="Logo" style="width:60px;height:60px;border-radius:10px;">
+          <div>
+            <h2 style="margin:0;color:#334155;">Younes Book</h2>
+            <p id="greeting" style="margin:0;color:#475569;font-size:14px;">Welcome!</p>
+          </div>
+        </div>
+        <div style="text-align:right;">
+          <p id="clock" style="font-size:16px;color:#334155;font-weight:600;margin:0;"></p>
+          <p id="date" style="font-size:14px;color:#475569;margin:0;"></p>
+        </div>
+      </div>
+
+      <!-- COMPANY DETAILS GRID -->
+      <div class="kpi-grid">
+
+        <div class="card kpi"><i class="fa fa-building"></i>
+          <h4> Name</h4>
+          <p>Younes Accounts</p>
+        </div>
+
+        <div class="card kpi"><i class="fa fa-map-marker-alt"></i>
+          <h4>Address</h4>
+          <p>Deira, Dubai, UAE</p>
+        </div>
+
+        <div class="card kpi"><i class="fa fa-phone"></i>
+          <h4>Contact</h4>
+          <p>+971 55 929 7977</p>
+        </div>
+
+        <div class="card kpi"><i class="fa fa-envelope"></i>
+          <h4>Email</h4>
+          <p>younesshabani2011@gmail.com</p>
+        </div>
+
+        <div class="card kpi"><i class="fa fa-id-card"></i>
+          <h4>Mobile</h4>
+          <p>+971 55 929 7977</p>
+        </div>
+
+        <div class="card kpi"><i class="fa fa-users"></i>
+          <h4>Profession</h4>
+          <p>General Manager</p>
+        </div>
+        <div class="card kpi"><i class="fa fa-globe"></i>
+          <h4>Home Number</h4>
+          <p>+971 55 929 7977</p>
+        </div>
+
+        <div class="card kpi"><i class="fa fa-university"></i>
+          <h4>Bank Account</h4>
+          <p>CBD Bank 
+            Account Name:<br>
+            Acc No:  <br>
+            Branch:  <br>
+            IBAN: </p>
+        </div>
+        <div class="card kpi"><i class="fa fa-university"></i>
+          <h4>Bank Account</h4>
+          <p>ADCB Bank 
+            Account Name:<br>
+            Acc No:  <br>
+            Branch:  <br>
+            IBAN: </p>
+        </div>
+        <div class="card kpi"><i class="fa fa-university"></i>
+          <h4>Bank Account</h4>
+          <p>CITI Bank 
+            Account Name:<br>
+            Acc No:  <br>
+            Branch:  <br>
+            IBAN: </p>
+        </div>
+        <div class="card kpi"><i class="fa fa-university"></i>
+          <h4>Bank Account</h4>
+          <p>MASHREQ Bank 
+            Account Name:<br>
+            Acc No:  <br>
+            Branch:  <br>
+            IBAN: </p>
+        </div>
+
+        
+
+      </div>
+      <!-- TO DO LIST -->
+      <h3 style="margin-top:30px;color:#334155;">Today’s To-Do List</h3>
+
+      <div class="card todo-card">
+        <div class="todo-input">
+          <input type="text" id="todoInput" placeholder="Add a new task...">
+          <button onclick="addTodo()"><i class="fa fa-plus"></i></button>
+        </div>
+
+        <ul id="todoList" class="todo-list"></ul>
+      </div>
+
+
+    </div>
+
+
+    <!-- ACCOUNTS -->
+    <div class="dashboard" id="accountsView" style="display:none">
+      <div class="sheet card">
+        <iframe
+          src="https://docs.google.com/spreadsheets/d/19MpvdYCBXoQ5EW1V5IfeciVr6BcMb4Ol/edit?usp=sharing&ouid=100358538746186639831&rtpof=true&sd=true"></iframe>
+      </div>
+    </div>
+
+  </div>
+
+  <script src="https://www.gstatic.com/charts/loader.js"></script>
+  <script src="admin/admin.js"></script>
+</body>
+
+</html>
