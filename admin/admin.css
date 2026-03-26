@@ -39,7 +39,7 @@ body{display:flex;height:100vh;background:#f1f5f9;overflow:hidden}
 .dropdown-menu a:hover{background:#f1f1f1}
 
 /* DASHBOARD */
-.dashboard{padding:20px;overflow:auto}
+.dashboard{padding:10px;overflow:auto}
 .card{background:#fff;border-radius:14px;padding:20px;box-shadow:0 10px 30px rgba(0,0,0,.06)}
 
 /* HEADER */
