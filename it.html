@@ -1,0 +1,4869 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+<title>IT Premium Product Poster - HD A4 Export</title>
+
+<link
+    href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800;900&family=Montserrat:wght@600;700;800;900&display=swap"
+    rel="stylesheet"
+>
+
+<script src="https://cdnjs.cloudflare.com/ajax/libs/html2canvas/1.4.1/html2canvas.min.js"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/jspdf/2.5.1/jspdf.umd.min.js"></script>
+
+<style>
+
+/* =========================================================
+   GLOBAL
+========================================================= */
+
+*{
+    box-sizing:border-box;
+}
+
+html,
+body{
+    margin:0;
+    padding:0;
+    min-height:100%;
+}
+
+body{
+    font-family:Inter,Arial,sans-serif;
+
+    background:
+        radial-gradient(
+            circle at 15% 10%,
+            rgba(217,169,40,.14),
+            transparent 28%
+        ),
+        radial-gradient(
+            circle at 90% 90%,
+            rgba(217,169,40,.10),
+            transparent 25%
+        ),
+        #041526;
+
+    color:#111;
+}
+
+:root{
+    --navy:#082746;
+    --navy-dark:#061b31;
+    --navy-light:#0b3155;
+
+    --gold:#d9a928;
+    --gold-light:#f5d77b;
+    --gold-dark:#b98616;
+
+    --cream:#f7f3e9;
+    --cream-dark:#ebe5d7;
+
+    --text:#092844;
+}
+
+
+/* =========================================================
+   APP
+========================================================= */
+
+.app{
+    min-height:100vh;
+    padding:80px 20px 30px;
+
+    display:flex;
+    justify-content:center;
+    align-items:flex-start;
+}
+
+.poster-wrap{
+    width:100%;
+
+    display:flex;
+    justify-content:center;
+}
+
+
+/* =========================================================
+   POSTER
+========================================================= */
+
+.poster{
+    position:relative;
+
+    width:794px;
+    height:1123px;
+
+    min-width:794px;
+    min-height:1123px;
+
+    overflow:hidden;
+
+    background:#f7f3e9;
+
+    isolation:isolate;
+
+    box-shadow:
+        0 35px 90px rgba(0,0,0,.55);
+}
+
+
+/* =========================================================
+   HEADER
+========================================================= */
+
+.topbar{
+    position:relative;
+
+    width:794px;
+    height:135px;
+
+    padding:22px 30px;
+
+    background:
+        linear-gradient(
+            135deg,
+            #061b31 0%,
+            #082746 52%,
+            #0b3155 100%
+        );
+
+    color:#fff;
+
+    display:flex;
+
+    align-items:center;
+    justify-content:space-between;
+
+    z-index:100;
+}
+
+.topbar::after{
+    content:"";
+
+    position:absolute;
+
+    left:0;
+    bottom:0;
+
+    width:100%;
+    height:5px;
+
+    background:
+        linear-gradient(
+            90deg,
+            var(--gold-dark),
+            var(--gold-light),
+            var(--gold),
+            var(--gold-light),
+            var(--gold-dark)
+        );
+}
+
+
+/* =========================================================
+   LOGO
+========================================================= */
+
+.logo-box{
+    width:215px;
+    height:85px;
+
+    padding:8px;
+
+    background:#fff;
+
+    border-radius:14px;
+
+    display:flex;
+
+    align-items:center;
+    justify-content:center;
+
+    overflow:hidden;
+
+    position:relative;
+
+    z-index:20;
+}
+
+.logo-box img{
+    display:block;
+
+    width:auto;
+    height:auto;
+
+    max-width:100%;
+    max-height:95px;
+
+    object-fit:contain;
+    object-position:center;
+
+    border:0;
+}
+
+.logo-fallback{
+    color:#000;
+
+    font-size:42px;
+    font-weight:900;
+
+    letter-spacing:-5px;
+
+    text-align:center;
+}
+
+
+/* =========================================================
+   BRAND
+========================================================= */
+
+.brand-copy{
+    text-align:right;
+}
+
+.brand-copy small{
+    display:block;
+
+    margin-bottom:8px;
+
+    color:var(--gold-light);
+
+    font-size:10px;
+    font-weight:900;
+
+    letter-spacing:3px;
+}
+
+.brand-copy strong{
+    font-family:Montserrat,Arial,sans-serif;
+
+    font-size:30px;
+    font-weight:900;
+
+    letter-spacing:-1px;
+}
+
+.brand-copy::after{
+    content:"";
+
+    display:block;
+
+    width:90px;
+    height:6px;
+
+    margin:14px 0 0 auto;
+
+    border-radius:10px;
+
+    background:
+        linear-gradient(
+            90deg,
+            var(--gold-light),
+            var(--gold-dark)
+        );
+}
+
+
+/* =========================================================
+   HERO
+========================================================= */
+
+.hero{
+    position:relative;
+
+    width:794px;
+    height:713px;
+
+    overflow:hidden;
+
+    background:
+        linear-gradient(
+            135deg,
+            var(--navy) 0%,
+            var(--navy) 24%,
+            #f1ede4 24.1%,
+            #fbfaf7 100%
+        );
+}
+
+.hero-word{
+    position:absolute;
+
+    left:-45px;
+    bottom:-90px;
+
+    font-family:Montserrat,Arial,sans-serif;
+
+    font-size:300px;
+    font-weight:900;
+
+    line-height:1;
+
+    color:rgba(255,255,255,.06);
+
+    letter-spacing:-25px;
+
+    pointer-events:none;
+}
+
+.hero-side{
+    position:absolute;
+
+    left:18px;
+    top:185px;
+
+    writing-mode:vertical-rl;
+
+    transform:rotate(180deg);
+
+    color:#fff;
+
+    font-size:10px;
+    font-weight:900;
+
+    letter-spacing:4px;
+
+    z-index:5;
+}
+
+.hero::before{
+    content:"";
+
+    position:absolute;
+
+    left:-60px;
+    top:-12px;
+
+    width:500px;
+    height:9px;
+
+    background:
+        linear-gradient(
+            90deg,
+            var(--gold-dark),
+            var(--gold-light)
+        );
+
+    transform:skewX(-42deg);
+
+    z-index:20;
+}
+
+.hero::after{
+    content:"";
+
+    position:absolute;
+
+    left:-50px;
+    bottom:155px;
+
+    width:190px;
+    height:9px;
+
+    background:
+        linear-gradient(
+            90deg,
+            var(--gold-dark),
+            var(--gold-light)
+        );
+
+    transform:rotate(-45deg);
+
+    z-index:20;
+}
+
+
+/* =========================================================
+   PRODUCT CARD
+========================================================= */
+
+.product-card{
+    position:absolute;
+
+    left:55px;
+    right:30px;
+
+    top:28px;
+    bottom:22px;
+
+    border-radius:34px;
+
+    background:
+        radial-gradient(
+            circle at 50% 38%,
+            #ffffff 0%,
+            #faf8f2 62%,
+            #eee9de 100%
+        );
+
+    box-shadow:
+        0 30px 65px rgba(0,0,0,.18),
+        inset 0 0 0 1px rgba(255,255,255,.9);
+
+    overflow:hidden;
+
+    isolation:isolate;
+
+    z-index:30;
+}
+
+
+/* =========================================================
+   PREMIUM TAG
+========================================================= */
+
+.premium-tag{
+    position:absolute;
+
+    left:24px;
+    top:24px;
+
+    width:auto;
+
+    padding:12px 18px;
+
+    border-radius:9px;
+
+    background:
+        linear-gradient(
+            135deg,
+            #061b31,
+            #0b3155
+        );
+
+    color:var(--gold-light);
+
+    font-size:10px;
+    font-weight:900;
+
+    letter-spacing:2px;
+
+    z-index:500;
+}
+
+
+/* =========================================================
+   DISCOUNT
+========================================================= */
+
+.discount{
+    position:absolute;
+
+    right:24px;
+    top:24px;
+
+    width:104px;
+    height:104px;
+
+    border-radius:50%;
+
+    background:
+        radial-gradient(
+            circle at 35% 30%,
+            #fff0a8,
+            #e9bd43 50%,
+            #c8941d 100%
+        );
+
+    color:var(--navy);
+
+    display:flex;
+
+    flex-direction:column;
+
+    justify-content:center;
+    align-items:center;
+
+    z-index:500;
+
+    box-shadow:
+        0 15px 35px rgba(5,30,55,.18);
+}
+
+.discount span{
+    font-size:10px;
+    font-weight:900;
+    letter-spacing:1px;
+}
+
+.discount strong{
+    font-family:Montserrat,Arial,sans-serif;
+
+    font-size:31px;
+    line-height:1;
+
+    font-weight:900;
+}
+
+
+/* =========================================================
+   MAIN IMAGE AREA
+========================================================= */
+
+.main-image-area{
+
+    position:absolute;
+
+    left:28px;
+    right:28px;
+
+    top:95px;
+    bottom:145px;
+
+    overflow:hidden;
+
+    display:flex;
+
+    align-items:center;
+    justify-content:center;
+
+    background:transparent;
+
+    z-index:100;
+
+    isolation:isolate;
+
+    min-width:0;
+    min-height:0;
+}
+
+
+/* =========================================================
+   MAIN PRODUCT IMAGE
+   FIXED:
+   NEVER FORCE WIDTH + HEIGHT TO 100%
+   ORIGINAL ASPECT RATIO PRESERVED
+========================================================= */
+
+.main-product-image{
+
+    position:relative !important;
+
+    display:block;
+
+    width:auto !important;
+    height:auto !important;
+
+    max-width:100% !important;
+    max-height:100% !important;
+
+    min-width:0 !important;
+    min-height:0 !important;
+
+    object-fit:contain !important;
+
+    object-position:center center !important;
+
+    margin:0 auto !important;
+    padding:0;
+
+    border:0;
+    outline:none;
+
+    box-sizing:border-box;
+
+    filter:
+        drop-shadow(
+            0 30px 25px
+            rgba(5,25,45,.20)
+        );
+
+    user-select:none;
+
+    -webkit-user-drag:none;
+
+    flex:0 0 auto;
+
+    aspect-ratio:auto !important;
+
+    transform:none !important;
+}
+
+
+/* =========================================================
+   PLACEHOLDER
+========================================================= */
+
+.product-placeholder{
+
+    position:absolute;
+
+    inset:0;
+
+    width:100%;
+    height:100%;
+
+    display:flex;
+
+    align-items:center;
+    justify-content:center;
+
+    background:
+        linear-gradient(
+            135deg,
+            #e5e3de,
+            #faf9f6,
+            #ddd9cf
+        );
+
+    color:#999;
+
+    font-size:11px;
+    font-weight:900;
+
+    z-index:1;
+}
+
+
+/* =========================================================
+   THUMBNAIL AREA
+========================================================= */
+
+.thumbnail-area{
+
+    position:absolute;
+
+    left:18px;
+    right:18px;
+
+    bottom:17px;
+
+    height:105px;
+
+    padding:9px;
+
+    border-radius:15px;
+
+    background:#fff;
+
+    box-shadow:
+        0 10px 30px rgba(5,30,55,.13);
+
+    z-index:600;
+
+    overflow:hidden;
+}
+
+.thumbnail-scroll{
+    width:100%;
+    height:100%;
+
+    overflow:hidden;
+}
+
+.thumbnail-list{
+    width:100%;
+    height:100%;
+
+    display:flex;
+
+    align-items:stretch;
+
+    gap:9px;
+
+    overflow:hidden;
+}
+
+
+/* =========================================================
+   THUMBNAIL
+========================================================= */
+
+.thumbnail{
+
+    position:relative;
+
+    flex:1 1 0;
+
+    width:0;
+    min-width:0;
+
+    height:100%;
+
+    padding:4px;
+
+    border:2px solid #e3dfd4;
+
+    border-radius:9px;
+
+    background:#fff;
+
+    cursor:pointer;
+
+    overflow:hidden;
+
+    transition:.18s;
+}
+
+.thumbnail-inner{
+
+    position:relative;
+
+    width:100%;
+    height:100%;
+
+    display:flex;
+
+    align-items:center;
+    justify-content:center;
+
+    overflow:hidden;
+
+    border-radius:5px;
+
+    background:#faf9f5;
+
+    min-width:0;
+    min-height:0;
+}
+
+
+/* =========================================================
+   THUMBNAIL IMAGE
+   FIXED:
+   ORIGINAL RATIO PRESERVED
+========================================================= */
+
+.thumbnail img{
+
+    display:block;
+
+    width:auto !important;
+    height:auto !important;
+
+    max-width:100% !important;
+    max-height:100% !important;
+
+    min-width:0 !important;
+    min-height:0 !important;
+
+    object-fit:contain !important;
+
+    object-position:center center !important;
+
+    margin:auto !important;
+    padding:0;
+
+    flex:0 0 auto;
+
+    aspect-ratio:auto !important;
+
+    user-select:none;
+
+    -webkit-user-drag:none;
+}
+
+.thumbnail.active{
+
+    border-color:var(--gold-dark);
+
+    box-shadow:
+        0 0 0 1px var(--gold);
+}
+
+.thumbnail:hover{
+    transform:translateY(-2px);
+}
+
+.thumbnail-number{
+
+    position:absolute;
+
+    left:5px;
+    bottom:5px;
+
+    min-width:18px;
+    height:18px;
+
+    padding:0 4px;
+
+    display:flex;
+
+    align-items:center;
+    justify-content:center;
+
+    border-radius:4px;
+
+    background:rgba(6,27,49,.82);
+
+    color:#fff;
+
+    font-size:7px;
+    font-weight:900;
+
+    pointer-events:none;
+}
+
+.empty-thumbnails{
+
+    width:100%;
+    height:100%;
+
+    display:flex;
+
+    justify-content:center;
+    align-items:center;
+
+    border-radius:8px;
+
+    background:#f7f5ef;
+
+    color:#999;
+
+    font-size:10px;
+    font-weight:900;
+
+    letter-spacing:1px;
+}
+
+
+/* =========================================================
+   INFORMATION
+========================================================= */
+
+.info{
+
+    width:794px;
+    height:215px;
+
+    padding:25px 32px 20px;
+
+    background:#fff;
+
+    display:flex;
+
+    flex-direction:column;
+
+    justify-content:space-between;
+
+    position:relative;
+
+    z-index:50;
+}
+
+.info-top{
+
+    display:flex;
+
+    justify-content:space-between;
+    align-items:flex-start;
+
+    gap:20px;
+}
+
+.kicker{
+
+    margin-bottom:6px;
+
+    color:#969696;
+
+    font-size:10px;
+    font-weight:900;
+
+    letter-spacing:2px;
+}
+
+.item-number{
+
+    font-family:Montserrat,Arial,sans-serif;
+
+    font-size:27px;
+    font-weight:900;
+
+    color:#111;
+}
+
+.size-pill{
+
+    display:inline-block;
+
+    margin-top:10px;
+
+    padding:8px 12px;
+
+    border-left:5px solid var(--gold);
+
+    border-radius:6px;
+
+    background:
+        linear-gradient(
+            90deg,
+            #f4f0e7,
+            #faf8f2
+        );
+
+    color:#092844;
+
+    font-size:9px;
+    font-weight:900;
+}
+
+
+/* =========================================================
+   PRICE
+========================================================= */
+
+.price{
+    text-align:right;
+}
+
+.old-price{
+
+    color:#999;
+
+    font-size:14px;
+    font-weight:700;
+
+    text-decoration:line-through;
+}
+
+.offer-price{
+
+    font-family:Montserrat,Arial,sans-serif;
+
+    color:var(--navy);
+
+    font-size:55px;
+    line-height:1;
+
+    font-weight:900;
+}
+
+.offer-price .currency{
+
+    font-family:Inter,Arial,sans-serif;
+
+    font-size:13px;
+
+    margin-right:4px;
+}
+
+.saving{
+
+    display:inline-block;
+
+    margin-top:8px;
+
+    padding:7px 14px;
+
+    border-radius:6px;
+
+    background:var(--gold);
+
+    color:var(--navy);
+
+    font-size:9px;
+    font-weight:900;
+}
+
+
+/* =========================================================
+   FEATURES
+========================================================= */
+
+.feature-strip{
+
+    display:grid;
+
+    grid-template-columns:
+        repeat(3,1fr);
+
+    gap:10px;
+}
+
+.feature{
+
+    height:40px;
+
+    display:flex;
+
+    align-items:center;
+    justify-content:center;
+
+    border-radius:7px;
+
+    background:#f4f0e7;
+
+    border-bottom:2px solid var(--gold);
+
+    color:var(--navy);
+
+    font-size:8px;
+    font-weight:900;
+}
+
+
+/* =========================================================
+   FOOTER
+========================================================= */
+
+.footer{
+
+    height:60px;
+
+    background:var(--navy-dark);
+
+    color:#fff;
+
+    display:flex;
+
+    align-items:center;
+    justify-content:center;
+
+    font-size:9px;
+    font-weight:900;
+
+    letter-spacing:2px;
+}
+
+
+/* =========================================================
+   EDIT BUTTON
+========================================================= */
+
+.edit-button{
+
+    position:fixed;
+
+    top:18px;
+    left:18px;
+
+    z-index:10000;
+
+    border:0;
+
+    border-radius:10px;
+
+    padding:13px 18px;
+
+    background:
+        linear-gradient(
+            90deg,
+            var(--gold-dark),
+            var(--gold-light)
+        );
+
+    color:var(--navy);
+
+    font-size:10px;
+    font-weight:900;
+
+    cursor:pointer;
+
+    box-shadow:
+        0 10px 30px rgba(0,0,0,.3);
+}
+
+
+/* =========================================================
+   OVERLAY
+========================================================= */
+
+.editor-overlay{
+
+    position:fixed;
+
+    inset:0;
+
+    z-index:10500;
+
+    display:none;
+
+    background:
+        rgba(3,17,30,.75);
+
+    backdrop-filter:blur(6px);
+}
+
+.editor-overlay.show{
+    display:block;
+}
+
+
+/* =========================================================
+   EDITOR
+========================================================= */
+
+.editor-panel{
+
+    position:fixed;
+
+    top:20px;
+    left:20px;
+    bottom:20px;
+
+    width:390px;
+
+    max-width:
+        calc(100vw - 40px);
+
+    z-index:11000;
+
+    display:none;
+
+    overflow-y:auto;
+
+    padding:22px;
+
+    border:
+        1px solid
+        rgba(217,169,40,.4);
+
+    border-radius:18px;
+
+    background:
+        linear-gradient(
+            180deg,
+            #0b3155,
+            #061b31
+        );
+
+    color:#fff;
+
+    box-shadow:
+        0 35px 100px rgba(0,0,0,.75);
+}
+
+.editor-panel.open{
+    display:block;
+}
+
+.editor-header{
+
+    display:flex;
+
+    justify-content:space-between;
+    align-items:flex-start;
+
+    margin-bottom:22px;
+}
+
+.editor-header h2{
+
+    margin:0;
+
+    font-family:Montserrat,Arial,sans-serif;
+
+    font-size:21px;
+}
+
+.editor-header p{
+
+    margin:5px 0 0;
+
+    color:#aeb8c1;
+
+    font-size:9px;
+}
+
+.close-editor{
+
+    width:35px;
+    height:35px;
+
+    border:
+        1px solid
+        rgba(255,255,255,.2);
+
+    border-radius:50%;
+
+    background:
+        rgba(255,255,255,.08);
+
+    color:#fff;
+
+    font-size:21px;
+
+    cursor:pointer;
+}
+
+
+/* =========================================================
+   FORM
+========================================================= */
+
+.form-group{
+    margin-bottom:16px;
+}
+
+.form-group label{
+
+    display:block;
+
+    margin-bottom:7px;
+
+    color:var(--gold-light);
+
+    font-size:8px;
+    font-weight:900;
+
+    text-transform:uppercase;
+
+    letter-spacing:1.2px;
+}
+
+.form-group input[type="text"],
+.form-group input[type="number"]{
+
+    width:100%;
+    height:43px;
+
+    padding:0 12px;
+
+    outline:none;
+
+    border:
+        1px solid
+        rgba(255,255,255,.18);
+
+    border-radius:8px;
+
+    background:#061b31;
+
+    color:#fff;
+}
+
+
+/* =========================================================
+   UPLOAD
+========================================================= */
+
+.upload-area{
+
+    padding:15px;
+
+    border:
+        1px dashed
+        rgba(245,215,123,.5);
+
+    border-radius:10px;
+
+    background:
+        rgba(255,255,255,.04);
+}
+
+.upload-area p{
+
+    margin:0 0 11px;
+
+    color:#aeb8c1;
+
+    font-size:8px;
+
+    line-height:1.5;
+}
+
+.upload-button{
+
+    display:block;
+
+    width:100%;
+
+    padding:12px;
+
+    border-radius:8px;
+
+    background:
+        linear-gradient(
+            90deg,
+            var(--gold-dark),
+            var(--gold-light)
+        );
+
+    color:var(--navy);
+
+    text-align:center;
+
+    font-size:9px;
+    font-weight:900;
+
+    cursor:pointer;
+}
+
+#imageInput,
+#logoUpload{
+    display:none;
+}
+
+
+/* =========================================================
+   GALLERY
+========================================================= */
+
+.gallery-box{
+
+    margin-top:12px;
+
+    padding:11px;
+
+    border:
+        1px solid
+        rgba(255,255,255,.12);
+
+    border-radius:9px;
+
+    background:
+        rgba(0,0,0,.16);
+}
+
+.gallery-header{
+
+    display:flex;
+
+    justify-content:space-between;
+    align-items:center;
+
+    margin-bottom:9px;
+
+    font-size:8px;
+    font-weight:900;
+
+    letter-spacing:1px;
+}
+
+.gallery-count{
+    color:var(--gold-light);
+}
+
+.editor-gallery{
+
+    display:flex;
+
+    gap:6px;
+
+    overflow-x:auto;
+
+    padding-bottom:4px;
+}
+
+.editor-image{
+
+    position:relative;
+
+    flex:0 0 75px;
+
+    width:75px;
+    height:75px;
+
+    padding:3px;
+
+    border:
+        2px solid
+        rgba(255,255,255,.15);
+
+    border-radius:7px;
+
+    background:#fff;
+
+    overflow:hidden;
+}
+
+.editor-image.active{
+
+    border-color:var(--gold-light);
+
+    box-shadow:
+        0 0 0 1px var(--gold);
+}
+
+.editor-image-inner{
+
+    width:100%;
+    height:100%;
+
+    display:flex;
+
+    align-items:center;
+    justify-content:center;
+
+    overflow:hidden;
+
+    background:#f7f5ef;
+
+    border-radius:4px;
+}
+
+
+/* =========================================================
+   EDITOR GALLERY IMAGE
+   FIXED ASPECT RATIO
+========================================================= */
+
+.editor-image img{
+
+    display:block;
+
+    width:auto !important;
+    height:auto !important;
+
+    max-width:100% !important;
+    max-height:100% !important;
+
+    min-width:0 !important;
+    min-height:0 !important;
+
+    object-fit:contain !important;
+
+    object-position:center center !important;
+
+    margin:auto !important;
+
+    aspect-ratio:auto !important;
+}
+
+.select-image{
+
+    position:absolute;
+
+    inset:0;
+
+    border:0;
+
+    background:transparent;
+
+    cursor:pointer;
+
+    z-index:2;
+}
+
+.delete-image{
+
+    position:absolute;
+
+    right:3px;
+    top:3px;
+
+    width:21px;
+    height:21px;
+
+    border:0;
+
+    border-radius:50%;
+
+    background:#c31e24;
+
+    color:#fff;
+
+    font-size:13px;
+    font-weight:900;
+
+    cursor:pointer;
+
+    z-index:5;
+}
+
+.image-number{
+
+    position:absolute;
+
+    left:4px;
+    bottom:4px;
+
+    min-width:18px;
+    height:18px;
+
+    border-radius:4px;
+
+    background:rgba(6,27,49,.85);
+
+    color:#fff;
+
+    display:flex;
+
+    align-items:center;
+    justify-content:center;
+
+    font-size:7px;
+    font-weight:900;
+
+    z-index:6;
+}
+
+
+/* =========================================================
+   ACTION BUTTONS
+========================================================= */
+
+.action-buttons{
+
+    display:grid;
+
+    grid-template-columns:1fr 1fr;
+
+    gap:8px;
+
+    margin-top:20px;
+}
+
+.action-button{
+
+    min-height:43px;
+
+    border:0;
+
+    border-radius:8px;
+
+    font-size:8px;
+    font-weight:900;
+
+    cursor:pointer;
+}
+
+.action-button:disabled{
+
+    opacity:.55;
+
+    cursor:not-allowed;
+}
+
+.btn-gold{
+
+    background:
+        linear-gradient(
+            90deg,
+            var(--gold-dark),
+            var(--gold-light)
+        );
+
+    color:var(--navy);
+}
+
+.btn-dark{
+
+    background:
+        rgba(255,255,255,.09);
+
+    color:#fff;
+
+    border:
+        1px solid
+        rgba(255,255,255,.15);
+}
+
+.btn-light{
+
+    background:#fff;
+
+    color:var(--navy);
+}
+
+.editor-note{
+
+    margin-top:13px;
+
+    padding:11px;
+
+    border-left:
+        3px solid
+        var(--gold);
+
+    border-radius:6px;
+
+    background:
+        rgba(0,0,0,.18);
+
+    color:#9ba8b2;
+
+    font-size:7px;
+
+    line-height:1.55;
+}
+
+
+/* =========================================================
+   STATUS
+========================================================= */
+
+.export-status{
+
+    position:fixed;
+
+    left:50%;
+    bottom:25px;
+
+    transform:
+        translateX(-50%);
+
+    z-index:20000;
+
+    display:none;
+
+    padding:12px 20px;
+
+    border-radius:9px;
+
+    background:#061b31;
+
+    color:#fff;
+
+    font-size:10px;
+    font-weight:900;
+
+    box-shadow:
+        0 10px 30px rgba(0,0,0,.35);
+}
+
+.export-status.show{
+    display:block;
+}
+
+
+/* =========================================================
+   MOBILE
+========================================================= */
+
+@media(max-width:850px){
+
+    .app{
+        padding:
+            80px 8px 20px;
+    }
+
+    .poster{
+
+        transform-origin:
+            top center;
+
+        transform:
+            scale(
+                calc(
+                    (
+                        100vw - 16px
+                    ) / 794
+                )
+            );
+
+        margin-bottom:
+            calc(
+                -1123px +
+                (
+                    (
+                        100vw - 16px
+                    ) / 794
+                ) * 1123px
+            );
+    }
+}
+
+
+/* =========================================================
+   EXPORT CLONE
+========================================================= */
+
+#poster-export-clone{
+
+    position:fixed !important;
+
+    left:0 !important;
+    top:0 !important;
+
+    width:794px !important;
+    height:1123px !important;
+
+    min-width:794px !important;
+    min-height:1123px !important;
+
+    max-width:none !important;
+    max-height:none !important;
+
+    transform:none !important;
+
+    margin:0 !important;
+
+    opacity:1 !important;
+
+    visibility:visible !important;
+
+    pointer-events:none !important;
+
+    z-index:999999 !important;
+
+    overflow:hidden !important;
+}
+
+
+/* =========================================================
+   EXPORT MAIN IMAGE AREA
+========================================================= */
+
+#poster-export-clone .main-image-area{
+
+    position:absolute !important;
+
+    left:28px !important;
+    right:28px !important;
+
+    top:95px !important;
+    bottom:145px !important;
+
+    width:auto !important;
+    height:auto !important;
+
+    overflow:hidden !important;
+
+    display:flex !important;
+
+    align-items:center !important;
+    justify-content:center !important;
+
+    min-width:0 !important;
+    min-height:0 !important;
+}
+
+
+/* =========================================================
+   EXPORT MAIN IMAGE
+   IMPORTANT FIX
+========================================================= */
+
+#poster-export-clone .main-product-image{
+
+    position:relative !important;
+
+    left:auto !important;
+    top:auto !important;
+    right:auto !important;
+    bottom:auto !important;
+
+    width:auto !important;
+    height:auto !important;
+
+    max-width:100% !important;
+    max-height:100% !important;
+
+    min-width:0 !important;
+    min-height:0 !important;
+
+    object-fit:contain !important;
+
+    object-position:center center !important;
+
+    transform:none !important;
+
+    margin:auto !important;
+    padding:0 !important;
+
+    display:block !important;
+
+    aspect-ratio:auto !important;
+
+    flex:0 0 auto !important;
+}
+
+
+/* =========================================================
+   EXPORT THUMBNAILS
+========================================================= */
+
+#poster-export-clone .thumbnail{
+
+    display:flex !important;
+
+    align-items:center !important;
+    justify-content:center !important;
+
+}
+
+#poster-export-clone .thumbnail-inner{
+
+    display:flex !important;
+
+    align-items:center !important;
+    justify-content:center !important;
+
+}
+
+#poster-export-clone .thumbnail img{
+
+    width:auto !important;
+    height:auto !important;
+
+    max-width:100% !important;
+    max-height:100% !important;
+
+    min-width:0 !important;
+    min-height:0 !important;
+
+    object-fit:contain !important;
+
+    object-position:center center !important;
+
+    margin:auto !important;
+
+    transform:none !important;
+
+    aspect-ratio:auto !important;
+}
+
+
+/* =========================================================
+   EXPORT EDITOR GALLERY
+========================================================= */
+
+#poster-export-clone .editor-image img{
+
+    width:auto !important;
+    height:auto !important;
+
+    max-width:100% !important;
+    max-height:100% !important;
+
+    object-fit:contain !important;
+
+}
+
+
+/* =========================================================
+   EXPORT DISABLE ANIMATION
+========================================================= */
+
+.exporting *,
+#poster-export-clone *{
+
+    animation:none !important;
+    transition:none !important;
+}
+
+
+/* =========================================================
+   END CSS
+========================================================= */
+
+</style>
+</head>
+
+<body>
+
+
+<!-- =========================================================
+     EDIT BUTTON
+========================================================= -->
+
+<button
+    class="edit-button"
+    id="openEditorButton">
+
+    ✎ EDIT POSTER
+
+</button>
+
+
+<div
+    class="editor-overlay"
+    id="editorOverlay">
+</div>
+
+
+<!-- =========================================================
+     EDITOR
+========================================================= -->
+
+<div
+    class="editor-panel"
+    id="editorPanel">
+
+    <div class="editor-header">
+
+        <div>
+
+            <h2>
+                Poster Editor
+            </h2>
+
+            <p>
+                Premium Navy & Gold • HD A4 Export
+            </p>
+
+        </div>
+
+        <button
+            class="close-editor"
+            id="closeEditorButton">
+
+            ×
+
+        </button>
+
+    </div>
+
+
+    <div class="form-group">
+
+        <label>
+            Product Code
+        </label>
+
+        <input
+            id="itemInput"
+            type="text"
+            value="15-288-08">
+
+    </div>
+
+
+    <div class="form-group">
+
+        <label>
+            Product Description
+        </label>
+
+        <input
+            id="sizeInput"
+            type="text"
+            value='ONLY CABINE SIZE 21"'>
+
+    </div>
+
+
+    <div class="form-group">
+
+        <label>
+            Old Price
+        </label>
+
+        <input
+            id="oldPriceInput"
+            type="number"
+            value="165">
+
+    </div>
+
+
+    <div class="form-group">
+
+        <label>
+            Offer Price
+        </label>
+
+        <input
+            id="offerPriceInput"
+            type="number"
+            value="95">
+
+    </div>
+
+
+    <div class="form-group">
+
+        <label>
+            Product Images
+        </label>
+
+        <div class="upload-area">
+
+            <p>
+                Select one or many product images.
+                Images keep their original aspect ratio.
+                No crop. No stretch.
+            </p>
+
+            <label
+                class="upload-button"
+                for="imageInput">
+
+                + ADD PRODUCT IMAGES
+
+            </label>
+
+            <input
+                id="imageInput"
+                type="file"
+                accept="image/*"
+                multiple>
+
+        </div>
+
+
+        <div class="gallery-box">
+
+            <div class="gallery-header">
+
+                <span>
+                    IMAGE GALLERY
+                </span>
+
+                <span
+                    class="gallery-count"
+                    id="galleryCount">
+
+                    0 IMAGES
+
+                </span>
+
+            </div>
+
+            <div
+                class="editor-gallery"
+                id="editorGallery">
+
+                <div
+                    style="
+                        color:#777;
+                        width:100%;
+                        text-align:center;
+                        font-size:8px;
+                        padding:10px;
+                    ">
+
+                    NO IMAGES
+
+                </div>
+
+            </div>
+
+        </div>
+
+    </div>
+
+
+    <div class="form-group">
+
+        <label>
+            Logo
+        </label>
+
+        <div class="upload-area">
+
+            <p>
+                Upload your logo.
+                The logo is converted to a safe data URL
+                for HD PNG and PDF export.
+            </p>
+
+            <label
+                class="upload-button"
+                for="logoUpload">
+
+                + CHANGE LOGO
+
+            </label>
+
+            <input
+                id="logoUpload"
+                type="file"
+                accept="image/*">
+
+        </div>
+
+    </div>
+
+
+    <div class="action-buttons">
+
+        <button
+            class="action-button btn-gold"
+            id="downloadPngButton">
+
+            DOWNLOAD HD A4 PNG
+
+        </button>
+
+        <button
+            class="action-button btn-gold"
+            id="downloadPdfButton">
+
+            DOWNLOAD HD A4 PDF
+
+        </button>
+
+        <button
+            class="action-button btn-dark"
+            id="clearImagesButton">
+
+            CLEAR IMAGES
+
+        </button>
+
+        <button
+            class="action-button btn-light"
+            id="closePanelButton">
+
+            DONE
+
+        </button>
+
+    </div>
+
+
+    <div class="editor-note">
+
+        <strong style="color:#fff;">
+            HD EXPORT
+        </strong>
+
+        <br><br>
+
+        PNG:
+        2480 × 3508 px.
+
+        <br>
+
+        A4:
+        210 × 297 mm.
+
+        <br>
+
+        Render:
+        4× high-resolution.
+
+        <br>
+
+        Product image:
+        original aspect ratio.
+
+        <br>
+
+        Cropping:
+        disabled.
+
+        <br>
+
+        Stretching:
+        disabled.
+
+        <br>
+
+        PDF:
+        high-quality A4 image.
+
+    </div>
+
+</div>
+
+
+<!-- =========================================================
+     STATUS
+========================================================= -->
+
+<div
+    class="export-status"
+    id="exportStatus">
+
+    Preparing download...
+
+</div>
+
+
+<!-- =========================================================
+     POSTER
+========================================================= -->
+
+<div class="app">
+
+<div class="poster-wrap">
+
+<div
+    class="poster"
+    id="poster">
+
+
+    <!-- HEADER -->
+
+    <div class="topbar">
+
+        <div class="logo-box">
+
+            <img
+                src="assets/IT.jpeg"
+                alt="Logo"
+                id="logoImage"
+                onerror="
+                    this.style.display='none';
+                    document.getElementById('logoFallback').style.display='block';
+                "
+            >
+
+            <div
+                class="logo-fallback"
+                id="logoFallback"
+                style="display:none;">
+
+                it
+
+            </div>
+
+        </div>
+
+
+        <div class="brand-copy">
+
+            <small>
+                PREMIUM COLLECTION
+            </small>
+
+            <strong>
+                SPECIAL OFFER
+            </strong>
+
+        </div>
+
+    </div>
+
+
+    <!-- HERO -->
+
+    <div class="hero">
+
+        <div class="hero-word">
+            IT
+        </div>
+
+        <div class="hero-side">
+            TRAVEL • STYLE • COMFORT
+        </div>
+
+
+        <div class="product-card">
+
+
+            <div class="premium-tag">
+
+                PREMIUM PRODUCT
+
+            </div>
+
+
+            <div class="discount">
+
+                <span class="currency">
+                        AED
+                    </span>
+
+                <strong id="offerPriceText">
+                    
+                </strong>
+
+            </div>
+
+
+            <!-- MAIN IMAGE -->
+
+            <div
+                class="main-image-area"
+                id="mainImageArea">
+
+                <img
+                    class="main-product-image"
+                    id="mainProductImage"
+                    alt="Product"
+                    draggable="false"
+                    style="display:none;"
+                >
+
+                <div
+                    class="product-placeholder"
+                    id="productPlaceholder">
+
+                    UPLOAD PRODUCT IMAGE
+
+                </div>
+
+            </div>
+
+
+            <!-- THUMBNAILS -->
+
+            <div class="thumbnail-area">
+
+                <div class="thumbnail-scroll">
+
+                    <div
+                        class="thumbnail-list"
+                        id="thumbnailList">
+
+                        <div
+                            class="empty-thumbnails">
+
+                            UPLOAD PRODUCT IMAGES
+
+                        </div>
+
+                    </div>
+
+                </div>
+
+            </div>
+
+        </div>
+
+    </div>
+
+
+    <!-- INFORMATION -->
+
+    <div class="info">
+
+        <div class="info-top">
+
+            <div>
+
+                <div class="kicker">
+                    PRODUCT CODE
+                </div>
+
+                <div
+                    class="item-number"
+                    id="itemText">
+
+                    15-288-08
+
+                </div>
+
+                <div
+                    class="size-pill"
+                    id="sizeText">
+
+                    ONLY CABINE SIZE 21"
+
+                </div>
+
+            </div>
+
+
+            <div class="price">
+
+                <div
+                    class="old-price"
+                    id="oldPriceText">
+
+                    165 DHS
+
+                </div>
+
+                <div class="offer-price">
+
+                    <span class="currency">
+                        AED
+                    </span>
+
+                    <span id="offerPriceText">
+                        95
+                    </span>
+
+                </div>
+
+                <div class="saving">
+
+                    SAVE
+
+                    <span id="savingText">
+                        70
+                    </span>
+
+                    DHS
+
+                </div>
+
+            </div>
+
+        </div>
+
+
+        <div class="feature-strip">
+
+            <div class="feature">
+                ◆ &nbsp; PREMIUM QUALITY
+            </div>
+
+            <div class="feature">
+                ⚙ &nbsp; MODERN DESIGN
+            </div>
+
+            <div class="feature">
+                ✈ &nbsp; TRAVEL READY
+            </div>
+
+        </div>
+
+    </div>
+
+
+    <div class="footer">
+
+        LIMITED TIME OFFER • WHILE STOCK LASTS
+
+    </div>
+
+
+</div>
+
+</div>
+
+</div>
+
+
+<script>
+
+/* =========================================================
+   VARIABLES
+========================================================= */
+
+let gallery = [];
+let activeIndex = 0;
+
+
+/* =========================================================
+   ELEMENTS
+========================================================= */
+
+const editorPanel =
+    document.getElementById("editorPanel");
+
+const editorOverlay =
+    document.getElementById("editorOverlay");
+
+const openEditorButton =
+    document.getElementById("openEditorButton");
+
+const closeEditorButton =
+    document.getElementById("closeEditorButton");
+
+const closePanelButton =
+    document.getElementById("closePanelButton");
+
+const imageInput =
+    document.getElementById("imageInput");
+
+const thumbnailList =
+    document.getElementById("thumbnailList");
+
+const editorGallery =
+    document.getElementById("editorGallery");
+
+const galleryCount =
+    document.getElementById("galleryCount");
+
+const mainProductImage =
+    document.getElementById("mainProductImage");
+
+const productPlaceholder =
+    document.getElementById("productPlaceholder");
+
+const logoUpload =
+    document.getElementById("logoUpload");
+
+const logoImage =
+    document.getElementById("logoImage");
+
+const logoFallback =
+    document.getElementById("logoFallback");
+
+const itemInput =
+    document.getElementById("itemInput");
+
+const sizeInput =
+    document.getElementById("sizeInput");
+
+const oldPriceInput =
+    document.getElementById("oldPriceInput");
+
+const offerPriceInput =
+    document.getElementById("offerPriceInput");
+
+const itemText =
+    document.getElementById("itemText");
+
+const sizeText =
+    document.getElementById("sizeText");
+
+const oldPriceText =
+    document.getElementById("oldPriceText");
+
+const offerPriceText =
+    document.getElementById("offerPriceText");
+
+const savingText =
+    document.getElementById("savingText");
+
+const savingCircle =
+    document.getElementById("savingCircle");
+
+const clearImagesButton =
+    document.getElementById("clearImagesButton");
+
+const downloadPngButton =
+    document.getElementById("downloadPngButton");
+
+const downloadPdfButton =
+    document.getElementById("downloadPdfButton");
+
+const exportStatus =
+    document.getElementById("exportStatus");
+
+
+/* =========================================================
+   EDITOR
+========================================================= */
+
+function openEditorPanel(){
+
+    editorPanel.classList.add("open");
+    editorOverlay.classList.add("show");
+    document.body.style.overflow = "hidden";
+
+}
+
+function closeEditorPanel(){
+
+    editorPanel.classList.remove("open");
+    editorOverlay.classList.remove("show");
+    document.body.style.overflow = "";
+
+}
+
+openEditorButton.addEventListener(
+    "click",
+    openEditorPanel
+);
+
+closeEditorButton.addEventListener(
+    "click",
+    closeEditorPanel
+);
+
+closePanelButton.addEventListener(
+    "click",
+    closeEditorPanel
+);
+
+editorOverlay.addEventListener(
+    "click",
+    closeEditorPanel
+);
+
+document.addEventListener(
+    "keydown",
+    function(event){
+
+        if(event.key === "Escape"){
+            closeEditorPanel();
+        }
+
+    }
+);
+
+
+/* =========================================================
+   TEXT UPDATE
+========================================================= */
+
+function updateText(){
+
+    itemText.textContent =
+        itemInput.value || "15-288-08";
+
+    sizeText.textContent =
+        sizeInput.value ||
+        'ONLY CABINE SIZE 21"';
+
+
+    const oldPrice =
+        Number(oldPriceInput.value) || 0;
+
+    const offerPrice =
+        Number(offerPriceInput.value) || 0;
+
+
+    const saving =
+        Math.max(
+            0,
+            oldPrice - offerPrice
+        );
+
+
+    oldPriceText.textContent =
+        oldPrice + " DHS";
+
+    offerPriceText.textContent =
+        offerPrice;
+
+    savingText.textContent =
+        saving;
+
+    savingCircle.textContent =
+        saving;
+
+}
+
+itemInput.addEventListener(
+    "input",
+    updateText
+);
+
+sizeInput.addEventListener(
+    "input",
+    updateText
+);
+
+oldPriceInput.addEventListener(
+    "input",
+    updateText
+);
+
+offerPriceInput.addEventListener(
+    "input",
+    updateText
+);
+
+
+/* =========================================================
+   READ FILE
+========================================================= */
+
+function readFile(file){
+
+    return new Promise(
+        function(resolve,reject){
+
+            const reader =
+                new FileReader();
+
+            reader.onload =
+                function(event){
+
+                    resolve({
+                        src:event.target.result,
+                        name:file.name
+                    });
+
+                };
+
+            reader.onerror =
+                function(){
+
+                    reject(
+                        new Error(
+                            "Could not read image."
+                        )
+                    );
+
+                };
+
+            reader.readAsDataURL(file);
+
+        }
+    );
+
+}
+
+
+/* =========================================================
+   IMAGE UPLOAD
+========================================================= */
+
+imageInput.addEventListener(
+    "change",
+    async function(){
+
+        const files =
+            Array.from(
+                this.files || []
+            );
+
+
+        const validFiles =
+            files.filter(
+                function(file){
+
+                    return (
+                        file.type &&
+                        file.type.startsWith("image/")
+                    );
+
+                }
+            );
+
+
+        if(!validFiles.length){
+
+            this.value = "";
+
+            return;
+
+        }
+
+
+        try{
+
+            showStatus(
+                "Loading HD images..."
+            );
+
+
+            const images =
+                await Promise.all(
+                    validFiles.map(
+                        readFile
+                    )
+                );
+
+
+            const wasEmpty =
+                gallery.length === 0;
+
+
+            gallery.push(
+                ...images
+            );
+
+
+            if(wasEmpty){
+                activeIndex = 0;
+            }
+
+
+            renderGallery();
+
+            showMainImage(
+                activeIndex
+            );
+
+
+            hideStatus();
+
+        }
+        catch(error){
+
+            console.error(error);
+
+            hideStatus();
+
+            alert(
+                "Image upload failed."
+            );
+
+        }
+
+
+        this.value = "";
+
+    }
+);
+
+
+/* =========================================================
+   MAIN IMAGE
+   KEEP ORIGINAL ASPECT RATIO
+========================================================= */
+
+function showMainImage(index){
+
+    if(!gallery[index]){
+        return;
+    }
+
+
+    activeIndex = index;
+
+
+    const image =
+        gallery[index];
+
+
+    mainProductImage.onload =
+        null;
+
+
+    mainProductImage.src =
+        image.src;
+
+
+    mainProductImage.style.display =
+        "block";
+
+
+    productPlaceholder.style.display =
+        "none";
+
+
+    /*
+       IMPORTANT:
+       Do NOT set width/height to 100%.
+
+       Auto size + max dimensions preserves
+       original image ratio.
+    */
+
+    mainProductImage.style.width =
+        "auto";
+
+    mainProductImage.style.height =
+        "auto";
+
+    mainProductImage.style.maxWidth =
+        "100%";
+
+    mainProductImage.style.maxHeight =
+        "100%";
+
+    mainProductImage.style.objectFit =
+        "contain";
+
+    mainProductImage.style.objectPosition =
+        "center center";
+
+
+    renderPosterThumbnails();
+
+    renderEditorGallery();
+
+}
+
+
+/* =========================================================
+   DELETE IMAGE
+========================================================= */
+
+function deleteImage(index){
+
+    gallery.splice(
+        index,
+        1
+    );
+
+
+    if(gallery.length === 0){
+
+        activeIndex = 0;
+
+        mainProductImage.src = "";
+
+        mainProductImage.style.display =
+            "none";
+
+        productPlaceholder.style.display =
+            "flex";
+
+        renderGallery();
+
+        return;
+
+    }
+
+
+    if(activeIndex > index){
+        activeIndex--;
+    }
+
+
+    if(activeIndex >= gallery.length){
+
+        activeIndex =
+            gallery.length - 1;
+
+    }
+
+
+    renderGallery();
+
+    showMainImage(
+        activeIndex
+    );
+
+}
+
+
+/* =========================================================
+   POSTER THUMBNAILS
+========================================================= */
+
+function renderPosterThumbnails(){
+
+    thumbnailList.innerHTML = "";
+
+
+    if(gallery.length === 0){
+
+        thumbnailList.innerHTML = `
+            <div class="empty-thumbnails">
+                UPLOAD PRODUCT IMAGES
+            </div>
+        `;
+
+        return;
+
+    }
+
+
+    gallery.forEach(
+        function(image,index){
+
+            const button =
+                document.createElement(
+                    "button"
+                );
+
+
+            button.type =
+                "button";
+
+            button.className =
+                "thumbnail";
+
+
+            if(index === activeIndex){
+
+                button.classList.add(
+                    "active"
+                );
+
+            }
+
+
+            const inner =
+                document.createElement(
+                    "div"
+                );
+
+
+            inner.className =
+                "thumbnail-inner";
+
+
+            const img =
+                document.createElement(
+                    "img"
+                );
+
+
+            img.src =
+                image.src;
+
+            img.alt =
+                "Product " +
+                (index + 1);
+
+            img.draggable =
+                false;
+
+
+            /*
+               IMPORTANT:
+               Keep thumbnail ratio.
+            */
+
+            img.style.width =
+                "auto";
+
+            img.style.height =
+                "auto";
+
+            img.style.maxWidth =
+                "100%";
+
+            img.style.maxHeight =
+                "100%";
+
+            img.style.objectFit =
+                "contain";
+
+
+            inner.appendChild(
+                img
+            );
+
+            button.appendChild(
+                inner
+            );
+
+
+            const number =
+                document.createElement(
+                    "div"
+                );
+
+
+            number.className =
+                "thumbnail-number";
+
+            number.textContent =
+                index + 1;
+
+
+            button.appendChild(
+                number
+            );
+
+
+            button.addEventListener(
+                "click",
+                function(){
+
+                    showMainImage(
+                        index
+                    );
+
+                }
+            );
+
+
+            thumbnailList.appendChild(
+                button
+            );
+
+        }
+    );
+
+}
+
+
+/* =========================================================
+   EDITOR GALLERY
+========================================================= */
+
+function renderEditorGallery(){
+
+    editorGallery.innerHTML = "";
+
+
+    if(gallery.length === 0){
+
+        galleryCount.textContent =
+            "0 IMAGES";
+
+
+        editorGallery.innerHTML = `
+            <div
+                style="
+                    color:#777;
+                    width:100%;
+                    text-align:center;
+                    font-size:8px;
+                    padding:10px;
+                "
+            >
+                NO IMAGES
+            </div>
+        `;
+
+        return;
+
+    }
+
+
+    galleryCount.textContent =
+        gallery.length +
+        (
+            gallery.length === 1
+                ? " IMAGE"
+                : " IMAGES"
+        );
+
+
+    gallery.forEach(
+        function(image,index){
+
+            const box =
+                document.createElement(
+                    "div"
+                );
+
+
+            box.className =
+                "editor-image";
+
+
+            if(index === activeIndex){
+
+                box.classList.add(
+                    "active"
+                );
+
+            }
+
+
+            const inner =
+                document.createElement(
+                    "div"
+                );
+
+
+            inner.className =
+                "editor-image-inner";
+
+
+            const img =
+                document.createElement(
+                    "img"
+                );
+
+
+            img.src =
+                image.src;
+
+            img.draggable =
+                false;
+
+
+            /*
+               Preserve original ratio.
+            */
+
+            img.style.width =
+                "auto";
+
+            img.style.height =
+                "auto";
+
+            img.style.maxWidth =
+                "100%";
+
+            img.style.maxHeight =
+                "100%";
+
+            img.style.objectFit =
+                "contain";
+
+
+            inner.appendChild(
+                img
+            );
+
+            box.appendChild(
+                inner
+            );
+
+
+            const select =
+                document.createElement(
+                    "button"
+                );
+
+
+            select.type =
+                "button";
+
+            select.className =
+                "select-image";
+
+
+            select.onclick =
+                function(){
+
+                    showMainImage(
+                        index
+                    );
+
+                };
+
+
+            box.appendChild(
+                select
+            );
+
+
+            const deleteButton =
+                document.createElement(
+                    "button"
+                );
+
+
+            deleteButton.type =
+                "button";
+
+            deleteButton.className =
+                "delete-image";
+
+            deleteButton.textContent =
+                "×";
+
+
+            deleteButton.onclick =
+                function(event){
+
+                    event.stopPropagation();
+
+                    deleteImage(
+                        index
+                    );
+
+                };
+
+
+            box.appendChild(
+                deleteButton
+            );
+
+
+            const number =
+                document.createElement(
+                    "div"
+                );
+
+
+            number.className =
+                "image-number";
+
+            number.textContent =
+                index + 1;
+
+
+            box.appendChild(
+                number
+            );
+
+
+            editorGallery.appendChild(
+                box
+            );
+
+        }
+    );
+
+}
+
+
+/* =========================================================
+   RENDER GALLERY
+========================================================= */
+
+function renderGallery(){
+
+    renderPosterThumbnails();
+
+    renderEditorGallery();
+
+}
+
+
+/* =========================================================
+   CLEAR IMAGES
+========================================================= */
+
+clearImagesButton.onclick =
+    function(){
+
+        if(gallery.length === 0){
+            return;
+        }
+
+
+        if(
+            !confirm(
+                "Delete all product images?"
+            )
+        ){
+
+            return;
+
+        }
+
+
+        gallery = [];
+
+        activeIndex = 0;
+
+
+        mainProductImage.src =
+            "";
+
+        mainProductImage.style.display =
+            "none";
+
+
+        productPlaceholder.style.display =
+            "flex";
+
+
+        renderGallery();
+
+    };
+
+
+/* =========================================================
+   LOGO UPLOAD
+========================================================= */
+
+logoUpload.addEventListener(
+    "change",
+    async function(){
+
+        const file =
+            this.files &&
+            this.files[0];
+
+
+        if(!file){
+            return;
+        }
+
+
+        if(
+            !file.type ||
+            !file.type.startsWith("image/")
+        ){
+
+            alert(
+                "Please select an image file."
+            );
+
+            this.value = "";
+
+            return;
+
+        }
+
+
+        try{
+
+            const result =
+                await readFile(
+                    file
+                );
+
+
+            logoImage.removeAttribute(
+                "crossorigin"
+            );
+
+
+            logoImage.src =
+                result.src;
+
+
+            logoImage.style.display =
+                "block";
+
+
+            logoFallback.style.display =
+                "none";
+
+
+            try{
+
+                localStorage.setItem(
+                    "IT_POSTER_LOGO",
+                    result.src
+                );
+
+            }
+            catch(error){
+
+                console.warn(
+                    "Logo could not be saved.",
+                    error
+                );
+
+            }
+
+        }
+        catch(error){
+
+            console.error(error);
+
+            alert(
+                "Logo upload failed."
+            );
+
+        }
+
+
+        this.value = "";
+
+    }
+);
+
+
+/* =========================================================
+   LOAD SAVED LOGO
+========================================================= */
+
+function loadSavedLogo(){
+
+    try{
+
+        const saved =
+            localStorage.getItem(
+                "IT_POSTER_LOGO"
+            );
+
+
+        if(saved){
+
+            logoImage.removeAttribute(
+                "crossorigin"
+            );
+
+
+            logoImage.src =
+                saved;
+
+
+            logoImage.style.display =
+                "block";
+
+
+            logoFallback.style.display =
+                "none";
+
+        }
+
+    }
+    catch(error){
+
+        console.warn(error);
+
+    }
+
+}
+
+
+/* =========================================================
+   STATUS
+========================================================= */
+
+function showStatus(text){
+
+    exportStatus.textContent =
+        text;
+
+    exportStatus.classList.add(
+        "show"
+    );
+
+}
+
+
+function hideStatus(){
+
+    exportStatus.classList.remove(
+        "show"
+    );
+
+}
+
+
+/* =========================================================
+   DELAY
+========================================================= */
+
+function delay(ms){
+
+    return new Promise(
+        function(resolve){
+
+            setTimeout(
+                resolve,
+                ms
+            );
+
+        }
+    );
+
+}
+
+
+/* =========================================================
+   WAIT IMAGE
+========================================================= */
+
+async function waitForImage(img){
+
+    if(!img){
+        return;
+    }
+
+
+    if(
+        getComputedStyle(img).display ===
+        "none"
+    ){
+
+        return;
+
+    }
+
+
+    if(
+        img.complete &&
+        img.naturalWidth > 0
+    ){
+
+        return;
+
+    }
+
+
+    await new Promise(
+        function(resolve){
+
+            let finished = false;
+
+
+            function finish(){
+
+                if(finished){
+                    return;
+                }
+
+
+                finished = true;
+
+                resolve();
+
+            }
+
+
+            img.addEventListener(
+                "load",
+                finish,
+                {once:true}
+            );
+
+
+            img.addEventListener(
+                "error",
+                finish,
+                {once:true}
+            );
+
+
+            setTimeout(
+                finish,
+                20000
+            );
+
+        }
+    );
+
+}
+
+
+/* =========================================================
+   WAIT POSTER
+========================================================= */
+
+async function waitForPoster(){
+
+    const poster =
+        document.getElementById(
+            "poster"
+        );
+
+
+    const images =
+        Array.from(
+            poster.querySelectorAll(
+                "img"
+            )
+        );
+
+
+    await Promise.all(
+        images.map(
+            waitForImage
+        )
+    );
+
+
+    if(
+        document.fonts &&
+        document.fonts.ready
+    ){
+
+        try{
+
+            await document.fonts.ready;
+
+        }
+        catch(error){}
+
+    }
+
+
+    await delay(500);
+
+}
+
+
+/* =========================================================
+   IMAGE TO DATA URL
+========================================================= */
+
+async function imageToDataURL(src){
+
+    if(!src){
+
+        throw new Error(
+            "Empty image source."
+        );
+
+    }
+
+
+    if(
+        src.startsWith("data:")
+    ){
+
+        return src;
+
+    }
+
+
+    const response =
+        await fetch(
+            src,
+            {
+                mode:"cors",
+                cache:"no-cache"
+            }
+        );
+
+
+    if(!response.ok){
+
+        throw new Error(
+            "Image fetch failed: " +
+            response.status
+        );
+
+    }
+
+
+    const blob =
+        await response.blob();
+
+
+    return new Promise(
+        function(resolve,reject){
+
+            const reader =
+                new FileReader();
+
+
+            reader.onload =
+                function(){
+
+                    resolve(
+                        reader.result
+                    );
+
+                };
+
+
+            reader.onerror =
+                reject;
+
+
+            reader.readAsDataURL(
+                blob
+            );
+
+        }
+    );
+
+}
+
+
+/* =========================================================
+   CREATE SAFE EXPORT CLONE
+========================================================= */
+
+async function createSafeExportClone(){
+
+    await waitForPoster();
+
+
+    const original =
+        document.getElementById(
+            "poster"
+        );
+
+
+    const clone =
+        original.cloneNode(
+            true
+        );
+
+
+    clone.id =
+        "poster-export-clone";
+
+
+    clone.style.position =
+        "fixed";
+
+    clone.style.left =
+        "0px";
+
+    clone.style.top =
+        "0px";
+
+    clone.style.width =
+        "794px";
+
+    clone.style.height =
+        "1123px";
+
+    clone.style.minWidth =
+        "794px";
+
+    clone.style.minHeight =
+        "1123px";
+
+    clone.style.maxWidth =
+        "794px";
+
+    clone.style.maxHeight =
+        "1123px";
+
+    clone.style.transform =
+        "none";
+
+    clone.style.margin =
+        "0";
+
+    clone.style.opacity =
+        "1";
+
+    clone.style.visibility =
+        "visible";
+
+    clone.style.pointerEvents =
+        "none";
+
+    clone.style.zIndex =
+        "999999";
+
+
+    const originalImages =
+        Array.from(
+            original.querySelectorAll(
+                "img"
+            )
+        );
+
+
+    const cloneImages =
+        Array.from(
+            clone.querySelectorAll(
+                "img"
+            )
+        );
+
+
+    for(
+        let i = 0;
+        i < cloneImages.length;
+        i++
+    ){
+
+        const source =
+            originalImages[i];
+
+        const target =
+            cloneImages[i];
+
+
+        if(
+            !source ||
+            !target
+        ){
+            continue;
+        }
+
+
+        const sourceStyle =
+            getComputedStyle(
+                source
+            );
+
+
+        if(
+            sourceStyle.display ===
+            "none"
+        ){
+
+            target.style.display =
+                "none";
+
+            continue;
+
+        }
+
+
+        if(
+            source.src &&
+            source.src.startsWith("data:")
+        ){
+
+            target.src =
+                source.src;
+
+            target.removeAttribute(
+                "crossorigin"
+            );
+
+            continue;
+
+        }
+
+
+        try{
+
+            const safeData =
+                await imageToDataURL(
+                    source.src
+                );
+
+
+            if(safeData){
+
+                target.src =
+                    safeData;
+
+                target.removeAttribute(
+                    "crossorigin"
+                );
+
+            }
+
+        }
+        catch(error){
+
+            console.warn(
+                "Could not convert image:",
+                source.src,
+                error
+            );
+
+
+            if(
+                target.id ===
+                "logoImage"
+            ){
+
+                target.style.display =
+                    "none";
+
+
+                const fallback =
+                    clone.querySelector(
+                        "#logoFallback"
+                    );
+
+
+                if(fallback){
+
+                    fallback.style.display =
+                        "block";
+
+                }
+
+            }
+
+        }
+
+    }
+
+
+    document.body.appendChild(
+        clone
+    );
+
+
+    await delay(300);
+
+
+    await Promise.all(
+        Array.from(
+            clone.querySelectorAll(
+                "img"
+            )
+        ).map(
+            waitForImage
+        )
+    );
+
+
+    /*
+       =====================================================
+       IMPORTANT EXPORT IMAGE FIX
+       =====================================================
+    */
+
+    const cloneMain =
+        clone.querySelector(
+            "#mainProductImage"
+        );
+
+
+    if(cloneMain){
+
+        cloneMain.style.position =
+            "relative";
+
+        cloneMain.style.left =
+            "auto";
+
+        cloneMain.style.top =
+            "auto";
+
+        cloneMain.style.right =
+            "auto";
+
+        cloneMain.style.bottom =
+            "auto";
+
+        cloneMain.style.width =
+            "auto";
+
+        cloneMain.style.height =
+            "auto";
+
+        cloneMain.style.maxWidth =
+            "100%";
+
+        cloneMain.style.maxHeight =
+            "100%";
+
+        cloneMain.style.minWidth =
+            "0";
+
+        cloneMain.style.minHeight =
+            "0";
+
+        cloneMain.style.objectFit =
+            "contain";
+
+        cloneMain.style.objectPosition =
+            "center center";
+
+        cloneMain.style.transform =
+            "none";
+
+        cloneMain.style.margin =
+            "auto";
+
+        cloneMain.style.aspectRatio =
+            "auto";
+
+    }
+
+
+    /*
+       =====================================================
+       EXPORT THUMBNAIL FIX
+       =====================================================
+    */
+
+    clone.querySelectorAll(
+        ".thumbnail img"
+    ).forEach(
+        function(img){
+
+            img.style.width =
+                "auto";
+
+            img.style.height =
+                "auto";
+
+            img.style.maxWidth =
+                "100%";
+
+            img.style.maxHeight =
+                "100%";
+
+            img.style.minWidth =
+                "0";
+
+            img.style.minHeight =
+                "0";
+
+            img.style.objectFit =
+                "contain";
+
+            img.style.objectPosition =
+                "center center";
+
+            img.style.margin =
+                "auto";
+
+            img.style.transform =
+                "none";
+
+            img.style.aspectRatio =
+                "auto";
+
+        }
+    );
+
+
+    /*
+       Disable animations.
+    */
+
+    clone
+        .querySelectorAll("*")
+        .forEach(
+            function(element){
+
+                element.style.animation =
+                    "none";
+
+                element.style.transition =
+                    "none";
+
+            }
+        );
+
+
+    return clone;
+
+}
+
+
+/* =========================================================
+   CREATE HD A4 CANVAS
+========================================================= */
+
+async function createExportCanvas(){
+
+    showStatus(
+        "Preparing HD poster..."
+    );
+
+
+    const clone =
+        await createSafeExportClone();
+
+
+    let captured = null;
+
+
+    try{
+
+        showStatus(
+            "Rendering HD poster..."
+        );
+
+
+        captured =
+            await html2canvas(
+                clone,
+                {
+
+                    scale:4,
+
+                    width:794,
+
+                    height:1123,
+
+                    x:0,
+
+                    y:0,
+
+                    scrollX:0,
+
+                    scrollY:0,
+
+                    windowWidth:794,
+
+                    windowHeight:1123,
+
+                    backgroundColor:
+                        "#f7f3e9",
+
+                    useCORS:true,
+
+                    allowTaint:false,
+
+                    imageTimeout:30000,
+
+                    logging:false,
+
+                    foreignObjectRendering:false,
+
+                    removeContainer:false,
+
+
+                    onclone:function(
+                        clonedDocument
+                    ){
+
+                        const clonedPoster =
+                            clonedDocument.getElementById(
+                                "poster-export-clone"
+                            );
+
+
+                        if(!clonedPoster){
+                            return;
+                        }
+
+
+                        clonedPoster.style.position =
+                            "fixed";
+
+                        clonedPoster.style.left =
+                            "0";
+
+                        clonedPoster.style.top =
+                            "0";
+
+                        clonedPoster.style.width =
+                            "794px";
+
+                        clonedPoster.style.height =
+                            "1123px";
+
+                        clonedPoster.style.transform =
+                            "none";
+
+                        clonedPoster.style.margin =
+                            "0";
+
+
+                        /*
+                           MAIN IMAGE:
+                           NEVER FORCE 100% WIDTH/HEIGHT.
+                        */
+
+                        const image =
+                            clonedPoster.querySelector(
+                                "#mainProductImage"
+                            );
+
+
+                        if(image){
+
+                            image.style.position =
+                                "relative";
+
+                            image.style.left =
+                                "auto";
+
+                            image.style.top =
+                                "auto";
+
+                            image.style.right =
+                                "auto";
+
+                            image.style.bottom =
+                                "auto";
+
+                            image.style.width =
+                                "auto";
+
+                            image.style.height =
+                                "auto";
+
+                            image.style.maxWidth =
+                                "100%";
+
+                            image.style.maxHeight =
+                                "100%";
+
+                            image.style.minWidth =
+                                "0";
+
+                            image.style.minHeight =
+                                "0";
+
+                            image.style.objectFit =
+                                "contain";
+
+                            image.style.objectPosition =
+                                "center center";
+
+                            image.style.margin =
+                                "auto";
+
+                            image.style.transform =
+                                "none";
+
+                        }
+
+
+                        /*
+                           THUMBNAILS
+                        */
+
+                        clonedPoster
+                            .querySelectorAll(
+                                ".thumbnail img"
+                            )
+                            .forEach(
+                                function(img){
+
+                                    img.style.width =
+                                        "auto";
+
+                                    img.style.height =
+                                        "auto";
+
+                                    img.style.maxWidth =
+                                        "100%";
+
+                                    img.style.maxHeight =
+                                        "100%";
+
+                                    img.style.minWidth =
+                                        "0";
+
+                                    img.style.minHeight =
+                                        "0";
+
+                                    img.style.objectFit =
+                                        "contain";
+
+                                    img.style.objectPosition =
+                                        "center center";
+
+                                    img.style.margin =
+                                        "auto";
+
+                                    img.style.transform =
+                                        "none";
+
+                                }
+                            );
+
+
+                        /*
+                           Disable animation.
+                        */
+
+                        clonedPoster
+                            .querySelectorAll("*")
+                            .forEach(
+                                function(element){
+
+                                    element.style.animation =
+                                        "none";
+
+                                    element.style.transition =
+                                        "none";
+
+                                }
+                            );
+
+                    }
+
+                }
+            );
+
+    }
+    finally{
+
+        if(
+            clone &&
+            clone.parentNode
+        ){
+
+            clone.parentNode.removeChild(
+                clone
+            );
+
+        }
+
+    }
+
+
+    if(!captured){
+
+        throw new Error(
+            "HD poster canvas could not be created."
+        );
+
+    }
+
+
+    /*
+       FINAL A4 SIZE
+       2480 × 3508 px
+    */
+
+    const finalCanvas =
+        document.createElement(
+            "canvas"
+        );
+
+
+    finalCanvas.width =
+        2480;
+
+    finalCanvas.height =
+        3508;
+
+
+    const ctx =
+        finalCanvas.getContext(
+            "2d",
+            {
+                alpha:false
+            }
+        );
+
+
+    if(!ctx){
+
+        throw new Error(
+            "Canvas context unavailable."
+        );
+
+    }
+
+
+    ctx.imageSmoothingEnabled =
+        true;
+
+    ctx.imageSmoothingQuality =
+        "high";
+
+
+    ctx.fillStyle =
+        "#f7f3e9";
+
+
+    ctx.fillRect(
+        0,
+        0,
+        2480,
+        3508
+    );
+
+
+    ctx.drawImage(
+
+        captured,
+
+        0,
+        0,
+        captured.width,
+        captured.height,
+
+        0,
+        0,
+        2480,
+        3508
+
+    );
+
+
+    try{
+
+        captured.width = 1;
+        captured.height = 1;
+
+    }
+    catch(error){}
+
+
+    return finalCanvas;
+
+}
+
+
+/* =========================================================
+   SAFE FILE NAME
+========================================================= */
+
+function safeName(value){
+
+    return String(
+        value ||
+        "Product-Poster"
+    )
+    .trim()
+    .replace(
+        /[^a-z0-9_-]+/gi,
+        "-"
+    )
+    .replace(
+        /-+/g,
+        "-"
+    )
+    .replace(
+        /^-|-$/g,
+        ""
+    );
+
+}
+
+
+/* =========================================================
+   DOWNLOAD BLOB
+========================================================= */
+
+function downloadBlob(
+    blob,
+    filename
+){
+
+    return new Promise(
+        function(resolve,reject){
+
+            try{
+
+                const url =
+                    URL.createObjectURL(
+                        blob
+                    );
+
+
+                const link =
+                    document.createElement(
+                        "a"
+                    );
+
+
+                link.href =
+                    url;
+
+                link.download =
+                    filename;
+
+                link.style.display =
+                    "none";
+
+
+                document.body.appendChild(
+                    link
+                );
+
+
+                link.click();
+
+
+                setTimeout(
+                    function(){
+
+                        link.remove();
+
+                        URL.revokeObjectURL(
+                            url
+                        );
+
+                        resolve();
+
+                    },
+                    1500
+                );
+
+            }
+            catch(error){
+
+                reject(error);
+
+            }
+
+        }
+    );
+
+}
+
+
+/* =========================================================
+   DOWNLOAD PNG
+========================================================= */
+
+async function downloadPNG(){
+
+    if(downloadPngButton.disabled){
+        return;
+    }
+
+
+    downloadPngButton.disabled =
+        true;
+
+    downloadPdfButton.disabled =
+        true;
+
+
+    try{
+
+        const canvas =
+            await createExportCanvas();
+
+
+        showStatus(
+            "Creating HD A4 PNG..."
+        );
+
+
+        const blob =
+            await new Promise(
+                function(resolve,reject){
+
+                    canvas.toBlob(
+                        function(result){
+
+                            if(result){
+
+                                resolve(
+                                    result
+                                );
+
+                            }
+                            else{
+
+                                reject(
+                                    new Error(
+                                        "PNG creation failed."
+                                    )
+                                );
+
+                            }
+
+                        },
+                        "image/png"
+                    );
+
+                }
+            );
+
+
+        if(!blob){
+
+            throw new Error(
+                "PNG file is empty."
+            );
+
+        }
+
+
+        await downloadBlob(
+
+            blob,
+
+            "HD-A4-Poster-" +
+            safeName(
+                itemInput.value
+            ) +
+            ".png"
+
+        );
+
+
+        showStatus(
+            "HD A4 PNG downloaded successfully."
+        );
+
+
+        setTimeout(
+            hideStatus,
+            2000
+        );
+
+    }
+    catch(error){
+
+        console.error(
+            "HD PNG EXPORT ERROR:",
+            error
+        );
+
+
+        hideStatus();
+
+
+        alert(
+            "HD PNG download failed.\n\n" +
+            error.message
+        );
+
+    }
+    finally{
+
+        downloadPngButton.disabled =
+            false;
+
+        downloadPdfButton.disabled =
+            false;
+
+    }
+
+}
+
+
+/* =========================================================
+   DOWNLOAD PDF
+========================================================= */
+
+async function downloadPDF(){
+
+    if(downloadPdfButton.disabled){
+        return;
+    }
+
+
+    downloadPngButton.disabled =
+        true;
+
+    downloadPdfButton.disabled =
+        true;
+
+
+    try{
+
+        showStatus(
+            "Preparing HD A4 PDF..."
+        );
+
+
+        const canvas =
+            await createExportCanvas();
+
+
+        showStatus(
+            "Encoding high-quality PDF..."
+        );
+
+
+        const imageData =
+            canvas.toDataURL(
+                "image/jpeg",
+                0.98
+            );
+
+
+        if(
+            !imageData ||
+            imageData.length < 100
+        ){
+
+            throw new Error(
+                "PDF image data could not be generated."
+            );
+
+        }
+
+
+        if(
+            !window.jspdf ||
+            !window.jspdf.jsPDF
+        ){
+
+            throw new Error(
+                "jsPDF library failed to load."
+            );
+
+        }
+
+
+        const jsPDF =
+            window.jspdf.jsPDF;
+
+
+        const pdf =
+            new jsPDF({
+
+                orientation:
+                    "portrait",
+
+                unit:
+                    "mm",
+
+                format:
+                    "a4",
+
+                compress:
+                    true
+
+            });
+
+
+        pdf.addImage(
+
+            imageData,
+
+            "JPEG",
+
+            0,
+
+            0,
+
+            210,
+
+            297,
+
+            undefined,
+
+            "NONE"
+
+        );
+
+
+        pdf.save(
+
+            "IT-" +
+            safeName(
+                itemInput.value
+            ) +
+            ".pdf"
+
+        );
+
+
+        showStatus(
+            "HD A4 PDF downloaded successfully."
+        );
+
+
+        setTimeout(
+            hideStatus,
+            2200
+        );
+
+    }
+    catch(error){
+
+        console.error(
+            "HD PDF EXPORT ERROR:",
+            error
+        );
+
+
+        hideStatus();
+
+
+        alert(
+            "HD PDF download failed.\n\n" +
+            error.message
+        );
+
+    }
+    finally{
+
+        downloadPngButton.disabled =
+            false;
+
+        downloadPdfButton.disabled =
+            false;
+
+    }
+
+}
+
+
+/* =========================================================
+   BUTTON EVENTS
+========================================================= */
+
+downloadPngButton.addEventListener(
+    "click",
+    downloadPNG
+);
+
+downloadPdfButton.addEventListener(
+    "click",
+    downloadPDF
+);
+
+
+/* =========================================================
+   INITIALIZE
+========================================================= */
+
+updateText();
+
+renderGallery();
+
+loadSavedLogo();
+
+
+/* =========================================================
+   INITIAL LOGO
+========================================================= */
+
+(async function(){
+
+    try{
+
+        if(
+            logoImage.src &&
+            !logoImage.src.startsWith("data:")
+        ){
+
+            try{
+
+                const safeLogo =
+                    await imageToDataURL(
+                        logoImage.src
+                    );
+
+
+                if(safeLogo){
+
+                    logoImage.removeAttribute(
+                        "crossorigin"
+                    );
+
+
+                    logoImage.src =
+                        safeLogo;
+
+                }
+
+            }
+            catch(error){
+
+                console.warn(
+                    "Initial logo cannot be converted safely.",
+                    error
+                );
+
+            }
+
+        }
+
+    }
+    catch(error){
+
+        console.warn(
+            "Logo initialization error:",
+            error
+        );
+
+    }
+
+})();
+
+
+/* =========================================================
+   RESIZE SAFETY
+========================================================= */
+
+window.addEventListener(
+    "resize",
+    function(){
+
+        if(
+            mainProductImage.style.display !==
+            "none"
+        ){
+
+            mainProductImage.style.width =
+                "auto";
+
+            mainProductImage.style.height =
+                "auto";
+
+            mainProductImage.style.maxWidth =
+                "100%";
+
+            mainProductImage.style.maxHeight =
+                "100%";
+
+            mainProductImage.style.objectFit =
+                "contain";
+
+            mainProductImage.style.objectPosition =
+                "center center";
+
+        }
+
+    }
+);
+
+</script>
+
+</body>
+</html>
