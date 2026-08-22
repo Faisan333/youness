@@ -237,9 +237,9 @@ header p{
 
 .demo{
     position:absolute;
-    right:20px;
-    top:18px;
-    font-size:10px;
+    right:28px;
+    top:24px;
+    font-size:12px;
     font-weight:bold;
     letter-spacing:2px;
     padding:5px 9px;
@@ -253,28 +253,28 @@ header p{
 
 .bank-name{
     position:absolute;
-    top:25px;
-    left:28px;
-    font-size:25px;
+    top:32px;
+    left:38px;
+    font-size:32px;
     font-weight:800;
     letter-spacing:1px;
 }
 
 .card-type{
     position:absolute;
-    top:62px;
-    left:30px;
-    font-size:10px;
+    top:78px;
+    left:40px;
+    font-size:13px;
     letter-spacing:3px;
     opacity:.75;
 }
 
 .chip{
     position:absolute;
-    left:30px;
-    top:100px;
-    width:63px;
-    height:47px;
+    left:40px;
+    top:125px;
+    width:82px;
+    height:61px;
     border-radius:9px;
     background:
         linear-gradient(90deg,transparent 31%,rgba(80,60,20,.4) 32%,rgba(80,60,20,.4) 34%,transparent 35%),
@@ -294,18 +294,18 @@ header p{
 
 .contactless{
     position:absolute;
-    top:107px;
-    left:106px;
-    font-size:31px;
+    top:134px;
+    left:138px;
+    font-size:40px;
     transform:rotate(-45deg);
     opacity:.85;
 }
 
 .card-number{
     position:absolute;
-    left:30px;
-    bottom:86px;
-    font-size:25px;
+    left:40px;
+    bottom:112px;
+    font-size:34px;
     letter-spacing:3px;
     font-family:"Courier New",monospace;
     text-shadow:0 2px 3px rgba(0,0,0,.25);
@@ -313,36 +313,36 @@ header p{
 
 .valid{
     position:absolute;
-    left:31px;
-    bottom:53px;
-    font-size:8px;
+    left:41px;
+    bottom:69px;
+    font-size:10px;
     letter-spacing:1px;
     opacity:.7;
 }
 
 .expiry{
     position:absolute;
-    left:76px;
-    bottom:50px;
-    font-size:15px;
+    left:100px;
+    bottom:65px;
+    font-size:20px;
     letter-spacing:2px;
 }
 
 .cardholder{
     position:absolute;
-    left:30px;
-    bottom:22px;
-    font-size:13px;
+    left:40px;
+    bottom:29px;
+    font-size:17px;
     letter-spacing:1.5px;
     text-transform:uppercase;
 }
 
 .network{
     position:absolute;
-    right:28px;
-    bottom:27px;
+    right:38px;
+    bottom:35px;
     font-weight:900;
-    font-size:23px;
+    font-size:30px;
     font-style:italic;
 }
 
@@ -366,18 +366,18 @@ header p{
 
 .back-label{
     position:absolute;
-    left:30px;
-    top:97px;
-    font-size:8px;
+    left:40px;
+    top:128px;
+    font-size:10px;
     opacity:.7;
 }
 
 .signature{
     position:absolute;
-    left:30px;
-    top:115px;
+    left:40px;
+    top:150px;
     width:70%;
-    height:38px;
+    height:50px;
     background:#eee;
     color:#111;
     display:flex;
@@ -389,10 +389,10 @@ header p{
 
 .cvv{
     position:absolute;
-    right:30px;
-    top:115px;
-    width:70px;
-    height:38px;
+    right:40px;
+    top:150px;
+    width:90px;
+    height:50px;
     background:#fff;
     color:#111;
     display:flex;
@@ -403,27 +403,27 @@ header p{
 
 .back-text{
     position:absolute;
-    left:30px;
-    right:30px;
-    top:173px;
-    font-size:8px;
+    left:40px;
+    right:40px;
+    top:218px;
+    font-size:10px;
     line-height:1.5;
     opacity:.75;
 }
 
 .support{
     position:absolute;
-    left:30px;
-    bottom:24px;
-    font-size:9px;
+    left:40px;
+    bottom:31px;
+    font-size:11px;
     opacity:.75;
 }
 
 .back-network{
     position:absolute;
-    right:30px;
-    bottom:20px;
-    font-size:19px;
+    right:40px;
+    bottom:26px;
+    font-size:25px;
     font-weight:900;
     font-style:italic;
 }
@@ -568,19 +568,31 @@ header p{
 
 @media(max-width:900px){
     .workspace{
-        grid-template-columns:1fr;
+        display:flex;
+        flex-direction:column;
+        align-items:center;
     }
 
     .panel{
         order:2;
+        width:100%;
     }
 
     .card-area{
         order:1;
+        width:100%;
+    }
+
+    .card-scene{
+        width:min(760px,94vw);
     }
 }
 
 @media(max-width:550px){
+    .card-scene{
+        width:96vw;
+    }
+
     header h1{
         font-size:22px;
     }
