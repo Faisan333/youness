@@ -3,6 +3,7 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
 <title>Younes App</title>
 
 <link rel="icon" href="images/blacklo.png">
@@ -36,7 +37,8 @@ href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css"
     font-family:"Segoe UI",Arial,sans-serif;
 }
 
-html,body{
+html,
+body{
     width:100%;
     height:100%;
 }
@@ -46,6 +48,16 @@ body{
     color:var(--text);
     overflow:hidden;
 }
+
+button,
+input{
+    font-family:inherit;
+}
+
+button{
+    -webkit-tap-highlight-color:transparent;
+}
+
 
 /* =========================================================
    APP
@@ -57,6 +69,7 @@ body{
     display:flex;
     flex-direction:column;
 }
+
 
 /* =========================================================
    TOP NAVBAR
@@ -74,7 +87,10 @@ body{
     z-index:1000;
 }
 
-/* LEFT */
+
+/* =========================================================
+   NAV LEFT
+========================================================= */
 
 .nav-left{
     display:flex;
@@ -91,10 +107,10 @@ body{
     border-right:1px solid #e5e7eb;
 }
 
-.brand img{
-    width:62px;
-    height:82px;
-    object-fit:contain;
+.brand img {
+    width: 117px;
+    height: 128px;
+    object-fit: contain;
 }
 
 .brand-name{
@@ -112,9 +128,14 @@ body{
     cursor:pointer;
     color:var(--green);
     margin-right:14px;
+    width:38px;
+    height:42px;
 }
 
-/* TOP MENU */
+
+/* =========================================================
+   TOP MENU
+========================================================= */
 
 .top-menu{
     display:flex;
@@ -173,7 +194,10 @@ body{
     border-radius:5px 5px 0 0;
 }
 
-/* RIGHT NAV */
+
+/* =========================================================
+   RIGHT NAV
+========================================================= */
 
 .nav-right{
     display:flex;
@@ -182,6 +206,7 @@ body{
     margin-left:auto;
     padding-left:14px;
     border-left:1px solid #e5e7eb;
+    flex-shrink:0;
 }
 
 .utility-btn{
@@ -213,7 +238,81 @@ body{
     color:#17212b;
 }
 
-/* PROFILE */
+
+/* =========================================================
+   DEVELOPED BY DESKTOP
+========================================================= */
+
+.developed-card{
+    height:58px;
+    min-width:150px;
+    padding:5px 10px;
+    border:1px solid #e1e6e4;
+    background:#fff;
+    border-radius:8px;
+    display:flex;
+    align-items:center;
+    gap:9px;
+    cursor:pointer;
+    transition:.2s;
+    text-decoration:none;
+    color:inherit;
+    
+}
+
+.developed-card:hover{
+    background:#f5f9f7;
+    border-color:#b9d3c6;
+    transform:translateY(-1px);
+}
+
+.developer-image{
+    width:40px;
+    height:40px;
+    min-width:40px;
+    border-radius:50%;
+    overflow:hidden;
+    border:2px solid #07563f;
+    background:#eaf6f0;
+}
+
+.developer-image img{
+    width:100%;
+    height:100%;
+    object-fit:cover;
+}
+
+.developer-info{
+    display:flex;
+    flex-direction:column;
+    justify-content:center;
+    min-width:0;
+}
+
+.developer-info small{
+    color:#8a949e;
+    font-size:8px;
+    font-weight:600;
+    text-transform:uppercase;
+    letter-spacing:.4px;
+}
+
+.developer-info strong{
+    color:#17212b;
+    font-size:11px;
+    font-weight:700;
+    white-space:nowrap;
+}
+
+.developer-info span{
+    color:#667085;
+    font-size:9px;
+    white-space:nowrap;
+}
+
+/* =========================================================
+   PROFILE
+========================================================= */
 
 .profile-wrapper{
     position:relative;
@@ -240,7 +339,7 @@ body{
     position:absolute;
     top:60px;
     right:0;
-    width:180px;
+    width:200px;
     background:#fff;
     border:1px solid var(--border);
     border-radius:10px;
@@ -291,6 +390,7 @@ body{
     color:var(--danger);
 }
 
+
 /* =========================================================
    MOBILE DRAWER
 ========================================================= */
@@ -298,9 +398,10 @@ body{
 .mobile-drawer{
     position:fixed;
     top:0;
-    left:-290px;
-    width:275px;
-    height:100vh;
+    left:-310px;
+    width:290px;
+    max-width:85vw;
+    height:100dvh;
     background:#fff;
     z-index:5000;
     box-shadow:8px 0 30px rgba(0,0,0,.18);
@@ -327,6 +428,7 @@ body{
     display:flex;
     align-items:center;
     gap:10px;
+    min-width:0;
 }
 
 .mobile-brand img{
@@ -338,6 +440,7 @@ body{
 .mobile-brand span{
     font-size:14px;
     font-weight:700;
+    white-space:nowrap;
 }
 
 .mobile-close{
@@ -346,12 +449,22 @@ body{
     font-size:22px;
     cursor:pointer;
     color:#344054;
+    width:40px;
+    height:40px;
+    flex-shrink:0;
 }
+
+
+/* =========================================================
+   MOBILE MENU LIST
+========================================================= */
 
 .mobile-menu-list{
     list-style:none;
     padding:12px;
     overflow-y:auto;
+    flex:1;
+    min-height:0;
 }
 
 .mobile-menu-list li{
@@ -379,6 +492,7 @@ body{
     width:22px;
     font-size:18px;
     color:#07563f;
+    flex-shrink:0;
 }
 
 .mobile-menu-list button:hover,
@@ -386,6 +500,88 @@ body{
     background:#eaf6f0;
     color:#006b4f;
 }
+
+
+/* =========================================================
+   MOBILE DEVELOPED BY
+   LEFT SIDE OF SEPARATOR / BOTTOM OF MENU
+========================================================= */
+
+.mobile-developed-area{
+    width:100%;
+    flex-shrink:0;
+    margin:0;
+    padding:12px;
+    border-top:1px solid #e5e7eb;
+    background:#fff;
+}
+
+.mobile-developed-card{
+    width:100%;
+    min-height:66px;
+    border:1px solid #e1e6e4;
+    border-radius:9px;
+    background:#fff;
+    display:flex;
+    align-items:center;
+    gap:10px;
+    padding:8px 10px;
+    text-align:left;
+    box-shadow:0 2px 7px rgba(15,23,42,.04);
+}
+
+.mobile-developed-image{
+    width:44px;
+    height:44px;
+    min-width:44px;
+    border-radius:50%;
+    overflow:hidden;
+    border:2px solid #07563f;
+    background:#eaf6f0;
+}
+
+.mobile-developed-image img{
+    width:100%;
+    height:100%;
+    object-fit:cover;
+}
+
+.mobile-developed-info{
+    display:flex;
+    flex-direction:column;
+    justify-content:center;
+    min-width:0;
+    overflow:hidden;
+}
+
+.mobile-developed-info small{
+    font-size:8px;
+    color:#8a949e;
+    text-transform:uppercase;
+    font-weight:700;
+    letter-spacing:.4px;
+}
+
+.mobile-developed-info strong{
+    font-size:12px;
+    color:#17212b;
+    white-space:nowrap;
+    overflow:hidden;
+    text-overflow:ellipsis;
+}
+
+.mobile-developed-info span{
+    font-size:9px;
+    color:#667085;
+    white-space:nowrap;
+    overflow:hidden;
+    text-overflow:ellipsis;
+}
+
+
+/* =========================================================
+   MOBILE OVERLAY
+========================================================= */
 
 .mobile-overlay{
     position:fixed;
@@ -399,8 +595,9 @@ body{
     display:block;
 }
 
+
 /* =========================================================
-   MAIN CONTENT
+   MAIN
 ========================================================= */
 
 .main{
@@ -414,7 +611,9 @@ body{
     height:100%;
     overflow-y:auto;
     padding:22px 35px 40px;
+    -webkit-overflow-scrolling:touch;
 }
+
 
 /* =========================================================
    PAGE HEADER
@@ -429,6 +628,7 @@ body{
     display:flex;
     align-items:center;
     justify-content:space-between;
+    gap:20px;
 }
 
 .page-title-small{
@@ -461,309 +661,13 @@ body{
     align-items:center;
     gap:9px;
     white-space:nowrap;
+    flex-shrink:0;
 }
 
 .date-box i{
     color:#344054;
 }
 
-/* =========================================================
-   DASHBOARD KPI
-========================================================= */
-
-.kpi-grid{
-    display:grid;
-    grid-template-columns:repeat(4,1fr);
-    gap:18px;
-    margin-bottom:18px;
-}
-
-.kpi{
-    background:#fff;
-    border:1px solid #e8ebee;
-    border-radius:8px;
-    padding:22px 24px;
-    min-height:117px;
-    display:flex;
-    align-items:center;
-    justify-content:space-between;
-    box-shadow:var(--shadow);
-}
-
-.kpi-left h4{
-    font-size:11px;
-    font-weight:700;
-    text-transform:uppercase;
-    color:#343a40;
-    margin-bottom:8px;
-}
-
-.kpi-left h2{
-    font-size:26px;
-    color:#151a1e;
-    margin-bottom:5px;
-}
-
-.kpi-left p{
-    font-size:11px;
-    color:#667085;
-}
-
-.kpi-icon{
-    width:52px;
-    height:52px;
-    border-radius:9px;
-    display:flex;
-    align-items:center;
-    justify-content:center;
-    background:#edf7f1;
-    color:#07563f;
-    font-size:23px;
-}
-
-/* =========================================================
-   TWO COLUMN
-========================================================= */
-
-.two-column{
-    display:grid;
-    grid-template-columns:1fr 1fr;
-    gap:18px;
-    margin-bottom:18px;
-}
-
-.panel{
-    background:#fff;
-    border:1px solid #e8ebee;
-    border-radius:8px;
-    box-shadow:var(--shadow);
-    overflow:hidden;
-}
-
-.panel-header{
-    height:57px;
-    padding:0 17px;
-    display:flex;
-    align-items:center;
-    justify-content:space-between;
-    border-bottom:1px solid #edf0f2;
-}
-
-.panel-header h3{
-    font-size:15px;
-    color:#1e3343;
-}
-
-.panel-header button{
-    background:#fff;
-    border:1px solid #dce2e7;
-    border-radius:5px;
-    padding:7px 12px;
-    font-size:11px;
-    cursor:pointer;
-    color:#344054;
-}
-
-.panel-header button:hover{
-    background:#f6f8f9;
-}
-
-.panel-body{
-    padding:14px;
-}
-
-/* =========================================================
-   TRANSACTION TABLE
-========================================================= */
-
-.transaction-table{
-    width:100%;
-    border-collapse:collapse;
-}
-
-.transaction-table th{
-    background:#f4f6f7;
-    color:#344054;
-    text-align:left;
-    padding:10px 12px;
-    font-size:10px;
-    font-weight:700;
-}
-
-.transaction-table td{
-    padding:10px 12px;
-    font-size:11px;
-    border-bottom:1px solid #edf0f2;
-    color:#303943;
-}
-
-.status{
-    display:inline-block;
-    padding:4px 10px;
-    border-radius:20px;
-    background:#e9f8ee;
-    color:#13833b;
-    font-size:9px;
-    font-weight:700;
-}
-
-.status.pending{
-    background:#fff7df;
-    color:#a56b00;
-}
-
-/* =========================================================
-   QUICK ACTIONS
-========================================================= */
-
-.quick-actions{
-    display:grid;
-    grid-template-columns:repeat(5,1fr);
-    gap:10px;
-}
-
-.quick-action{
-    min-height:84px;
-    border:1px solid #e0e5e8;
-    border-radius:6px;
-    background:#fff;
-    display:flex;
-    flex-direction:column;
-    align-items:center;
-    justify-content:center;
-    gap:8px;
-    cursor:pointer;
-    color:#1f2933;
-    font-size:10px;
-    font-weight:600;
-    transition:.2s;
-}
-
-.quick-action i{
-    font-size:21px;
-    color:#07563f;
-}
-
-.quick-action:hover{
-    border-color:#a7cbbb;
-    background:#f7fbf9;
-    transform:translateY(-1px);
-}
-
-/* =========================================================
-   BOTTOM SECTION
-========================================================= */
-
-.bottom-grid{
-    display:grid;
-    grid-template-columns:1fr 1fr;
-    gap:18px;
-}
-
-.business-overview{
-    display:grid;
-    grid-template-columns:repeat(3,1fr);
-    gap:12px;
-}
-
-.overview-box{
-    border:1px solid #e2e7ea;
-    border-radius:6px;
-    padding:15px;
-    display:flex;
-    align-items:center;
-    gap:12px;
-}
-
-.overview-icon{
-    width:40px;
-    height:40px;
-    border-radius:8px;
-    background:#eaf6f0;
-    color:#07563f;
-    display:flex;
-    align-items:center;
-    justify-content:center;
-}
-
-.overview-box small{
-    display:block;
-    font-size:10px;
-    font-weight:600;
-    color:#667085;
-    margin-bottom:4px;
-}
-
-.overview-box strong{
-    font-size:15px;
-}
-
-.bank-feed{
-    margin-top:12px;
-    border:1px solid #e2e7ea;
-    border-radius:6px;
-    padding:13px;
-    display:flex;
-    gap:12px;
-    align-items:center;
-}
-
-.bank-feed i{
-    color:#07563f;
-    font-size:19px;
-}
-
-.bank-feed strong{
-    font-size:11px;
-}
-
-.bank-feed span{
-    display:block;
-    color:#667085;
-    font-size:10px;
-    margin-top:3px;
-}
-
-/* =========================================================
-   TASKS
-========================================================= */
-
-.task{
-    display:flex;
-    align-items:center;
-    gap:12px;
-    padding:12px 5px;
-    border-bottom:1px solid #edf0f2;
-}
-
-.task:last-child{
-    border-bottom:0;
-}
-
-.task-icon{
-    width:35px;
-    height:35px;
-    border-radius:7px;
-    background:#f0f7f4;
-    color:#07563f;
-    display:flex;
-    justify-content:center;
-    align-items:center;
-}
-
-.task strong{
-    display:block;
-    font-size:11px;
-}
-
-.task span{
-    font-size:10px;
-    color:#667085;
-}
-
-.task .overdue{
-    color:#dc2626;
-}
 
 /* =========================================================
    COMPANY INFORMATION
@@ -801,7 +705,9 @@ body{
     line-height:1.7;
     color:#17212b;
     font-weight:600;
+    word-break:break-word;
 }
+
 
 /* =========================================================
    TODO
@@ -811,6 +717,32 @@ body{
     margin-top:20px;
 }
 
+.panel{
+    background:#fff;
+    border:1px solid #e8ebee;
+    border-radius:8px;
+    box-shadow:var(--shadow);
+    overflow:hidden;
+}
+
+.panel-header{
+    min-height:57px;
+    padding:0 17px;
+    display:flex;
+    align-items:center;
+    justify-content:space-between;
+    border-bottom:1px solid #edf0f2;
+}
+
+.panel-header h3{
+    font-size:15px;
+    color:#1e3343;
+}
+
+.panel-body{
+    padding:14px;
+}
+
 .todo-input{
     display:flex;
     gap:8px;
@@ -818,6 +750,7 @@ body{
 
 .todo-input input{
     flex:1;
+    min-width:0;
     border:1px solid #dce2e7;
     border-radius:6px;
     padding:12px;
@@ -831,6 +764,7 @@ body{
 
 .todo-input button{
     width:45px;
+    min-width:45px;
     border:0;
     border-radius:6px;
     background:#07563f;
@@ -847,6 +781,7 @@ body{
     display:flex;
     align-items:center;
     justify-content:space-between;
+    gap:10px;
     border-bottom:1px solid #edf0f2;
     padding:11px 4px;
     font-size:13px;
@@ -854,11 +789,17 @@ body{
 
 .todo-list li span{
     cursor:pointer;
+    min-width:0;
+    overflow-wrap:anywhere;
 }
 
 .todo-list li.completed span{
     text-decoration:line-through;
     color:#98a2b3;
+}
+
+.todo-actions{
+    flex-shrink:0;
 }
 
 .todo-actions i{
@@ -870,8 +811,9 @@ body{
     color:#dc2626;
 }
 
+
 /* =========================================================
-   MODULE PAGES
+   MODULE
 ========================================================= */
 
 .module-page{
@@ -881,94 +823,6 @@ body{
 .module-page.active{
     display:block;
 }
-
-.module-card{
-    background:#fff;
-    border:1px solid #e5e7eb;
-    border-radius:8px;
-    padding:24px;
-    box-shadow:var(--shadow);
-}
-
-.module-title{
-    display:flex;
-    align-items:center;
-    gap:12px;
-    margin-bottom:20px;
-}
-
-.module-title i{
-    width:45px;
-    height:45px;
-    border-radius:9px;
-    background:#eaf6f0;
-    color:#07563f;
-    display:flex;
-    align-items:center;
-    justify-content:center;
-    font-size:20px;
-}
-
-.module-title h2{
-    font-size:20px;
-}
-
-.module-title p{
-    font-size:12px;
-    color:#667085;
-    margin-top:3px;
-}
-
-.module-actions{
-    display:flex;
-    flex-wrap:wrap;
-    gap:10px;
-}
-
-.module-action{
-    border:1px solid #dfe4e8;
-    background:#fff;
-    border-radius:6px;
-    padding:12px 17px;
-    cursor:pointer;
-    font-size:12px;
-    font-weight:600;
-    color:#344054;
-}
-
-.module-action:hover{
-    background:#f4faf7;
-    border-color:#9bc5b1;
-}
-
-.module-info-grid{
-    display:grid;
-    grid-template-columns:repeat(3,1fr);
-    gap:15px;
-    margin-top:20px;
-}
-
-.info-box{
-    padding:18px;
-    background:#f8fafb;
-    border:1px solid #e5e7eb;
-    border-radius:7px;
-}
-
-.info-box span{
-    display:block;
-    font-size:10px;
-    color:#667085;
-    margin-bottom:7px;
-}
-
-.info-box strong{
-    font-size:18px;
-}
-
-/* =========================================================
-   ACCOUNTS
-========================================================= */
 
 .sheet{
     width:100%;
@@ -983,35 +837,12 @@ body{
     width:100%;
     height:100%;
     border:0;
+    display:block;
 }
+
 
 /* =========================================================
-   SEARCH
-========================================================= */
-
-.search-box{
-    display:flex;
-    align-items:center;
-    gap:10px;
-    border:1px solid #dce2e7;
-    border-radius:7px;
-    padding:12px 15px;
-    max-width:700px;
-}
-
-.search-box i{
-    color:#667085;
-}
-
-.search-box input{
-    flex:1;
-    border:0;
-    outline:0;
-    font-size:14px;
-}
-
-/* =========================================================
-   RESPONSIVE
+   RESPONSIVE 1300
 ========================================================= */
 
 @media(max-width:1300px){
@@ -1049,7 +880,20 @@ body{
     .company-grid{
         grid-template-columns:repeat(3,1fr);
     }
+
+    .developed-card{
+        min-width:135px;
+    }
+
+    .developer-info span{
+        display:none;
+    }
 }
+
+
+/* =========================================================
+   RESPONSIVE 1050
+========================================================= */
 
 @media(max-width:1050px){
 
@@ -1073,16 +917,32 @@ body{
         width:38px;
     }
 
-    .kpi-grid{
-        grid-template-columns:repeat(2,1fr);
-    }
-
     .company-grid{
         grid-template-columns:repeat(2,1fr);
     }
+
+    .developed-card{
+        min-width:50px;
+        width:50px;
+        padding:5px;
+        justify-content:center;
+    }
+
+    .developer-info{
+        display:none;
+    }
+
+    .developer-image{
+        width:38px;
+        height:38px;
+        min-width:38px;
+    }
 }
 
-/* TABLET / MOBILE */
+
+/* =========================================================
+   TABLET / MOBILE
+========================================================= */
 
 @media(max-width:768px){
 
@@ -1097,17 +957,20 @@ body{
     }
 
     .mobile-menu-btn{
-        display:block;
+        display:flex;
+        align-items:center;
+        justify-content:center;
     }
 
     .brand{
         border:0;
         padding:0;
+        gap:9px;
     }
 
     .brand img{
         width:48px;
-        height:38px;
+        height:42px;
     }
 
     .brand-name{
@@ -1129,9 +992,18 @@ body{
         display:none;
     }
 
+    .developed-wrapper{
+        display:none;
+    }
+
     .profile-icon{
         width:42px;
         height:42px;
+    }
+
+    .profile-dropdown{
+        top:51px;
+        right:-2px;
     }
 
     .content{
@@ -1156,62 +1028,57 @@ body{
         padding:8px;
     }
 
-    .kpi-grid{
-        grid-template-columns:1fr 1fr;
-        gap:10px;
-    }
-
-    .kpi{
-        padding:15px;
-        min-height:100px;
-    }
-
-    .kpi-left h2{
-        font-size:19px;
-    }
-
-    .kpi-icon{
-        width:40px;
-        height:40px;
-        font-size:17px;
-    }
-
-    .two-column,
-    .bottom-grid{
-        grid-template-columns:1fr;
-    }
-
-    .quick-actions{
-        grid-template-columns:repeat(2,1fr);
-    }
-
-    .business-overview{
-        grid-template-columns:1fr;
-    }
-
     .company-grid{
         grid-template-columns:1fr;
+        gap:12px;
     }
 
-    .transaction-table{
-        min-width:650px;
-    }
-
-    .panel-body{
-        overflow-x:auto;
+    .company-card{
+        min-height:auto;
+        padding:17px;
     }
 
     .sheet{
-        height:calc(100vh - 105px);
+        height:calc(100vh - 92px);
+        border-radius:6px;
+    }
+
+    .mobile-developed-area{
+        display:block;
     }
 }
 
-/* SMALL MOBILE */
+
+/* =========================================================
+   SMALL MOBILE
+========================================================= */
 
 @media(max-width:480px){
 
+    .navbar{
+        padding:0 10px;
+    }
+
+    .mobile-menu-btn{
+        margin-right:7px;
+    }
+
+    .brand{
+        gap:5px;
+    }
+
+    .brand img{
+        width:42px;
+        height:38px;
+    }
+
     .brand-name{
         font-size:13px;
+    }
+
+    .profile-icon{
+        width:39px;
+        height:39px;
     }
 
     .page-header{
@@ -1225,21 +1092,63 @@ body{
         justify-content:center;
     }
 
-    .kpi-grid{
-        grid-template-columns:1fr;
+    .mobile-drawer{
+        width:285px;
     }
 
-    .quick-actions{
-        grid-template-columns:1fr 1fr;
+    .mobile-developed-area{
+        padding:10px 12px 12px;
     }
 
-    .quick-action{
-        min-height:75px;
+    .mobile-developed-card{
+        min-height:64px;
     }
 
-    .module-info-grid{
-        grid-template-columns:1fr;
+    .mobile-developed-image{
+        width:42px;
+        height:42px;
+        min-width:42px;
     }
+
+    .todo-input input{
+        padding:11px;
+    }
+
+    .todo-input button{
+        width:43px;
+        min-width:43px;
+    }
+}
+
+
+/* =========================================================
+   VERY SMALL PHONES
+========================================================= */
+
+@media(max-width:360px){
+
+    .brand-name{
+        font-size:12px;
+    }
+
+    .mobile-menu-btn{
+        margin-right:3px;
+        width:34px;
+    }
+
+    .brand img{
+        width:38px;
+    }
+
+    .profile-icon{
+        width:36px;
+        height:36px;
+    }
+
+    .mobile-drawer{
+        width:275px;
+    }
+
 }
 
 </style>
@@ -1249,6 +1158,7 @@ body{
 
 <div class="app">
 
+
 <!-- =====================================================
      DESKTOP / MAIN NAVBAR
 ===================================================== -->
@@ -1257,125 +1167,201 @@ body{
 
     <div class="nav-left">
 
-        <button class="mobile-menu-btn" id="mobileMenuBtn">
+        <button
+            class="mobile-menu-btn"
+            id="mobileMenuBtn"
+            type="button"
+            aria-label="Open menu"
+        >
             <i class="fa-solid fa-bars"></i>
         </button>
 
         <div class="brand">
-            <img src="images/blacklo.png" alt="Younes App">
-            <span class="brand-name">Younes App</span>
+
+            <img
+                src="images/blacklo.png"
+                alt="Younes App"
+            >
+
+            <span class="brand-name">
+                Younes App
+            </span>
+
         </div>
 
     </div>
 
-    <!-- MAIN TOP NAV -->
+
+    <!-- =================================================
+         MAIN TOP NAV
+    ================================================== -->
 
     <nav class="top-menu">
 
-        <button class="nav-item active" data-page="dashboard">
+        <button
+            class="nav-item active"
+            data-page="dashboard"
+            type="button"
+        >
             <i class="fa-solid fa-house"></i>
             <span>Home</span>
         </button>
 
-        <button class="nav-item" data-page="sales">
+        <button
+            class="nav-item"
+            data-page="sales"
+            type="button"
+        >
             <i class="fa-solid fa-file-invoice"></i>
             <span>Accounts</span>
         </button>
 
-        <button class="nav-item" data-page="expenses">
+        <button
+            class="nav-item"
+            data-page="expenses"
+            type="button"
+        >
             <i class="fa-solid fa-receipt"></i>
             <span>HT Luggage</span>
         </button>
 
-        <button class="nav-item" data-page="banking">
+        <button
+            class="nav-item"
+            data-page="banking"
+            type="button"
+        >
             <i class="fa-solid fa-building-columns"></i>
             <span>IT Luggage</span>
         </button>
 
-        <button class="nav-item" data-page="customers">
+        <button
+            class="nav-item"
+            data-page="customers"
+            type="button"
+        >
             <i class="fa-solid fa-user-group"></i>
             <span>ATM Cards</span>
         </button>
 
-        <!-- <button class="nav-item" data-page="vendors">
-            <i class="fa-solid fa-users-gear"></i>
-            <span>Vendors</span>
-        </button>
-
-        <button class="nav-item" data-page="payroll">
-            <i class="fa-solid fa-money-check-dollar"></i>
-            <span>Payroll</span>
-        </button>
-
-        <button class="nav-item" data-page="reports">
-            <i class="fa-solid fa-chart-column"></i>
-            <span>Reports</span>
-        </button>
-
-        <button class="nav-item" data-page="taxes">
-            <i class="fa-solid fa-file-invoice-dollar"></i>
-            <span>Taxes</span>
-        </button>
-
-        <button class="nav-item" data-page="accounting">
-            <i class="fa-solid fa-calculator"></i>
-            <span>Accounting</span>
-        </button> -->
-
     </nav>
 
-    <!-- RIGHT NAV -->
+
+    <!-- =================================================
+         DEVELOPED BY DESKTOP
+    ================================================== -->
+
+    <div class="developed-wrapper" style="padding-right: 15px;">
+
+    <a
+        href="https://faisan333.github.io/Faisan.github.io/"
+        target="_blank"
+        rel="noopener noreferrer"
+        class="developed-card"
+    >
+
+        <div class="developer-image">
+
+            <img
+                src="images/FAISAN.jpg"
+                alt="Muhammed Faisan"
+            >
+
+        </div>
+
+        <div class="developer-info">
+
+            <small>
+                Developed By
+            </small>
+
+            <strong>
+                MUHAMMED FAISAN
+            </strong>
+
+            <span>
+                Software Developer
+            </span>
+
+        </div>
+
+    </a>
+
+</div>
+
+
+    <!-- =================================================
+         RIGHT NAV
+    ================================================== -->
 
     <div class="nav-right">
 
-        <button class="utility-btn new-btn" data-page="new">
+        <button
+            class="utility-btn new-btn"
+            data-page="new"
+            type="button"
+        >
             <i class="fa-solid fa-plus-circle"></i>
             <span>Lists</span>
         </button>
 
-        <!-- <button class="utility-btn" data-page="search">
-            <i class="fa-solid fa-magnifying-glass"></i>
-            <span>Search</span>
-        </button>
-
-        <button class="utility-btn" data-page="bookmarks">
-            <i class="fa-regular fa-bookmark"></i>
-            <span>Bookmarks</span>
-        </button>
-
-        <button class="utility-btn" data-page="recent">
-            <i class="fa-solid fa-clock-rotate-left"></i>
-            <span>Recent</span>
-        </button>
-
-        <button class="utility-btn" data-page="settings">
-            <i class="fa-solid fa-gear"></i>
-            <span>Settings</span>
-        </button> -->
-
-        <button class="utility-btn" data-page="help">
+        <button
+            class="utility-btn"
+            data-page="help"
+            type="button"
+        >
             <i class="fa-regular fa-circle-question"></i>
             <span>Help</span>
         </button>
+
 
         <!-- PROFILE -->
 
         <div class="profile-wrapper">
 
-            <div class="profile-icon" id="profileIcon">
-                <img src="images/back.jpg" alt="Profile">
+            <div
+                class="profile-icon"
+                id="profileIcon"
+                role="button"
+                tabindex="0"
+                aria-label="Profile"
+            >
+
+                <img
+                    src="images/back.jpg"
+                    alt="Profile"
+                >
+
             </div>
 
-            <div class="profile-dropdown" id="profileDropdown">
+
+            <div
+                class="profile-dropdown"
+                id="profileDropdown"
+            >
 
                 <div class="profile-user">
-                    <strong>Younes App</strong>
-                    <span>Account Administrator</span>
+
+                    <strong>
+                        Younes App
+                    </strong>
+
+                    <span>
+                        Account Administrator
+                    </span>
+
                 </div>
 
-                <button class="logout-btn" id="logoutBtn">
+
+                <button
+                    class="logout-btn"
+                    id="logoutBtn"
+                    type="button"
+                >
+
                     <i class="fa-solid fa-right-from-bracket"></i>
+
                     Logout
+
                 </button>
 
             </div>
@@ -1388,148 +1374,236 @@ body{
 
 
 <!-- =====================================================
+     MOBILE OVERLAY
+===================================================== -->
+
+<div
+    class="mobile-overlay"
+    id="mobileOverlay"
+></div>
+
+
+<!-- =====================================================
      MOBILE DRAWER
 ===================================================== -->
 
-<div class="mobile-overlay" id="mobileOverlay"></div>
-
-<aside class="mobile-drawer" id="mobileDrawer">
+<aside
+    class="mobile-drawer"
+    id="mobileDrawer"
+    aria-hidden="true"
+>
 
     <div class="mobile-drawer-header">
 
         <div class="mobile-brand">
-            <img src="images/CURRENT.png">
-            <span>Younes App</span>
+
+            <img
+                src="images/CURRENT.png"
+                alt="Younes App"
+            >
+
+            <span>
+                Younes App
+            </span>
+
         </div>
 
-        <button class="mobile-close" id="mobileClose">
+
+        <button
+            class="mobile-close"
+            id="mobileClose"
+            type="button"
+            aria-label="Close menu"
+        >
+
             <i class="fa-solid fa-xmark"></i>
+
         </button>
 
     </div>
 
+
+    <!-- =================================================
+         MOBILE MENU
+    ================================================== -->
+
     <ul class="mobile-menu-list">
 
         <li>
-            <button class="mobile-nav active" data-page="dashboard">
+
+            <button
+                class="mobile-nav active"
+                data-page="dashboard"
+                type="button"
+            >
+
                 <i class="fa-solid fa-house"></i>
+
                 Dashboard
+
             </button>
+
         </li>
 
+
         <li>
-            <button class="mobile-nav" data-page="sales">
+
+            <button
+                class="mobile-nav"
+                data-page="sales"
+                type="button"
+            >
+
                 <i class="fa-solid fa-file-invoice"></i>
+
                 Accounts
+
             </button>
+
         </li>
 
+
         <li>
-            <button class="mobile-nav" data-page="expenses">
+
+            <button
+                class="mobile-nav"
+                data-page="expenses"
+                type="button"
+            >
+
                 <i class="fa-solid fa-receipt"></i>
+
                 HT Luggage
+
             </button>
+
         </li>
 
+
         <li>
-            <button class="mobile-nav" data-page="banking">
+
+            <button
+                class="mobile-nav"
+                data-page="banking"
+                type="button"
+            >
+
                 <i class="fa-solid fa-building-columns"></i>
+
                 IT Luggage
+
             </button>
+
         </li>
 
+
         <li>
-            <button class="mobile-nav" data-page="customers">
+
+            <button
+                class="mobile-nav"
+                data-page="customers"
+                type="button"
+            >
+
                 <i class="fa-solid fa-user-group"></i>
+
                 ATM Cards
+
             </button>
+
         </li>
 
-        <!-- <li>
-            <button class="mobile-nav" data-page="vendors">
-                <i class="fa-solid fa-users-gear"></i>
-                Vendors
-            </button>
-        </li>
 
         <li>
-            <button class="mobile-nav" data-page="payroll">
-                <i class="fa-solid fa-money-check-dollar"></i>
-                Payroll
-            </button>
-        </li>
 
-        <li>
-            <button class="mobile-nav" data-page="reports">
-                <i class="fa-solid fa-chart-column"></i>
-                Reports
-            </button>
-        </li>
+            <button
+                class="mobile-nav"
+                data-page="new"
+                type="button"
+            >
 
-        <li>
-            <button class="mobile-nav" data-page="taxes">
-                <i class="fa-solid fa-file-invoice-dollar"></i>
-                Taxes
-            </button>
-        </li>
-
-        <li>
-            <button class="mobile-nav" data-page="accounting">
-                <i class="fa-solid fa-calculator"></i>
-                Accounting
-            </button>
-        </li> -->
-
-        <li>
-            <button class="mobile-nav" data-page="new">
                 <i class="fa-solid fa-plus-circle"></i>
+
                 Lists
+
             </button>
+
         </li>
 
-        <!-- <li>
-            <button class="mobile-nav" data-page="search">
-                <i class="fa-solid fa-magnifying-glass"></i>
-                Search
-            </button>
-        </li>
 
         <li>
-            <button class="mobile-nav" data-page="bookmarks">
-                <i class="fa-regular fa-bookmark"></i>
-                Bookmarks
-            </button>
-        </li>
 
-        <li>
-            <button class="mobile-nav" data-page="recent">
-                <i class="fa-solid fa-clock-rotate-left"></i>
-                Recent
-            </button>
-        </li>
+            <button
+                class="mobile-nav"
+                data-page="help"
+                type="button"
+            >
 
-        <li>
-            <button class="mobile-nav" data-page="settings">
-                <i class="fa-solid fa-gear"></i>
-                Settings
-            </button>
-        </li> -->
-
-        <li>
-            <button class="mobile-nav" data-page="help">
                 <i class="fa-regular fa-circle-question"></i>
+
                 Help
+
             </button>
+
         </li>
 
+
         <li>
-            <button id="mobileLogout">
+
+            <button
+                id="mobileLogout"
+                type="button"
+            >
+
                 <i class="fa-solid fa-right-from-bracket"></i>
+
                 Logout
+
             </button>
+
         </li>
 
     </ul>
+
+
+    <!-- =================================================
+         DEVELOPED BY
+         Fixed at bottom-left below separator
+    ================================================== -->
+
+    <div class="mobile-developed-area">
+
+        <div class="mobile-developed-card">
+
+            <div class="mobile-developed-image">
+
+                <img
+                    src="images/FAISAN.jpg"
+                    alt="Developer"
+                >
+
+            </div>
+
+
+            <div class="mobile-developed-info">
+
+                <small>
+                    Developed By
+                </small>
+
+                <strong>
+                    MUHAMMED FAISAN
+                </strong>
+
+                <span>
+                    Software Developer
+                </span>
+
+            </div>
+
+        </div>
+
+    </div>
 
 </aside>
 
@@ -1547,431 +1621,216 @@ body{
      DASHBOARD
 ===================================================== -->
 
-<section class="module-page active" id="page-dashboard">
+<section
+    class="module-page active"
+    id="page-dashboard"
+>
 
     <div class="page-header">
 
         <div>
-            <div class="page-title-small">Business Management</div>
 
-            <h1>Home Dashboard</h1>
+            <div class="page-title-small">
+                Business Management
+            </div>
+
+            <h1>
+                Home Dashboard
+            </h1>
 
             <p>
                 Quick access to your accounting and business activities.
             </p>
+
         </div>
 
+
         <div class="date-box">
+
             <i class="fa-regular fa-calendar"></i>
+
             <span id="date"></span>
+
         </div>
 
     </div>
 
-    <!-- KPI -->
 
-    <!-- <div class="kpi-grid">
-
-        <div class="kpi">
-
-            <div class="kpi-left">
-                <h4>Cash & Bank</h4>
-                <h2>AED 48,250</h2>
-                <p>Available balance</p>
-            </div>
-
-            <div class="kpi-icon">
-                <i class="fa-solid fa-sack-dollar"></i>
-            </div>
-
-        </div>
-
-
-        <div class="kpi">
-
-            <div class="kpi-left">
-                <h4>Sales</h4>
-                <h2>AED 92,640</h2>
-                <p>This month</p>
-            </div>
-
-            <div class="kpi-icon">
-                <i class="fa-solid fa-arrow-trend-up"></i>
-            </div>
-
-        </div>
-
-
-        <div class="kpi">
-
-            <div class="kpi-left">
-                <h4>Purchases</h4>
-                <h2>AED 37,410</h2>
-                <p>This month</p>
-            </div>
-
-            <div class="kpi-icon">
-                <i class="fa-solid fa-arrow-trend-down"></i>
-            </div>
-
-        </div>
-
-
-        <div class="kpi">
-
-            <div class="kpi-left">
-                <h4>Receivables</h4>
-                <h2>AED 26,830</h2>
-                <p>Outstanding customers</p>
-            </div>
-
-            <div class="kpi-icon">
-                <i class="fa-solid fa-users"></i>
-            </div>
-
-        </div>
-
-    </div> -->
-
-
-    <!-- RECENT + QUICK -->
-
-    <!-- <div class="two-column">
-
-        <div class="panel">
-
-            <div class="panel-header">
-
-                <h3>Recent Transactions</h3>
-
-                <button data-page="recent">
-                    View All
-                </button>
-
-            </div>
-
-            <div class="panel-body">
-
-                <table class="transaction-table">
-
-                    <thead>
-                        <tr>
-                            <th>Date</th>
-                            <th>Description</th>
-                            <th>Type</th>
-                            <th>Amount</th>
-                            <th>Status</th>
-                        </tr>
-                    </thead>
-
-                    <tbody>
-
-                        <tr>
-                            <td>21 Aug</td>
-                            <td>Customer Invoice #1048</td>
-                            <td>Sales</td>
-                            <td>AED 4,850</td>
-                            <td><span class="status">Open</span></td>
-                        </tr>
-
-                        <tr>
-                            <td>20 Aug</td>
-                            <td>Supplier Payment</td>
-                            <td>Payment</td>
-                            <td>AED 2,300</td>
-                            <td><span class="status">Cleared</span></td>
-                        </tr>
-
-                        <tr>
-                            <td>19 Aug</td>
-                            <td>Cash Deposit</td>
-                            <td>Deposit</td>
-                            <td>AED 7,500</td>
-                            <td><span class="status">Posted</span></td>
-                        </tr>
-
-                        <tr>
-                            <td>18 Aug</td>
-                            <td>Office Expense</td>
-                            <td>Expense</td>
-                            <td>AED 680</td>
-                            <td><span class="status">Posted</span></td>
-                        </tr>
-
-                    </tbody>
-
-                </table>
-
-            </div>
-
-        </div>
-
-
-        <div class="panel">
-
-            <div class="panel-header">
-                <h3>Quick Actions</h3>
-            </div>
-
-            <div class="panel-body">
-
-                <div class="quick-actions">
-
-                    <button class="quick-action" data-page="new">
-                        <i class="fa-solid fa-file-circle-plus"></i>
-                        New Invoice
-                    </button>
-
-                    <button class="quick-action" data-page="banking">
-                        <i class="fa-solid fa-money-bill-transfer"></i>
-                        New Payment
-                    </button>
-
-                    <button class="quick-action" data-page="banking">
-                        <i class="fa-solid fa-money-bill-wave"></i>
-                        Deposit
-                    </button>
-
-                    <button class="quick-action" data-page="customers">
-                        <i class="fa-solid fa-user-plus"></i>
-                        Customer
-                    </button>
-
-                    <button class="quick-action" data-page="reports">
-                        <i class="fa-solid fa-chart-column"></i>
-                        Reports
-                    </button>
-
-                </div>
-
-            </div>
-
-        </div>
-
-    </div> -->
-
-
-    <!-- BUSINESS + TASKS -->
-
-    <!-- <div class="bottom-grid">
-
-        <div class="panel">
-
-            <div class="panel-header">
-                <h3>Business Overview</h3>
-
-                <button data-page="reports">
-                    Open Snapshot
-                </button>
-            </div>
-
-            <div class="panel-body">
-
-                <div class="business-overview">
-
-                    <div class="overview-box">
-                        <div class="overview-icon">
-                            <i class="fa-solid fa-money-bill-trend-up"></i>
-                        </div>
-
-                        <div>
-                            <small>Gross Profit</small>
-                            <strong>AED 55,230</strong>
-                        </div>
-                    </div>
-
-                    <div class="overview-box">
-                        <div class="overview-icon">
-                            <i class="fa-solid fa-user-clock"></i>
-                        </div>
-
-                        <div>
-                            <small>Payables</small>
-                            <strong>AED 18,760</strong>
-                        </div>
-                    </div>
-
-                    <div class="overview-box">
-                        <div class="overview-icon">
-                            <i class="fa-solid fa-boxes-stacked"></i>
-                        </div>
-
-                        <div>
-                            <small>Inventory</small>
-                            <strong>AED 74,920</strong>
-                        </div>
-                    </div>
-
-                </div>
-
-                <div class="bank-feed">
-
-                    <i class="fa-solid fa-circle-check"></i>
-
-                    <div>
-                        <strong>Bank feed updated</strong>
-                        <span>Today, 10:35 AM</span>
-                    </div>
-
-                </div>
-
-            </div>
-
-        </div>
-
-
-        <div class="panel">
-
-            <div class="panel-header">
-
-                <h3>Tasks & Reminders</h3>
-
-                <button data-page="recent">
-                    Calendar
-                </button>
-
-            </div>
-
-            <div class="panel-body">
-
-                <div class="task">
-
-                    <div class="task-icon">
-                        <i class="fa-solid fa-clock"></i>
-                    </div>
-
-                    <div>
-                        <strong>Follow up customer payments</strong>
-                        <span class="overdue">3 overdue accounts</span>
-                    </div>
-
-                </div>
-
-
-                <div class="task">
-
-                    <div class="task-icon">
-                        <i class="fa-solid fa-file-lines"></i>
-                    </div>
-
-                    <div>
-                        <strong>Review supplier invoices</strong>
-                        <span>5 documents pending</span>
-                    </div>
-
-                </div>
-
-
-                <div class="task">
-
-                    <div class="task-icon">
-                        <i class="fa-solid fa-chart-column"></i>
-                    </div>
-
-                    <div>
-                        <strong>Month-end report</strong>
-                        <span>Due on 31 Aug 2026</span>
-                    </div>
-
-                </div>
-
-            </div>
-
-        </div>
-
-    </div> -->
-
-
-    <!-- COMPANY INFORMATION -->
+    <!-- =================================================
+         COMPANY INFORMATION
+    ================================================== -->
 
     <div style="margin-top:20px;">
 
-        <div class="panel-header" style="background:#fff;border:1px solid #e8ebee;border-radius:8px 8px 0 0;">
-            <h3>Company Information</h3>
+        <div
+            class="panel-header"
+            style="
+                background:#fff;
+                border:1px solid #e8ebee;
+                border-radius:8px 8px 0 0;
+            "
+        >
+
+            <h3>
+                Company Information
+            </h3>
+
         </div>
 
-        <div class="company-grid" style="margin-top:10px;">
+
+        <div
+            class="company-grid"
+            style="margin-top:10px;"
+        >
 
             <div class="company-card">
+
                 <i class="fa-solid fa-building"></i>
+
                 <h4>Name</h4>
-                <p>Younes App</p>
+
+                <p>
+                    Younes App
+                </p>
+
             </div>
 
+
             <div class="company-card">
+
                 <i class="fa-solid fa-location-dot"></i>
+
                 <h4>Address</h4>
-                <p>Hor Al Anz, Deira, Dubai, UAE</p>
+
+                <p>
+                    Hor Al Anz, Deira, Dubai, UAE
+                </p>
+
             </div>
 
+
             <div class="company-card">
+
                 <i class="fa-solid fa-phone"></i>
+
                 <h4>Contact</h4>
-                <p>+971 55 929 7977</p>
+
+                <p>
+                    +971 55 929 7977
+                </p>
+
             </div>
 
+
             <div class="company-card">
+
                 <i class="fa-solid fa-envelope"></i>
+
                 <h4>Email</h4>
-                <p>younesshabani2011@gmail.com</p>
+
+                <p>
+                    younesshabani2011@gmail.com
+                </p>
+
             </div>
 
+
             <div class="company-card">
+
                 <i class="fa-solid fa-id-card"></i>
+
                 <h4>Mobile</h4>
-                <p>+971 55 929 7977</p>
+
+                <p>
+                    +971 55 929 7977
+                </p>
+
             </div>
 
+
             <div class="company-card">
+
                 <i class="fa-solid fa-users"></i>
+
                 <h4>Profession</h4>
-                <p>General Manager</p>
+
+                <p>
+                    General Manager
+                </p>
+
             </div>
 
+
             <div class="company-card">
+
                 <i class="fa-solid fa-globe"></i>
+
                 <h4>Home Number</h4>
-                <p>+971 55 929 7977</p>
+
+                <p>
+                    +971 55 929 7977
+                </p>
+
             </div>
 
+
             <div class="company-card">
+
                 <i class="fa-solid fa-building-columns"></i>
+
                 <h4>Bank Account</h4>
+
                 <p>
                     CBD Bank<br>
                     Account Name: YOUNES HOSSEINALI SHABANI<br>
                     Acc No: 1000894269
                 </p>
+
             </div>
 
+
             <div class="company-card">
+
                 <i class="fa-solid fa-credit-card"></i>
+
                 <h4>Credit Card</h4>
+
                 <p>
                     CBD SUPER SAVER CREDIT CARD<br>
                     Account Name: YOUNES HOSSEINALI SHABANI<br>
                     Card No: 4451 3531 0261 0069
                 </p>
+
             </div>
 
+
             <div class="company-card">
+
                 <i class="fa-solid fa-credit-card"></i>
+
                 <h4>Credit Card</h4>
+
                 <p>
                     CBD SMILES VISA SIGNATURE CREDIT CARD<br>
                     Account Name: YOUNES HOSSEINALI SHABANI<br>
                     Card No: 4451 3530 1084 2283
                 </p>
+
             </div>
 
+
             <div class="company-card">
+
                 <i class="fa-solid fa-building-columns"></i>
+
                 <h4>Gold Account</h4>
+
                 <p>
                     CBD Gold Account<br>
                     Account Name: YOUNES HOSSEINALI SHABANI<br>
                     Acc No: 1010158598
                 </p>
+
             </div>
 
         </div>
@@ -1979,15 +1838,22 @@ body{
     </div>
 
 
-    <!-- TODO -->
+    <!-- =================================================
+         TODO LIST
+    ================================================== -->
 
     <div class="todo-section">
 
         <div class="panel">
 
             <div class="panel-header">
-                <h3>Today's To-Do List</h3>
+
+                <h3>
+                    Today's To-Do List
+                </h3>
+
             </div>
+
 
             <div class="panel-body">
 
@@ -1999,13 +1865,23 @@ body{
                         placeholder="Add a new task..."
                     >
 
-                    <button id="addTodoBtn">
+                    <button
+                        id="addTodoBtn"
+                        type="button"
+                        aria-label="Add task"
+                    >
+
                         <i class="fa-solid fa-plus"></i>
+
                     </button>
 
                 </div>
 
-                <ul id="todoList" class="todo-list"></ul>
+
+                <ul
+                    id="todoList"
+                    class="todo-list"
+                ></ul>
 
             </div>
 
@@ -2020,24 +1896,17 @@ body{
      ACCOUNTS
 ===================================================== -->
 
-<!-- <section class="module-page" id="page-accounting">
-
-    
-
-</section> -->
-
-
-<!-- =====================================================
-     ACCOUNTS
-===================================================== -->
-
-<section class="module-page" id="page-sales">
+<section
+    class="module-page"
+    id="page-sales"
+>
 
     <div class="sheet">
 
         <iframe
-        src="https://docs.google.com/spreadsheets/d/12sSuqPRfaHnNN0yHdTQhZvLlmdKR0yoHDkI_mvQygO4/edit?usp=sharing">
-        </iframe>
+            src="https://docs.google.com/spreadsheets/d/12sSuqPRfaHnNN0yHdTQhZvLlmdKR0yoHDkI_mvQygO4/edit?usp=sharing"
+            title="Accounts"
+        ></iframe>
 
     </div>
 
@@ -2048,13 +1917,17 @@ body{
      HT LUGGAGE
 ===================================================== -->
 
-<section class="module-page" id="page-expenses">
+<section
+    class="module-page"
+    id="page-expenses"
+>
 
     <div class="sheet">
 
         <iframe
-        src="ht.html">
-        </iframe>
+            src="ht.html"
+            title="HT Luggage"
+        ></iframe>
 
     </div>
 
@@ -2065,13 +1938,17 @@ body{
      IT LUGGAGE
 ===================================================== -->
 
-<section class="module-page" id="page-banking">
+<section
+    class="module-page"
+    id="page-banking"
+>
 
     <div class="sheet">
 
         <iframe
-        src="it.html">
-        </iframe>
+            src="it.html"
+            title="IT Luggage"
+        ></iframe>
 
     </div>
 
@@ -2082,13 +1959,17 @@ body{
      ATM CARDS
 ===================================================== -->
 
-<section class="module-page" id="page-customers">
+<section
+    class="module-page"
+    id="page-customers"
+>
 
     <div class="sheet">
 
         <iframe
-        src="atm.html">
-        </iframe>
+            src="atm.html"
+            title="ATM Cards"
+        ></iframe>
 
     </div>
 
@@ -2096,473 +1977,57 @@ body{
 
 
 <!-- =====================================================
-     VENDORS
+     LISTS
 ===================================================== -->
 
-<!-- <section class="module-page" id="page-vendors">
-
-    <div class="page-header">
-        <div>
-            <div class="page-title-small">Vendors</div>
-            <h1>Vendors</h1>
-            <p>Manage suppliers, bills and payables.</p>
-        </div>
-    </div>
-
-    <div class="module-card">
-
-        <div class="module-title">
-            <i class="fa-solid fa-users-gear"></i>
-
-            <div>
-                <h2>Vendor Management</h2>
-                <p>Manage suppliers and supplier transactions.</p>
-            </div>
-        </div>
-
-        <div class="module-actions">
-
-            <button class="module-action">
-                <i class="fa-solid fa-user-plus"></i>
-                New Vendor
-            </button>
-
-            <button class="module-action">
-                <i class="fa-solid fa-users"></i>
-                Vendor List
-            </button>
-
-            <button class="module-action">
-                <i class="fa-solid fa-file-lines"></i>
-                Bills
-            </button>
-
-            <button class="module-action">
-                <i class="fa-solid fa-money-bill"></i>
-                Payables
-            </button>
-
-        </div>
-
-    </div>
-
-</section> -->
-
-
-<!-- =====================================================
-     PAYROLL
-===================================================== -->
-
-<!-- <section class="module-page" id="page-payroll">
-
-    <div class="page-header">
-        <div>
-            <div class="page-title-small">Payroll</div>
-            <h1>Payroll</h1>
-            <p>Manage employee salaries and payroll records.</p>
-        </div>
-    </div>
-
-    <div class="module-card">
-
-        <div class="module-title">
-
-            <i class="fa-solid fa-money-check-dollar"></i>
-
-            <div>
-                <h2>Payroll Management</h2>
-                <p>Manage salaries and employee payments.</p>
-            </div>
-
-        </div>
-
-        <div class="module-actions">
-
-            <button class="module-action">
-                <i class="fa-solid fa-user-plus"></i>
-                Employees
-            </button>
-
-            <button class="module-action">
-                <i class="fa-solid fa-money-check-dollar"></i>
-                Salary
-            </button>
-
-            <button class="module-action">
-                <i class="fa-solid fa-calendar-days"></i>
-                Payroll History
-            </button>
-
-        </div>
-
-    </div>
-
-</section> -->
-
-
-<!-- =====================================================
-     REPORTS
-===================================================== -->
-
-<!-- <section class="module-page" id="page-reports">
-
-    <div class="page-header">
-        <div>
-            <div class="page-title-small">Reports</div>
-            <h1>Reports</h1>
-            <p>View financial and business reports.</p>
-        </div>
-    </div>
-
-    <div class="module-card">
-
-        <div class="module-title">
-
-            <i class="fa-solid fa-chart-column"></i>
-
-            <div>
-                <h2>Reports Center</h2>
-                <p>Access your accounting reports.</p>
-            </div>
-
-        </div>
-
-        <div class="module-actions">
-
-            <button class="module-action">
-                Profit & Loss
-            </button>
-
-            <button class="module-action">
-                Balance Sheet
-            </button>
-
-            <button class="module-action">
-                Cash Flow
-            </button>
-
-            <button class="module-action">
-                Sales Report
-            </button>
-
-            <button class="module-action">
-                Expense Report
-            </button>
-
-            <button class="module-action">
-                Customer Report
-            </button>
-
-        </div>
-
-    </div>
-
-</section> -->
-
-
-<!-- =====================================================
-     TAXES
-===================================================== -->
-
-<!-- <section class="module-page" id="page-taxes">
-
-    <div class="page-header">
-        <div>
-            <div class="page-title-small">Taxes</div>
-            <h1>Taxes</h1>
-            <p>Manage VAT and tax-related information.</p>
-        </div>
-    </div>
-
-    <div class="module-card">
-
-        <div class="module-title">
-
-            <i class="fa-solid fa-file-invoice-dollar"></i>
-
-            <div>
-                <h2>Tax Center</h2>
-                <p>Manage your tax records and reports.</p>
-            </div>
-
-        </div>
-
-        <div class="module-actions">
-
-            <button class="module-action">
-                VAT Summary
-            </button>
-
-            <button class="module-action">
-                VAT Return
-            </button>
-
-            <button class="module-action">
-                Tax Reports
-            </button>
-
-        </div>
-
-    </div>
-
-</section>
-
-
-<!-- =====================================================
-     NEW
-===================================================== -->
-
-<section class="module-page" id="page-new">
+<section
+    class="module-page"
+    id="page-new"
+>
 
     <div class="sheet">
 
         <iframe
-        src="productlist.html">
-        </iframe>
+            src="productlist.html"
+            title="Lists"
+        ></iframe>
 
     </div>
 
 </section>
-
-
-<!-- =====================================================
-     SEARCH
-===================================================== -->
-
-<!-- <section class="module-page" id="page-search">
-
-    <div class="page-header">
-        <div>
-            <div class="page-title-small">Search</div>
-            <h1>Search</h1>
-            <p>Search your accounting records.</p>
-        </div>
-    </div>
-
-    <div class="module-card">
-
-        <div class="search-box">
-
-            <i class="fa-solid fa-magnifying-glass"></i>
-
-            <input
-                type="text"
-                id="searchInput"
-                placeholder="Search invoices, customers, transactions..."
-            >
-
-        </div>
-
-    </div>
-
-</section> -->
-
-
-<!-- =====================================================
-     BOOKMARKS
-===================================================== -->
-
-<!-- <section class="module-page" id="page-bookmarks">
-
-    <div class="page-header">
-        <div>
-            <div class="page-title-small">Bookmarks</div>
-            <h1>Bookmarks</h1>
-            <p>Your saved accounting pages and records.</p>
-        </div>
-    </div>
-
-    <div class="module-card">
-
-        <div class="module-title">
-
-            <i class="fa-regular fa-bookmark"></i>
-
-            <div>
-                <h2>Saved Items</h2>
-                <p>Your bookmarked items will appear here.</p>
-            </div>
-
-        </div>
-
-    </div>
-
-</section>
-
-
-<!-- =====================================================
-     RECENT
-===================================================== -->
-
-<!-- <section class="module-page" id="page-recent">
-
-    <div class="page-header">
-        <div>
-            <div class="page-title-small">Recent</div>
-            <h1>Recent Activity</h1>
-            <p>Your recent accounting activities.</p>
-        </div>
-    </div>
-
-    <div class="panel">
-
-        <div class="panel-body">
-
-            <table class="transaction-table">
-
-                <thead>
-                    <tr>
-                        <th>Date</th>
-                        <th>Description</th>
-                        <th>Type</th>
-                        <th>Amount</th>
-                        <th>Status</th>
-                    </tr>
-                </thead>
-
-                <tbody>
-
-                    <tr>
-                        <td>21 Aug</td>
-                        <td>Customer Invoice #1048</td>
-                        <td>Sales</td>
-                        <td>AED 4,850</td>
-                        <td><span class="status">Open</span></td>
-                    </tr>
-
-                    <tr>
-                        <td>20 Aug</td>
-                        <td>Supplier Payment</td>
-                        <td>Payment</td>
-                        <td>AED 2,300</td>
-                        <td><span class="status">Cleared</span></td>
-                    </tr>
-
-                    <tr>
-                        <td>19 Aug</td>
-                        <td>Cash Deposit</td>
-                        <td>Deposit</td>
-                        <td>AED 7,500</td>
-                        <td><span class="status">Posted</span></td>
-                    </tr>
-
-                    <tr>
-                        <td>18 Aug</td>
-                        <td>Office Expense</td>
-                        <td>Expense</td>
-                        <td>AED 680</td>
-                        <td><span class="status">Posted</span></td>
-                    </tr>
-
-                </tbody>
-
-            </table>
-
-        </div>
-
-    </div>
-
-</section>
-
-
-<!-- =====================================================
-     SETTINGS
-===================================================== -->
-
-<!-- <section class="module-page" id="page-settings">
-
-    <div class="page-header">
-        <div>
-            <div class="page-title-small">Settings</div>
-            <h1>Settings</h1>
-            <p>Manage your account and application settings.</p>
-        </div>
-    </div>
-
-    <div class="module-card">
-
-        <div class="module-title">
-
-            <i class="fa-solid fa-gear"></i>
-
-            <div>
-                <h2>Settings</h2>
-                <p>Configure your accounting dashboard.</p>
-            </div>
-
-        </div>
-
-        <div class="module-actions">
-
-            <button class="module-action">
-                Company Settings
-            </button>
-
-            <button class="module-action">
-                User Settings
-            </button>
-
-            <button class="module-action">
-                Security
-            </button>
-
-            <button class="module-action">
-                Notifications
-            </button>
-
-        </div>
-
-    </div>
-
-</section> -->
 
 
 <!-- =====================================================
      HELP
 ===================================================== -->
 
-<!-- <section class="module-page" id="page-help">
+<section
+    class="module-page"
+    id="page-help"
+>
 
     <div class="page-header">
+
         <div>
-            <div class="page-title-small">Help</div>
-            <h1>Help Center</h1>
-            <p>Get help with your accounting dashboard.</p>
-        </div>
-    </div>
 
-    <div class="module-card">
-
-        <div class="module-title">
-
-            <i class="fa-regular fa-circle-question"></i>
-
-            <div>
-                <h2>How can we help?</h2>
-                <p>Find assistance for your accounting activities.</p>
+            <div class="page-title-small">
+                Support
             </div>
 
-        </div>
+            <h1>
+                Help
+            </h1>
 
-        <div class="module-actions">
-
-            <button class="module-action">
-                User Guide
-            </button>
-
-            <button class="module-action">
-                FAQ
-            </button>
-
-            <button class="module-action">
-                Contact Support
-            </button>
+            <p>
+                Help and support section.
+            </p>
 
         </div>
 
     </div>
 
-</section> -->
+</section>
+
 
 </div>
 </main>
@@ -2581,7 +2046,9 @@ body{
 ========================================================= */
 
 if(localStorage.getItem("isLoggedIn") !== "true"){
+
     window.location.href = "index.html";
+
 }
 
 
@@ -2589,16 +2056,29 @@ if(localStorage.getItem("isLoggedIn") !== "true"){
    ELEMENTS
 ========================================================= */
 
-const mobileMenuBtn = document.getElementById("mobileMenuBtn");
-const mobileDrawer = document.getElementById("mobileDrawer");
-const mobileOverlay = document.getElementById("mobileOverlay");
-const mobileClose = document.getElementById("mobileClose");
+const mobileMenuBtn =
+    document.getElementById("mobileMenuBtn");
 
-const profileIcon = document.getElementById("profileIcon");
-const profileDropdown = document.getElementById("profileDropdown");
+const mobileDrawer =
+    document.getElementById("mobileDrawer");
 
-const logoutBtn = document.getElementById("logoutBtn");
-const mobileLogout = document.getElementById("mobileLogout");
+const mobileOverlay =
+    document.getElementById("mobileOverlay");
+
+const mobileClose =
+    document.getElementById("mobileClose");
+
+const profileIcon =
+    document.getElementById("profileIcon");
+
+const profileDropdown =
+    document.getElementById("profileDropdown");
+
+const logoutBtn =
+    document.getElementById("logoutBtn");
+
+const mobileLogout =
+    document.getElementById("mobileLogout");
 
 
 /* =========================================================
@@ -2608,9 +2088,14 @@ const mobileLogout = document.getElementById("mobileLogout");
 function openMobileMenu(){
 
     mobileDrawer.classList.add("open");
+
     mobileOverlay.classList.add("show");
 
-    document.body.style.overflow = "hidden";
+    mobileDrawer.setAttribute(
+        "aria-hidden",
+        "false"
+    );
+
 }
 
 
@@ -2621,9 +2106,14 @@ function openMobileMenu(){
 function closeMobileMenu(){
 
     mobileDrawer.classList.remove("open");
+
     mobileOverlay.classList.remove("show");
 
-    document.body.style.overflow = "hidden";
+    mobileDrawer.setAttribute(
+        "aria-hidden",
+        "true"
+    );
+
 }
 
 
@@ -2631,39 +2121,54 @@ function closeMobileMenu(){
    MOBILE BUTTON
 ========================================================= */
 
-mobileMenuBtn.addEventListener("click",function(e){
+mobileMenuBtn.addEventListener(
+    "click",
+    function(e){
 
-    e.stopPropagation();
+        e.stopPropagation();
 
-    if(mobileDrawer.classList.contains("open")){
-        closeMobileMenu();
-    }else{
-        openMobileMenu();
+        if(
+            mobileDrawer.classList.contains("open")
+        ){
+
+            closeMobileMenu();
+
+        }else{
+
+            openMobileMenu();
+
+        }
+
     }
-
-});
+);
 
 
 /* =========================================================
    CLOSE BUTTON
 ========================================================= */
 
-mobileClose.addEventListener("click",function(){
+mobileClose.addEventListener(
+    "click",
+    function(){
 
-    closeMobileMenu();
+        closeMobileMenu();
 
-});
+    }
+);
 
 
 /* =========================================================
-   OVERLAY CLOSE
+   OVERLAY
 ========================================================= */
 
-mobileOverlay.addEventListener("click",function(){
+mobileOverlay.addEventListener(
+    "click",
+    function(){
 
-    closeMobileMenu();
+        closeMobileMenu();
 
-});
+    }
+);
 
 
 /* =========================================================
@@ -2672,19 +2177,20 @@ mobileOverlay.addEventListener("click",function(){
 
 function openPage(pageName){
 
-    /* all pages */
+    document
+        .querySelectorAll(".module-page")
+        .forEach(function(page){
 
-    document.querySelectorAll(".module-page").forEach(function(page){
+            page.classList.remove("active");
 
-        page.classList.remove("active");
+        });
 
-    });
-
-
-    /* selected page */
 
     const selectedPage =
-        document.getElementById("page-" + pageName);
+        document.getElementById(
+            "page-" + pageName
+        );
+
 
     if(selectedPage){
 
@@ -2692,57 +2198,73 @@ function openPage(pageName){
 
     }else{
 
-        document.getElementById("page-dashboard")
-            .classList.add("active");
+        const dashboard =
+            document.getElementById(
+                "page-dashboard"
+            );
+
+        if(dashboard){
+
+            dashboard.classList.add("active");
+
+        }
 
         pageName = "dashboard";
 
     }
 
 
-    /* desktop navigation */
+    /* Desktop navigation */
 
-    document.querySelectorAll(".nav-item").forEach(function(item){
+    document
+        .querySelectorAll(".nav-item")
+        .forEach(function(item){
 
-        item.classList.remove("active");
+            item.classList.remove("active");
 
-        if(item.dataset.page === pageName){
+            if(
+                item.dataset.page === pageName
+            ){
 
-            item.classList.add("active");
+                item.classList.add("active");
 
-        }
+            }
 
-    });
-
-
-    /* mobile navigation */
-
-    document.querySelectorAll(".mobile-nav").forEach(function(item){
-
-        item.classList.remove("active");
-
-        if(item.dataset.page === pageName){
-
-            item.classList.add("active");
-
-        }
-
-    });
+        });
 
 
-    /* close mobile menu */
+    /* Mobile navigation */
+
+    document
+        .querySelectorAll(".mobile-nav")
+        .forEach(function(item){
+
+            item.classList.remove("active");
+
+            if(
+                item.dataset.page === pageName
+            ){
+
+                item.classList.add("active");
+
+            }
+
+        });
+
 
     closeMobileMenu();
-
-
-    /* close profile */
 
     profileDropdown.classList.remove("show");
 
 
-    /* scroll to top */
+    const content =
+        document.querySelector(".content");
 
-    document.querySelector(".content").scrollTop = 0;
+    if(content){
+
+        content.scrollTop = 0;
+
+    }
 
 }
 
@@ -2751,85 +2273,142 @@ function openPage(pageName){
    DESKTOP NAVIGATION
 ========================================================= */
 
-document.querySelectorAll(".nav-item").forEach(function(item){
+document
+    .querySelectorAll(".nav-item")
+    .forEach(function(item){
 
-    item.addEventListener("click",function(){
+        item.addEventListener(
+            "click",
+            function(){
 
-        openPage(item.dataset.page);
+                openPage(
+                    item.dataset.page
+                );
+
+            }
+        );
 
     });
-
-});
 
 
 /* =========================================================
    MOBILE NAVIGATION
 ========================================================= */
 
-document.querySelectorAll(".mobile-nav").forEach(function(item){
+document
+    .querySelectorAll(".mobile-nav")
+    .forEach(function(item){
 
-    item.addEventListener("click",function(){
+        item.addEventListener(
+            "click",
+            function(){
 
-        openPage(item.dataset.page);
+                openPage(
+                    item.dataset.page
+                );
+
+            }
+        );
 
     });
-
-});
 
 
 /* =========================================================
-   ALL DATA-PAGE BUTTONS
+   OTHER DATA-PAGE BUTTONS
 ========================================================= */
 
-document.querySelectorAll("[data-page]").forEach(function(button){
+document
+    .querySelectorAll("[data-page]")
+    .forEach(function(button){
 
-    /* Avoid duplicate event for top nav/mobile nav */
+        if(
+            button.classList.contains("nav-item") ||
+            button.classList.contains("mobile-nav")
+        ){
 
-    if(
-        button.classList.contains("nav-item") ||
-        button.classList.contains("mobile-nav")
-    ){
-        return;
-    }
+            return;
 
-    button.addEventListener("click",function(){
+        }
 
-        openPage(button.dataset.page);
+
+        button.addEventListener(
+            "click",
+            function(){
+
+                openPage(
+                    button.dataset.page
+                );
+
+            }
+        );
 
     });
-
-});
 
 
 /* =========================================================
    PROFILE DROPDOWN
 ========================================================= */
 
-profileIcon.addEventListener("click",function(e){
+profileIcon.addEventListener(
+    "click",
+    function(e){
 
-    e.stopPropagation();
+        e.stopPropagation();
 
-    profileDropdown.classList.toggle("show");
+        profileDropdown.classList.toggle(
+            "show"
+        );
 
-});
+    }
+);
 
 
 /* =========================================================
-   CLOSE PROFILE WHEN CLICKING OUTSIDE
+   PROFILE KEYBOARD
 ========================================================= */
 
-document.addEventListener("click",function(e){
+profileIcon.addEventListener(
+    "keydown",
+    function(e){
 
-    if(
-        !profileDropdown.contains(e.target) &&
-        !profileIcon.contains(e.target)
-    ){
+        if(
+            e.key === "Enter" ||
+            e.key === " "
+        ){
 
-        profileDropdown.classList.remove("show");
+            e.preventDefault();
+
+            profileDropdown.classList.toggle(
+                "show"
+            );
+
+        }
 
     }
+);
 
-});
+
+/* =========================================================
+   CLOSE PROFILE
+========================================================= */
+
+document.addEventListener(
+    "click",
+    function(e){
+
+        if(
+            !profileDropdown.contains(e.target) &&
+            !profileIcon.contains(e.target)
+        ){
+
+            profileDropdown.classList.remove(
+                "show"
+            );
+
+        }
+
+    }
+);
 
 
 /* =========================================================
@@ -2838,18 +2417,30 @@ document.addEventListener("click",function(e){
 
 function logout(){
 
-    localStorage.setItem("isLoggedIn","false");
+    localStorage.setItem(
+        "isLoggedIn",
+        "false"
+    );
 
-    localStorage.removeItem("userEmail");
+    localStorage.removeItem(
+        "userEmail"
+    );
 
-    window.location.href = "index.html";
+    window.location.href =
+        "index.html";
 
 }
 
 
-logoutBtn.addEventListener("click",logout);
+logoutBtn.addEventListener(
+    "click",
+    logout
+);
 
-mobileLogout.addEventListener("click",logout);
+mobileLogout.addEventListener(
+    "click",
+    logout
+);
 
 
 /* =========================================================
@@ -2866,8 +2457,18 @@ function updateDate(){
         year:"numeric"
     };
 
-    document.getElementById("date").innerText =
-        now.toLocaleDateString("en-GB",options);
+    const dateElement =
+        document.getElementById("date");
+
+    if(dateElement){
+
+        dateElement.innerText =
+            now.toLocaleDateString(
+                "en-GB",
+                options
+            );
+
+    }
 
 }
 
@@ -2878,70 +2479,128 @@ updateDate();
    TODO LIST
 ========================================================= */
 
-let todos =
-    JSON.parse(localStorage.getItem("todos")) || [];
+let todos = [];
 
+try{
+
+    todos =
+        JSON.parse(
+            localStorage.getItem("todos")
+        ) || [];
+
+    if(!Array.isArray(todos)){
+
+        todos = [];
+
+    }
+
+}catch(error){
+
+    todos = [];
+
+}
+
+
+/* =========================================================
+   RENDER TODO
+========================================================= */
 
 function renderTodos(){
 
     const list =
-        document.getElementById("todoList");
+        document.getElementById(
+            "todoList"
+        );
+
+    if(!list){
+
+        return;
+
+    }
 
     list.innerHTML = "";
 
 
-    todos.forEach(function(todo,index){
+    todos.forEach(
+        function(todo,index){
 
-        const li =
-            document.createElement("li");
+            const li =
+                document.createElement("li");
 
-        if(todo.completed){
 
-            li.classList.add("completed");
+            if(todo.completed){
+
+                li.classList.add(
+                    "completed"
+                );
+
+            }
+
+
+            const span =
+                document.createElement("span");
+
+            span.innerText =
+                todo.text;
+
+
+            span.addEventListener(
+                "click",
+                function(){
+
+                    toggleTodo(index);
+
+                }
+            );
+
+
+            const actions =
+                document.createElement("div");
+
+            actions.className =
+                "todo-actions";
+
+
+            const trash =
+                document.createElement("i");
+
+            trash.className =
+                "fa-solid fa-trash";
+
+            trash.setAttribute(
+                "title",
+                "Delete"
+            );
+
+
+            trash.addEventListener(
+                "click",
+                function(){
+
+                    deleteTodo(index);
+
+                }
+            );
+
+
+            actions.appendChild(
+                trash
+            );
+
+            li.appendChild(
+                span
+            );
+
+            li.appendChild(
+                actions
+            );
+
+            list.appendChild(
+                li
+            );
 
         }
-
-
-        const span =
-            document.createElement("span");
-
-        span.innerText = todo.text;
-
-        span.addEventListener("click",function(){
-
-            toggleTodo(index);
-
-        });
-
-
-        const actions =
-            document.createElement("div");
-
-        actions.className = "todo-actions";
-
-
-        const trash =
-            document.createElement("i");
-
-        trash.className =
-            "fa-solid fa-trash";
-
-        trash.addEventListener("click",function(){
-
-            deleteTodo(index);
-
-        });
-
-
-        actions.appendChild(trash);
-
-        li.appendChild(span);
-
-        li.appendChild(actions);
-
-        list.appendChild(li);
-
-    });
+    );
 
 
     localStorage.setItem(
@@ -2959,13 +2618,24 @@ function renderTodos(){
 function addTodo(){
 
     const input =
-        document.getElementById("todoInput");
+        document.getElementById(
+            "todoInput"
+        );
+
+    if(!input){
+
+        return;
+
+    }
+
 
     const text =
         input.value.trim();
 
 
     if(text === ""){
+
+        input.focus();
 
         return;
 
@@ -2985,6 +2655,8 @@ function addTodo(){
 
     renderTodos();
 
+    input.focus();
+
 }
 
 
@@ -2993,6 +2665,14 @@ function addTodo(){
 ========================================================= */
 
 function toggleTodo(index){
+
+    if(
+        !todos[index]
+    ){
+
+        return;
+
+    }
 
     todos[index].completed =
         !todos[index].completed;
@@ -3008,31 +2688,84 @@ function toggleTodo(index){
 
 function deleteTodo(index){
 
-    todos.splice(index,1);
+    todos.splice(
+        index,
+        1
+    );
 
     renderTodos();
 
 }
 
 
-document
-    .getElementById("addTodoBtn")
-    .addEventListener("click",addTodo);
+/* =========================================================
+   ADD BUTTON
+========================================================= */
+
+const addTodoBtn =
+    document.getElementById(
+        "addTodoBtn"
+    );
+
+if(addTodoBtn){
+
+    addTodoBtn.addEventListener(
+        "click",
+        addTodo
+    );
+
+}
 
 
-/* ENTER KEY FOR TODO */
+/* =========================================================
+   ENTER KEY
+========================================================= */
 
-document
-    .getElementById("todoInput")
-    .addEventListener("keydown",function(e){
+const todoInput =
+    document.getElementById(
+        "todoInput"
+    );
 
-        if(e.key === "Enter"){
+if(todoInput){
 
-            addTodo();
+    todoInput.addEventListener(
+        "keydown",
+        function(e){
+
+            if(e.key === "Enter"){
+
+                e.preventDefault();
+
+                addTodo();
+
+            }
+
+        }
+    );
+
+}
+
+
+/* =========================================================
+   ESCAPE KEY
+========================================================= */
+
+document.addEventListener(
+    "keydown",
+    function(e){
+
+        if(e.key === "Escape"){
+
+            closeMobileMenu();
+
+            profileDropdown.classList.remove(
+                "show"
+            );
 
         }
 
-    });
+    }
+);
 
 
 /* =========================================================
@@ -3043,14 +2776,11 @@ renderTodos();
 
 openPage("dashboard");
 
+closeMobileMenu();
 
-/* =========================================================
-   PREVENT MOBILE DRAWER FROM SHOWING ON LOAD
-========================================================= */
-
-mobileDrawer.classList.remove("open");
-
-mobileOverlay.classList.remove("show");
+profileDropdown.classList.remove(
+    "show"
+);
 
 </script>
 
