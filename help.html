@@ -1,0 +1,2872 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <title>Help Center - Younes App</title>
+
+    <link rel="icon" href="images/blacklo.png">
+
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
+
+    <style>
+        /* =========================================================
+   GLOBAL
+========================================================= */
+
+        :root {
+            --green: #003626;
+            --green2: #07563f;
+            --green3: #006b4f;
+            --green-light: #eaf6f0;
+
+            --text: #17212b;
+            --muted: #667085;
+            --border: #e5e7eb;
+            --bg: #f5f7f9;
+            --white: #ffffff;
+
+            --danger: #dc2626;
+
+            --shadow: 0 5px 20px rgba(15, 23, 42, .07);
+            --shadow-lg: 0 15px 45px rgba(15, 23, 42, .12);
+        }
+
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+            font-family: "Segoe UI", Arial, sans-serif;
+        }
+
+        html,
+        body {
+            width: 100%;
+            min-height: 100%;
+        }
+
+        body {
+            background: var(--bg);
+            color: var(--text);
+        }
+
+
+        /* =========================================================
+   APP
+========================================================= */
+
+        .app {
+            width: 100%;
+            min-height: 100vh;
+        }
+
+
+        /* =========================================================
+   HEADER
+========================================================= */
+
+        .header {
+            height: 72px;
+            background: #fff;
+            border-bottom: 1px solid var(--border);
+
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+
+            padding: 0 28px;
+
+            position: sticky;
+            top: 0;
+            z-index: 1000;
+        }
+
+        .header-left {
+            display: flex;
+            align-items: center;
+            gap: 14px;
+        }
+
+        .logo {
+            width: 48px;
+            height: 48px;
+            object-fit: contain;
+        }
+
+        .header-title {
+            display: flex;
+            flex-direction: column;
+        }
+
+        .header-title strong {
+            font-size: 15px;
+            color: var(--text);
+        }
+
+        .header-title span {
+            font-size: 10px;
+            color: var(--muted);
+            margin-top: 2px;
+        }
+
+        .header-right {
+            display: flex;
+            align-items: center;
+            gap: 10px;
+        }
+
+        .back-btn {
+            height: 40px;
+            padding: 0 14px;
+
+            border: 1px solid var(--border);
+            background: #fff;
+            border-radius: 7px;
+
+            cursor: pointer;
+
+            display: flex;
+            align-items: center;
+            gap: 8px;
+
+            color: #344054;
+            font-size: 12px;
+            font-weight: 600;
+
+            transition: .2s;
+        }
+
+        .back-btn:hover {
+            background: var(--green-light);
+            color: var(--green2);
+            border-color: #c8ded4;
+        }
+
+
+        /* =========================================================
+   MAIN
+========================================================= */
+
+        .main {
+            width: 100%;
+            max-width: 1500px;
+            margin: auto;
+
+            padding: 25px;
+        }
+
+
+        /* =========================================================
+   HERO
+========================================================= */
+
+        .hero {
+            background:
+                linear-gradient(135deg,
+                    #003626 0%,
+                    #07563f 55%,
+                    #0b7055 100%);
+
+            border-radius: 14px;
+
+            padding: 35px;
+
+            color: white;
+
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+
+            gap: 30px;
+
+            margin-bottom: 22px;
+
+            box-shadow: var(--shadow-lg);
+
+            overflow: hidden;
+
+            position: relative;
+        }
+
+        .hero::after {
+            content: "";
+
+            position: absolute;
+
+            width: 300px;
+            height: 300px;
+
+            right: -100px;
+            top: -120px;
+
+            border-radius: 50%;
+
+            background: rgba(255, 255, 255, .07);
+        }
+
+        .hero-content {
+            position: relative;
+            z-index: 2;
+        }
+
+        .hero-label {
+            font-size: 10px;
+            text-transform: uppercase;
+            letter-spacing: 1.5px;
+            opacity: .75;
+
+            margin-bottom: 8px;
+        }
+
+        .hero h1 {
+            font-size: 30px;
+            line-height: 1.2;
+
+            margin-bottom: 10px;
+        }
+
+        .hero p {
+            max-width: 650px;
+
+            font-size: 13px;
+            line-height: 1.7;
+
+            opacity: .88;
+        }
+
+        .ai-hero-icon {
+            width: 105px;
+            height: 105px;
+
+            border-radius: 50%;
+
+            background: rgba(255, 255, 255, .13);
+
+            border: 1px solid rgba(255, 255, 255, .2);
+
+            display: flex;
+            align-items: center;
+            justify-content: center;
+
+            font-size: 45px;
+
+            position: relative;
+            z-index: 2;
+        }
+
+
+        /* =========================================================
+   LAYOUT
+========================================================= */
+
+        .help-layout {
+            display: grid;
+
+            grid-template-columns:
+                minmax(0, 1.25fr) minmax(350px, .75fr);
+
+            gap: 20px;
+
+            align-items: start;
+        }
+
+
+        /* =========================================================
+   PANEL
+========================================================= */
+
+        .panel {
+            background: #fff;
+
+            border: 1px solid var(--border);
+
+            border-radius: 12px;
+
+            box-shadow: var(--shadow);
+
+            overflow: hidden;
+        }
+
+        .panel-header {
+            min-height: 58px;
+
+            padding: 0 18px;
+
+            border-bottom: 1px solid #edf0f2;
+
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+        }
+
+        .panel-header-left {
+            display: flex;
+            align-items: center;
+            gap: 10px;
+        }
+
+        .panel-header-left i {
+            color: var(--green2);
+        }
+
+        .panel-header h2 {
+            font-size: 15px;
+        }
+
+        .panel-header p {
+            font-size: 10px;
+            color: var(--muted);
+        }
+
+
+        /* =========================================================
+   SEARCH
+========================================================= */
+
+        .search-area {
+            padding: 18px;
+
+            border-bottom: 1px solid #edf0f2;
+        }
+
+        .search-box {
+            height: 45px;
+
+            border: 1px solid #dce2e7;
+
+            border-radius: 8px;
+
+            display: flex;
+            align-items: center;
+
+            padding: 0 13px;
+
+            gap: 10px;
+
+            background: #fff;
+
+            transition: .2s;
+        }
+
+        .search-box:focus-within {
+            border-color: #65a58c;
+            box-shadow: 0 0 0 3px rgba(7, 86, 63, .07);
+        }
+
+        .search-box i {
+            color: #98a2b3;
+        }
+
+        .search-box input {
+            width: 100%;
+
+            border: 0;
+            outline: 0;
+
+            font-size: 13px;
+
+            color: var(--text);
+        }
+
+
+        /* =========================================================
+   HELP CATEGORIES
+========================================================= */
+
+        .help-categories {
+            padding: 18px;
+
+            display: grid;
+
+            grid-template-columns:
+                repeat(2, 1fr);
+
+            gap: 12px;
+        }
+
+        .help-card {
+            border: 1px solid #e6eaed;
+
+            border-radius: 9px;
+
+            padding: 17px;
+
+            cursor: pointer;
+
+            transition: .2s;
+
+            background: #fff;
+        }
+
+        .help-card:hover {
+            transform: translateY(-2px);
+
+            border-color: #bcd7ca;
+
+            background: #fbfefc;
+
+            box-shadow: 0 8px 20px rgba(15, 23, 42, .06);
+        }
+
+        .help-card-icon {
+            width: 38px;
+            height: 38px;
+
+            border-radius: 8px;
+
+            background: var(--green-light);
+
+            display: flex;
+            align-items: center;
+            justify-content: center;
+
+            color: var(--green2);
+
+            margin-bottom: 11px;
+        }
+
+        .help-card h3 {
+            font-size: 13px;
+
+            margin-bottom: 5px;
+        }
+
+        .help-card p {
+            font-size: 10px;
+
+            line-height: 1.5;
+
+            color: var(--muted);
+        }
+
+
+        /* =========================================================
+   FAQ
+========================================================= */
+
+        .faq-section {
+            padding: 0 18px 18px;
+        }
+
+        .faq-title {
+            font-size: 13px;
+            margin-bottom: 10px;
+        }
+
+        .faq {
+            border: 1px solid #e7eaed;
+
+            border-radius: 8px;
+
+            margin-bottom: 7px;
+
+            overflow: hidden;
+        }
+
+        .faq-question {
+            width: 100%;
+
+            border: 0;
+
+            background: #fff;
+
+            min-height: 45px;
+
+            padding: 0 13px;
+
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+
+            cursor: pointer;
+
+            text-align: left;
+
+            font-size: 12px;
+            font-weight: 600;
+
+            color: #344054;
+        }
+
+        .faq-question i {
+            font-size: 10px;
+
+            transition: .2s;
+
+            color: #667085;
+        }
+
+        .faq-answer {
+            display: none;
+
+            padding: 0 13px 13px;
+
+            font-size: 11px;
+
+            line-height: 1.7;
+
+            color: var(--muted);
+
+            background: #fff;
+        }
+
+        .faq.open .faq-answer {
+            display: block;
+        }
+
+        .faq.open .faq-question i {
+            transform: rotate(180deg);
+        }
+
+
+        /* =========================================================
+   AI ASSISTANT
+========================================================= */
+
+        .ai-panel {
+            position: sticky;
+            top: 92px;
+        }
+
+        .ai-status {
+            display: flex;
+            align-items: center;
+            gap: 6px;
+
+            font-size: 10px;
+            color: #667085;
+        }
+
+        .status-dot {
+            width: 7px;
+            height: 7px;
+
+            border-radius: 50%;
+
+            background: #16a34a;
+
+            box-shadow: 0 0 0 3px #dcfce7;
+        }
+
+
+        /* =========================================================
+   CHAT
+========================================================= */
+
+        .chat-container {
+            height: 500px;
+
+            display: flex;
+            flex-direction: column;
+        }
+
+        .chat-messages {
+            flex: 1;
+
+            overflow-y: auto;
+
+            padding: 18px;
+
+            background: #fafbfc;
+
+            scroll-behavior: smooth;
+        }
+
+        .chat-welcome {
+            text-align: center;
+
+            padding: 15px 10px 20px;
+        }
+
+        .ai-avatar {
+            width: 48px;
+            height: 48px;
+
+            border-radius: 50%;
+
+            margin: 0 auto 10px;
+
+            background: var(--green-light);
+
+            color: var(--green2);
+
+            display: flex;
+            align-items: center;
+            justify-content: center;
+
+            font-size: 22px;
+        }
+
+        .chat-welcome h3 {
+            font-size: 14px;
+            margin-bottom: 5px;
+        }
+
+        .chat-welcome p {
+            font-size: 10px;
+            color: var(--muted);
+
+            line-height: 1.6;
+        }
+
+
+        /* =========================================================
+   MESSAGE
+========================================================= */
+
+        .message {
+            display: flex;
+
+            margin-bottom: 13px;
+
+            animation: messageIn .25s ease;
+        }
+
+        @keyframes messageIn {
+            from {
+                opacity: 0;
+                transform: translateY(5px);
+            }
+
+            to {
+                opacity: 1;
+                transform: translateY(0);
+            }
+        }
+
+        .message.user {
+            justify-content: flex-end;
+        }
+
+        .message-content {
+            max-width: 82%;
+        }
+
+        .message-bubble {
+            padding: 10px 12px;
+
+            border-radius: 10px;
+
+            font-size: 11px;
+
+            line-height: 1.6;
+
+            word-wrap: break-word;
+        }
+
+        .message.ai .message-bubble {
+            background: #fff;
+
+            border: 1px solid #e3e7ea;
+
+            color: #344054;
+
+            border-top-left-radius: 3px;
+        }
+
+        .message.user .message-bubble {
+            background: var(--green2);
+
+            color: #fff;
+
+            border-top-right-radius: 3px;
+        }
+
+        .message-time {
+            font-size: 8px;
+
+            color: #98a2b3;
+
+            margin-top: 4px;
+        }
+
+        .message.user .message-time {
+            text-align: right;
+        }
+
+
+        /* =========================================================
+   TYPING
+========================================================= */
+
+        .typing {
+            display: flex;
+            align-items: center;
+
+            gap: 4px;
+        }
+
+        .typing span {
+            width: 5px;
+            height: 5px;
+
+            border-radius: 50%;
+
+            background: #98a2b3;
+
+            animation: typing .9s infinite;
+        }
+
+        .typing span:nth-child(2) {
+            animation-delay: .15s;
+        }
+
+        .typing span:nth-child(3) {
+            animation-delay: .3s;
+        }
+
+        @keyframes typing {
+
+            0%,
+            60%,
+            100% {
+                transform: translateY(0);
+            }
+
+            30% {
+                transform: translateY(-4px);
+            }
+
+        }
+
+
+        /* =========================================================
+   SUGGESTIONS
+========================================================= */
+
+        .suggestions {
+            padding: 10px 15px;
+
+            display: flex;
+
+            gap: 6px;
+
+            overflow-x: auto;
+
+            border-top: 1px solid #edf0f2;
+
+            background: #fff;
+        }
+
+        .suggestion {
+            flex-shrink: 0;
+
+            border: 1px solid #dce4df;
+
+            background: #fff;
+
+            border-radius: 20px;
+
+            padding: 7px 10px;
+
+            font-size: 9px;
+
+            color: #344054;
+
+            cursor: pointer;
+
+            transition: .2s;
+        }
+
+        .suggestion:hover {
+            background: var(--green-light);
+            color: var(--green2);
+            border-color: #bcd7ca;
+        }
+
+
+        /* =========================================================
+   CHAT INPUT
+========================================================= */
+
+        .chat-input-area {
+            padding: 12px;
+
+            border-top: 1px solid #edf0f2;
+
+            background: #fff;
+        }
+
+        .chat-input {
+            display: flex;
+
+            gap: 7px;
+        }
+
+        .chat-input input {
+            flex: 1;
+
+            height: 42px;
+
+            border: 1px solid #dce2e7;
+
+            border-radius: 8px;
+
+            padding: 0 12px;
+
+            outline: 0;
+
+            font-size: 11px;
+        }
+
+        .chat-input input:focus {
+            border-color: #65a58c;
+        }
+
+        .send-btn {
+            width: 43px;
+            height: 42px;
+
+            border: 0;
+
+            border-radius: 8px;
+
+            background: var(--green2);
+
+            color: #fff;
+
+            cursor: pointer;
+
+            transition: .2s;
+        }
+
+        .send-btn:hover {
+            background: #064a38;
+        }
+
+        .send-btn:disabled {
+            opacity: .5;
+            cursor: not-allowed;
+        }
+
+        .chat-tools {
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+
+            margin-top: 7px;
+        }
+
+        .chat-tools span {
+            font-size: 8px;
+            color: #98a2b3;
+        }
+
+        .clear-chat {
+            border: 0;
+            background: none;
+
+            color: #667085;
+
+            cursor: pointer;
+
+            font-size: 9px;
+        }
+
+        .clear-chat:hover {
+            color: var(--danger);
+        }
+
+
+        /* =========================================================
+   DEVELOPER
+========================================================= */
+
+        .developer-panel {
+            margin-top: 20px;
+        }
+
+        .developer-body {
+            padding: 20px;
+
+            display: flex;
+
+            align-items: center;
+
+            gap: 20px;
+        }
+
+        .developer-photo {
+            width: 85px;
+            height: 85px;
+
+            min-width: 85px;
+
+            border-radius: 50%;
+
+            overflow: hidden;
+
+            border: 3px solid var(--green2);
+
+            background: var(--green-light);
+        }
+
+        .developer-photo img {
+            width: 100%;
+            height: 100%;
+
+            object-fit: cover;
+        }
+
+        .developer-info {
+            flex: 1;
+        }
+
+        .developer-info small {
+            display: block;
+
+            color: #8a949e;
+
+            text-transform: uppercase;
+
+            font-size: 8px;
+
+            letter-spacing: 1px;
+
+            font-weight: 700;
+
+            margin-bottom: 4px;
+        }
+
+        .developer-info h2 {
+            font-size: 18px;
+
+            margin-bottom: 4px;
+        }
+
+        .developer-info p {
+            color: var(--muted);
+
+            font-size: 11px;
+
+            line-height: 1.6;
+        }
+
+        .developer-links {
+            display: flex;
+
+            gap: 7px;
+
+            margin-top: 10px;
+        }
+
+        .developer-link {
+            height: 32px;
+
+            padding: 0 11px;
+
+            border: 1px solid var(--border);
+
+            border-radius: 6px;
+
+            background: #fff;
+
+            display: flex;
+
+            align-items: center;
+
+            gap: 6px;
+
+            color: #344054;
+
+            text-decoration: none;
+
+            font-size: 9px;
+
+            transition: .2s;
+        }
+
+        .developer-link:hover {
+            background: var(--green-light);
+
+            color: var(--green2);
+
+            border-color: #bcd7ca;
+        }
+
+
+        /* =========================================================
+   QUICK CONTACT
+========================================================= */
+
+        .contact-grid {
+            padding: 18px;
+
+            display: grid;
+
+            grid-template-columns:
+                repeat(3, 1fr);
+
+            gap: 10px;
+        }
+
+        .contact-item {
+            border: 1px solid #e7eaed;
+
+            border-radius: 8px;
+
+            padding: 13px;
+
+            display: flex;
+
+            align-items: center;
+
+            gap: 10px;
+        }
+
+        .contact-icon {
+            width: 34px;
+            height: 34px;
+
+            border-radius: 7px;
+
+            background: var(--green-light);
+
+            color: var(--green2);
+
+            display: flex;
+            align-items: center;
+            justify-content: center;
+        }
+
+        .contact-item strong {
+            display: block;
+
+            font-size: 10px;
+        }
+
+        .contact-item span {
+            display: block;
+
+            font-size: 9px;
+
+            color: var(--muted);
+
+            margin-top: 2px;
+
+            word-break: break-word;
+        }
+
+
+        /* =========================================================
+   MOBILE
+========================================================= */
+
+        @media(max-width:1000px) {
+
+            .help-layout {
+                grid-template-columns: 1fr;
+            }
+
+            .ai-panel {
+                position: relative;
+                top: auto;
+            }
+
+            .chat-container {
+                height: 550px;
+            }
+
+        }
+
+
+        @media(max-width:700px) {
+
+            .header {
+                height: 62px;
+                padding: 0 13px;
+            }
+
+            .logo {
+                width: 40px;
+                height: 40px;
+            }
+
+            .header-title strong {
+                font-size: 13px;
+            }
+
+            .back-btn span {
+                display: none;
+            }
+
+            .back-btn {
+                width: 38px;
+                padding: 0;
+
+                justify-content: center;
+            }
+
+            .main {
+                padding: 13px;
+            }
+
+            .hero {
+                padding: 25px 20px;
+
+                min-height: 190px;
+            }
+
+            .hero h1 {
+                font-size: 23px;
+            }
+
+            .hero p {
+                font-size: 11px;
+            }
+
+            .ai-hero-icon {
+                width: 70px;
+                height: 70px;
+
+                min-width: 70px;
+
+                font-size: 28px;
+            }
+
+            .help-categories {
+                grid-template-columns: 1fr;
+            }
+
+            .developer-body {
+                flex-direction: column;
+
+                align-items: flex-start;
+            }
+
+            .contact-grid {
+                grid-template-columns: 1fr;
+            }
+
+            .chat-container {
+                height: 520px;
+            }
+
+        }
+
+
+        @media(max-width:450px) {
+
+            .hero {
+                flex-direction: column;
+
+                align-items: flex-start;
+            }
+
+            .ai-hero-icon {
+                display: none;
+            }
+
+            .message-content {
+                max-width: 90%;
+            }
+
+        }
+
+
+        /* =========================================================
+   NO RESULTS
+========================================================= */
+
+        .no-results {
+            padding: 25px;
+
+            text-align: center;
+
+            color: #98a2b3;
+
+            font-size: 11px;
+
+            display: none;
+        }
+    </style>
+</head>
+
+
+<body>
+
+    <div class="app">
+
+
+        <!-- =====================================================
+     HEADER
+===================================================== -->
+
+        <header class="header">
+
+            <div class="header-left">
+
+                <img src="images/blacklo.png" class="logo" alt="Younes App">
+
+                <div class="header-title">
+
+                    <strong>
+                        Younes App
+                    </strong>
+
+                    <span>
+                        Help Center
+                    </span>
+
+                </div>
+
+            </div>
+
+
+            <div class="header-right">
+
+                <button class="back-btn" onclick="goBack()">
+
+                    <i class="fa-solid fa-arrow-left"></i>
+
+                    <span>
+                        Back to App
+                    </span>
+
+                </button>
+
+            </div>
+
+        </header>
+
+
+
+        <!-- =====================================================
+     MAIN
+===================================================== -->
+
+        <main class="main">
+
+
+            <!-- =====================================================
+     HERO
+===================================================== -->
+
+            <section class="hero">
+
+                <div class="hero-content">
+
+                    <div class="hero-label">
+                        Younes App Support
+                    </div>
+
+                    <h1>
+                        How can we help you?
+                    </h1>
+
+                    <p>
+                        Find answers, explore help topics, or ask our AI
+                        Assistant for help with Younes App, accounts,
+                        luggage management, ATM cards, lists and more.
+                    </p>
+
+                </div>
+
+
+                <div class="ai-hero-icon">
+
+                    <i class="fa-solid fa-wand-magic-sparkles"></i>
+
+                </div>
+
+            </section>
+
+
+
+            <!-- =====================================================
+     HELP + AI
+===================================================== -->
+
+            <div class="help-layout">
+
+
+                <!-- =====================================================
+     LEFT HELP CENTER
+===================================================== -->
+
+                <section class="panel">
+
+
+                    <div class="panel-header">
+
+                        <div class="panel-header-left">
+
+                            <i class="fa-solid fa-circle-question"></i>
+
+                            <div>
+
+                                <h2>
+                                    Help Center
+                                </h2>
+
+                                <p>
+                                    Browse support topics
+                                </p>
+
+                            </div>
+
+                        </div>
+
+                    </div>
+
+
+
+                    <!-- SEARCH -->
+
+                    <div class="search-area">
+
+                        <div class="search-box">
+
+                            <i class="fa-solid fa-magnifying-glass"></i>
+
+                            <input type="text" id="helpSearch" placeholder="Search help topics..." autocomplete="off">
+
+                        </div>
+
+                    </div>
+
+
+
+                    <!-- CATEGORIES -->
+
+                    <div class="help-categories" id="helpCategories">
+
+
+                        <div class="help-card" data-search="dashboard home dashboard company information todo"
+                            onclick="askAI('How do I use the Home Dashboard?')">
+
+                            <div class="help-card-icon">
+
+                                <i class="fa-solid fa-house"></i>
+
+                            </div>
+
+                            <h3>
+                                Dashboard
+                            </h3>
+
+                            <p>
+                                Learn how to use the home dashboard,
+                                company information and to-do list.
+                            </p>
+
+                        </div>
+
+
+
+                        <div class="help-card" data-search="accounts accounting google sheets accounts"
+                            onclick="askAI('How does the Accounts section work?')">
+
+                            <div class="help-card-icon">
+
+                                <i class="fa-solid fa-file-invoice"></i>
+
+                            </div>
+
+                            <h3>
+                                Accounts
+                            </h3>
+
+                            <p>
+                                Get help with your accounting section
+                                and connected spreadsheet.
+                            </p>
+
+                        </div>
+
+
+
+                        <div class="help-card" data-search="ht luggage luggage ht"
+                            onclick="askAI('How do I use HT Luggage?')">
+
+                            <div class="help-card-icon">
+
+                                <i class="fa-solid fa-suitcase"></i>
+
+                            </div>
+
+                            <h3>
+                                HT Luggage
+                            </h3>
+
+                            <p>
+                                Manage and view HT luggage information
+                                and related records.
+                            </p>
+
+                        </div>
+
+
+
+                        <div class="help-card" data-search="it luggage luggage it"
+                            onclick="askAI('How do I use IT Luggage?')">
+
+                            <div class="help-card-icon">
+
+                                <i class="fa-solid fa-briefcase"></i>
+
+                            </div>
+
+                            <h3>
+                                IT Luggage
+                            </h3>
+
+                            <p>
+                                Access IT luggage management and
+                                related information.
+                            </p>
+
+                        </div>
+
+
+
+                        <div class="help-card" data-search="atm card atm cards cards"
+                            onclick="askAI('How do I manage ATM Cards?')">
+
+                            <div class="help-card-icon">
+
+                                <i class="fa-solid fa-credit-card"></i>
+
+                            </div>
+
+                            <h3>
+                                ATM Cards
+                            </h3>
+
+                            <p>
+                                Learn how to open and manage the
+                                ATM Cards section.
+                            </p>
+
+                        </div>
+
+
+
+                        <div class="help-card" data-search="lists products product list inventory"
+                            onclick="askAI('How do I use the Lists section?')">
+
+                            <div class="help-card-icon">
+
+                                <i class="fa-solid fa-list"></i>
+
+                            </div>
+
+                            <h3>
+                                Lists
+                            </h3>
+
+                            <p>
+                                Manage products and information using
+                                the Lists module.
+                            </p>
+
+                        </div>
+
+
+
+                        <div class="help-card" data-search="profile logout login account"
+                            onclick="askAI('How do I manage my profile and logout?')">
+
+                            <div class="help-card-icon">
+
+                                <i class="fa-solid fa-user"></i>
+
+                            </div>
+
+                            <h3>
+                                Profile & Security
+                            </h3>
+
+                            <p>
+                                Learn about your profile, login session
+                                and logout options.
+                            </p>
+
+                        </div>
+
+
+
+                        <div class="help-card" data-search="developer support contact software developer"
+                            onclick="askAI('How can I contact the developer?')">
+
+                            <div class="help-card-icon">
+
+                                <i class="fa-solid fa-code"></i>
+
+                            </div>
+
+                            <h3>
+                                Developer Support
+                            </h3>
+
+                            <p>
+                                Contact the developer for technical
+                                support and customization.
+                            </p>
+
+                        </div>
+
+
+                    </div>
+
+
+                    <div class="no-results" id="noResults">
+
+                        <i class="fa-solid fa-magnifying-glass"></i>
+
+                        <br><br>
+
+                        No matching help topics found.
+
+                    </div>
+
+
+
+                    <!-- =================================================
+         FAQ
+    ================================================== -->
+
+                    <div class="faq-section">
+
+                        <div class="faq-title">
+                            Frequently Asked Questions
+                        </div>
+
+
+
+                        <div class="faq">
+
+                            <button class="faq-question" onclick="toggleFAQ(this)">
+
+                                How do I return to the Home Dashboard?
+
+                                <i class="fa-solid fa-chevron-down"></i>
+
+                            </button>
+
+                            <div class="faq-answer">
+
+                                Click the Back to App button at the top.
+                                You can then use the Home option in the
+                                main navigation to return to the dashboard.
+
+                            </div>
+
+                        </div>
+
+
+
+                        <div class="faq">
+
+                            <button class="faq-question" onclick="toggleFAQ(this)">
+
+                                How do I open the Accounts section?
+
+                                <i class="fa-solid fa-chevron-down"></i>
+
+                            </button>
+
+                            <div class="faq-answer">
+
+                                Open the main Younes App navigation and
+                                select Accounts. The Accounts module loads
+                                the connected spreadsheet inside the application.
+
+                            </div>
+
+                        </div>
+
+
+
+                        <div class="faq">
+
+                            <button class="faq-question" onclick="toggleFAQ(this)">
+
+                                How can I logout?
+
+                                <i class="fa-solid fa-chevron-down"></i>
+
+                            </button>
+
+                            <div class="faq-answer">
+
+                                Open your profile menu and select Logout.
+                                Your current login session will be removed
+                                from local storage.
+
+                            </div>
+
+                        </div>
+
+
+
+                        <div class="faq">
+
+                            <button class="faq-question" onclick="toggleFAQ(this)">
+
+                                Can the developer customize the application?
+
+                                <i class="fa-solid fa-chevron-down"></i>
+
+                            </button>
+
+                            <div class="faq-answer">
+
+                                Yes. The developer can modify the interface,
+                                add modules, connect databases and APIs,
+                                improve the accounting workflow and add
+                                additional functionality.
+
+                            </div>
+
+                        </div>
+
+                    </div>
+
+                </section>
+
+
+
+                <!-- =====================================================
+     AI ASSISTANT
+===================================================== -->
+
+                <section class="panel ai-panel">
+
+
+                    <div class="panel-header">
+
+                        <div class="panel-header-left">
+
+                            <i class="fa-solid fa-robot"></i>
+
+                            <div>
+
+                                <h2>
+                                    AI Assistant
+                                </h2>
+
+                                <p>
+                                    Younes App intelligent support
+                                </p>
+
+                            </div>
+
+                        </div>
+
+
+                        <div class="ai-status">
+
+                            <span class="status-dot"></span>
+
+                            Online
+
+                        </div>
+
+                    </div>
+
+
+
+                    <div class="chat-container">
+
+
+                        <!-- CHAT MESSAGES -->
+
+                        <div class="chat-messages" id="chatMessages">
+
+
+                            <div class="chat-welcome">
+
+                                <div class="ai-avatar">
+
+                                    <i class="fa-solid fa-robot"></i>
+
+                                </div>
+
+                                <h3>
+                                    Hello! I'm your AI Assistant
+                                </h3>
+
+                                <p>
+                                    Ask me anything about Younes App.
+                                    I can guide you through the dashboard,
+                                    Accounts, Luggage, ATM Cards, Lists,
+                                    profile and developer support.
+                                </p>
+
+                            </div>
+
+
+                            <div class="message ai">
+
+                                <div class="message-content">
+
+                                    <div class="message-bubble">
+
+                                        👋 Welcome to the Younes App Help Center.
+                                        How can I help you today?
+
+                                    </div>
+
+                                    <div class="message-time">
+
+                                        AI Assistant • Now
+
+                                    </div>
+
+                                </div>
+
+                            </div>
+
+
+                        </div>
+
+
+
+                        <!-- SUGGESTIONS -->
+
+                        <div class="suggestions">
+
+                            <button class="suggestion" onclick="askAI('What can you help me with?')">
+                                What can you do?
+                            </button>
+
+                            <button class="suggestion" onclick="askAI('How do I use Accounts?')">
+                                Accounts
+                            </button>
+
+                            <button class="suggestion" onclick="askAI('How do I use ATM Cards?')">
+                                ATM Cards
+                            </button>
+
+                            <button class="suggestion" onclick="askAI('How can I contact the developer?')">
+                                Developer
+                            </button>
+
+                        </div>
+
+
+
+                        <!-- INPUT -->
+
+                        <div class="chat-input-area">
+
+                            <div class="chat-input">
+
+                                <input type="text" id="chatInput" placeholder="Ask your question..." autocomplete="off">
+
+                                <button class="send-btn" id="sendBtn" onclick="sendMessage()">
+
+                                    <i class="fa-solid fa-paper-plane"></i>
+
+                                </button>
+
+                            </div>
+
+
+                            <div class="chat-tools">
+
+                                <span>
+                                    AI support assistant
+                                </span>
+
+                                <button class="clear-chat" onclick="clearChat()">
+
+                                    <i class="fa-solid fa-trash"></i>
+
+                                    Clear Chat
+
+                                </button>
+
+                            </div>
+
+                        </div>
+
+
+                    </div>
+
+                </section>
+
+            </div>
+
+
+
+            <!-- =====================================================
+     DEVELOPER DETAILS
+===================================================== -->
+
+            <section class="panel developer-panel">
+
+
+                <div class="panel-header">
+
+                    <div class="panel-header-left">
+
+                        <i class="fa-solid fa-code"></i>
+
+                        <div>
+
+                            <h2>
+                                Developer Details
+                            </h2>
+
+                            <p>
+                                Software & technical support
+                            </p>
+
+                        </div>
+
+                    </div>
+
+                </div>
+
+
+                <div class="developer-body">
+
+
+                    <div class="developer-photo">
+
+                        <img src="images/FAISAN.jpg" alt="Muhammed Faisan">
+
+                    </div>
+
+
+                    <div class="developer-info">
+
+                        <small>
+                            Developed By
+                        </small>
+
+                        <h2>
+                            MUHAMMED FAISAN
+                        </h2>
+
+                        <p>
+                            Software Developer • Web Application Development
+                            • Business Management Systems • UI/UX • Accounting
+                            Solutions
+                        </p>
+
+
+                        <div class="developer-links">
+
+                            <a href="https://faisan333.github.io/Faisan.github.io/" target="_blank"
+                                class="developer-link">
+
+                                <i class="fa-solid fa-globe"></i>
+
+                                Website
+
+                            </a>
+
+
+                            <a href="mailto:azeezfaizan@gmail.com" class="developer-link">
+
+                                <i class="fa-solid fa-envelope"></i>
+
+                                Email
+
+                            </a>
+
+
+                            <a href="tel:+971523621586" class="developer-link">
+
+                                <i class="fa-solid fa-phone"></i>
+
+                                Contact
+
+                            </a>
+
+                            <a href="https://wa.me/971523621586?text=Hello%20Muhammed%20Faisan,%20I%20need%20support."
+                                target="_blank" rel="noopener noreferrer" class="developer-link">
+                                <i class="fa-brands fa-whatsapp"></i>
+                                WhatsApp
+                            </a>
+
+                        </div>
+
+                    </div>
+
+                </div>
+
+            </section>
+
+
+
+            <!-- =====================================================
+     CONTACT
+===================================================== -->
+
+            <section class="panel developer-panel">
+
+                <div class="panel-header">
+
+                    <div class="panel-header-left">
+
+                        <i class="fa-solid fa-headset"></i>
+
+                        <div>
+
+                            <h2>
+                                Support Contact
+                            </h2>
+
+                            <p>
+                                Get technical assistance
+                            </p>
+
+                        </div>
+
+                    </div>
+
+                </div>
+
+
+                <div class="contact-grid">
+
+
+                    <div class="contact-item">
+
+                        <div class="contact-icon">
+
+                            <i class="fa-solid fa-user"></i>
+
+                        </div>
+
+                        <div>
+
+                            <strong>
+                                Developer
+                            </strong>
+
+                            <span>
+                                Muhammed Faisan
+                            </span>
+
+                        </div>
+
+                    </div>
+
+
+
+                    <div class="contact-item">
+
+                        <div class="contact-icon">
+
+                            <i class="fa-solid fa-envelope"></i>
+
+                        </div>
+
+                        <div>
+
+                            <strong>
+                                Email
+                            </strong>
+
+                            <span>
+                                azeezfaizan@gmail.com
+                            </span>
+
+                        </div>
+
+                    </div>
+
+
+
+                    <div class="contact-item">
+
+                        <div class="contact-icon">
+
+                            <i class="fa-solid fa-phone"></i>
+
+                        </div>
+
+                        <div>
+
+                            <strong>
+                                Phone
+                            </strong>
+
+                            <span>
+                                +971 52 362 1586
+                            </span>
+
+                        </div>
+
+                    </div>
+
+
+                </div>
+
+            </section>
+
+
+        </main>
+
+    </div>
+
+
+
+    <script>
+
+        /* =========================================================
+           BACK TO APP
+        ========================================================= */
+
+        function goBack() {
+
+            window.location.href = "accounts.html";
+
+        }
+
+
+        /* =========================================================
+           FAQ
+        ========================================================= */
+
+        function toggleFAQ(button) {
+
+            const faq =
+                button.parentElement;
+
+            faq.classList.toggle("open");
+
+        }
+
+
+        /* =========================================================
+           HELP SEARCH
+        ========================================================= */
+
+        const helpSearch =
+            document.getElementById("helpSearch");
+
+        const helpCards =
+            document.querySelectorAll(".help-card");
+
+        const noResults =
+            document.getElementById("noResults");
+
+
+        helpSearch.addEventListener(
+            "input",
+            function () {
+
+                const query =
+                    this.value
+                        .toLowerCase()
+                        .trim();
+
+                let visible = 0;
+
+
+                helpCards.forEach(
+                    function (card) {
+
+                        const searchText =
+                            card.dataset.search
+                                .toLowerCase();
+
+                        if (
+                            searchText.includes(query)
+                        ) {
+
+                            card.style.display =
+                                "";
+
+                            visible++;
+
+                        } else {
+
+                            card.style.display =
+                                "none";
+
+                        }
+
+                    }
+                );
+
+
+                if (visible === 0) {
+
+                    noResults.style.display =
+                        "block";
+
+                } else {
+
+                    noResults.style.display =
+                        "none";
+
+                }
+
+            }
+        );
+
+
+        /* =========================================================
+           AI CHAT
+        ========================================================= */
+
+        const chatMessages =
+            document.getElementById(
+                "chatMessages"
+            );
+
+        const chatInput =
+            document.getElementById(
+                "chatInput"
+            );
+
+        const sendBtn =
+            document.getElementById(
+                "sendBtn"
+            );
+
+
+        /* =========================================================
+           TIME
+        ========================================================= */
+
+        function getTime() {
+
+            return new Date()
+                .toLocaleTimeString(
+                    [],
+                    {
+                        hour: "2-digit",
+                        minute: "2-digit"
+                    }
+                );
+
+        }
+
+
+        /* =========================================================
+           ADD MESSAGE
+        ========================================================= */
+
+        function addMessage(
+            text,
+            type
+        ) {
+
+            const message =
+                document.createElement(
+                    "div"
+                );
+
+            message.className =
+                "message " + type;
+
+
+            const content =
+                document.createElement(
+                    "div"
+                );
+
+            content.className =
+                "message-content";
+
+
+            const bubble =
+                document.createElement(
+                    "div"
+                );
+
+            bubble.className =
+                "message-bubble";
+
+
+            /*
+               Convert simple line breaks
+               to HTML safely.
+            */
+
+            bubble.innerHTML =
+                escapeHTML(text)
+                    .replace(
+                        /\n/g,
+                        "<br>"
+                    );
+
+
+            const time =
+                document.createElement(
+                    "div"
+                );
+
+            time.className =
+                "message-time";
+
+
+            time.innerText =
+                type === "ai"
+                    ? "AI Assistant • " + getTime()
+                    : "You • " + getTime();
+
+
+            content.appendChild(
+                bubble
+            );
+
+            content.appendChild(
+                time
+            );
+
+            message.appendChild(
+                content
+            );
+
+            chatMessages.appendChild(
+                message
+            );
+
+
+            chatMessages.scrollTop =
+                chatMessages.scrollHeight;
+
+        }
+
+
+        /* =========================================================
+           ESCAPE HTML
+        ========================================================= */
+
+        function escapeHTML(text) {
+
+            const div =
+                document.createElement(
+                    "div"
+                );
+
+            div.innerText =
+                text;
+
+            return div.innerHTML;
+
+        }
+
+
+        /* =========================================================
+           TYPING INDICATOR
+        ========================================================= */
+
+        function showTyping() {
+
+            const message =
+                document.createElement(
+                    "div"
+                );
+
+            message.className =
+                "message ai";
+
+            message.id =
+                "typingMessage";
+
+
+            message.innerHTML = `
+
+        <div class="message-content">
+
+            <div class="message-bubble">
+
+                <div class="typing">
+
+                    <span></span>
+                    <span></span>
+                    <span></span>
+
+                </div>
+
+            </div>
+
+        </div>
+
+    `;
+
+
+            chatMessages.appendChild(
+                message
+            );
+
+            chatMessages.scrollTop =
+                chatMessages.scrollHeight;
+
+        }
+
+
+        function hideTyping() {
+
+            const typing =
+                document.getElementById(
+                    "typingMessage"
+                );
+
+            if (typing) {
+
+                typing.remove();
+
+            }
+
+        }
+
+
+        /* =========================================================
+           AI KNOWLEDGE BASE
+        ========================================================= */
+
+        function getAIResponse(question) {
+
+            const q =
+                question
+                    .toLowerCase()
+                    .trim();
+
+
+            /* GREETING */
+
+            if (
+                q.includes("hello") ||
+                q.includes("hi") ||
+                q.includes("hey")
+            ) {
+
+                return `
+Hello! 👋
+
+I'm the Younes App AI Assistant.
+
+I can help you with:
+
+• Dashboard
+• Accounts
+• HT Luggage
+• IT Luggage
+• ATM Cards
+• Lists
+• Profile & Logout
+• Developer Support
+
+What would you like to know?
+`;
+
+            }
+
+
+            /* WHAT CAN YOU DO */
+
+            if (
+                q.includes("what can you do") ||
+                q.includes("help me")
+            ) {
+
+                return `
+I can guide you through the Younes App.
+
+For example, you can ask:
+
+• "How do I open Accounts?"
+• "How do I use ATM Cards?"
+• "How do I use Lists?"
+• "How do I logout?"
+• "How can I contact the developer?"
+• "What is HT Luggage?"
+• "What is IT Luggage?"
+
+Choose one of the sections or ask your question directly.
+`;
+
+            }
+
+
+            /* DASHBOARD */
+
+            if (
+                q.includes("dashboard") ||
+                q.includes("home")
+            ) {
+
+                return `
+The Home Dashboard is the main page of Younes App.
+
+It provides quick access to:
+
+• Company Information
+• Contact information
+• Bank information
+• Credit card information
+• Today's To-Do List
+• Main application modules
+
+You can return to the Dashboard by selecting Home in the main navigation.
+`;
+
+            }
+
+
+            /* ACCOUNTS */
+
+            if (
+                q.includes("account") ||
+                q.includes("accounting")
+            ) {
+
+                return `
+The Accounts section is designed for your accounting records.
+
+To open it:
+
+1. Return to the main Younes App.
+2. Select "Accounts".
+3. The connected Accounts spreadsheet will open inside the application.
+
+If the spreadsheet does not load, check your internet connection and make sure the Google Sheet is accessible.
+`;
+
+            }
+
+
+            /* HT LUGGAGE */
+
+            if (
+                q.includes("ht luggage") ||
+                q.includes("ht")
+            ) {
+
+                return `
+HT Luggage is available from the main navigation.
+
+Select:
+
+HT Luggage
+
+The application loads the HT luggage module inside the page.
+
+If you want additional features such as search, filtering, stock management or product editing, these can be added to the module.
+`;
+
+            }
+
+
+            /* IT LUGGAGE */
+
+            if (
+                q.includes("it luggage") ||
+                q.includes("it luggage")
+            ) {
+
+                return `
+IT Luggage is available from the main navigation.
+
+Select:
+
+IT Luggage
+
+The application will open the IT luggage module.
+
+The module can also be extended with product search, inventory, pricing, images and other management features.
+`;
+
+            }
+
+
+            /* ATM */
+
+            if (
+                q.includes("atm") ||
+                q.includes("card")
+            ) {
+
+                return `
+The ATM Cards section is designed to manage your ATM card information.
+
+Open the main application and select:
+
+ATM Cards
+
+From there you can use the connected ATM card module.
+
+For security, avoid sharing complete card numbers publicly.
+`;
+
+            }
+
+
+            /* LISTS */
+
+            if (
+                q.includes("list") ||
+                q.includes("product")
+            ) {
+
+                return `
+The Lists section is used for product and list management.
+
+Open:
+
+Lists
+
+The application loads the product list module.
+
+Depending on your setup, the module can contain:
+
+• Product name
+• Product code
+• Category
+• Price
+• Stock
+• Images
+• Search
+• Product details
+`;
+
+            }
+
+
+            /* PROFILE */
+
+            if (
+                q.includes("profile") ||
+                q.includes("logout") ||
+                q.includes("sign out")
+            ) {
+
+                return `
+To logout from Younes App:
+
+1. Open your profile.
+2. Select Logout.
+3. Your current login session will be cleared.
+4. The application will return to the login page.
+
+If you are using the mobile version, the Logout option is available inside the mobile menu.
+`;
+
+            }
+
+
+            /* DEVELOPER */
+
+            if (
+                q.includes("developer") ||
+                q.includes("contact") ||
+                q.includes("faisan")
+            ) {
+
+                return `
+Developer Support
+
+Developed By:
+
+MUHAMMED FAISAN
+
+Software Developer
+
+Email:
+younesshabani2011@gmail.com
+
+Phone:
++971 55 929 7977
+
+You can use the Developer Details section below to contact the developer.
+`;
+
+            }
+
+
+            /* SECURITY */
+
+            if (
+                q.includes("security") ||
+                q.includes("password") ||
+                q.includes("safe")
+            ) {
+
+                return `
+For better security:
+
+• Do not share passwords.
+• Do not share complete card numbers.
+• Do not expose private banking information.
+• Use Logout when finished.
+• Keep your browser and device secure.
+
+For sensitive banking information, use secure communication with the authorized user or administrator.
+`;
+
+            }
+
+
+            /* GOOGLE */
+
+            if (
+                q.includes("google") ||
+                q.includes("spreadsheet") ||
+                q.includes("sheet")
+            ) {
+
+                return `
+The Accounts module uses a Google Spreadsheet loaded inside an iframe.
+
+If it does not display correctly:
+
+1. Check your internet connection.
+2. Open the Google Sheet directly.
+3. Make sure you have permission to access it.
+4. Check whether browser restrictions are blocking the embedded page.
+`;
+
+            }
+
+
+            /* ERROR */
+
+            if (
+                q.includes("error") ||
+                q.includes("not working") ||
+                q.includes("problem") ||
+                q.includes("issue")
+            ) {
+
+                return `
+Let's troubleshoot the problem.
+
+First check:
+
+1. Refresh the page.
+2. Check your internet connection.
+3. Confirm the related HTML file exists.
+4. Check browser Console for JavaScript errors.
+5. Confirm image paths such as images/FAISAN.jpg are correct.
+6. If using Google Sheets, verify access permissions.
+
+If you tell me the exact error message, I can help identify the cause.
+`;
+
+            }
+
+
+            /* THANKS */
+
+            if (
+                q.includes("thank") ||
+                q.includes("thanks")
+            ) {
+
+                return `
+You're welcome! 😊
+
+I'm always here to help with the Younes App.
+
+If you have another question, just type it below.
+`;
+
+            }
+
+
+            /* DEFAULT */
+
+            return `
+I understand your question, but I don't have a specific answer for that in my current Younes App knowledge base.
+
+Try asking about:
+
+• Dashboard
+• Accounts
+• HT Luggage
+• IT Luggage
+• ATM Cards
+• Lists
+• Profile
+• Logout
+• Security
+• Developer Support
+
+You can also describe the exact problem you're experiencing, and I'll guide you through troubleshooting.
+`;
+
+        }
+
+
+        /* =========================================================
+           SEND MESSAGE
+        ========================================================= */
+
+        function sendMessage() {
+
+            const text =
+                chatInput.value.trim();
+
+
+            if (text === "") {
+
+                return;
+
+            }
+
+
+            addMessage(
+                text,
+                "user"
+            );
+
+
+            chatInput.value = "";
+
+            sendBtn.disabled =
+                true;
+
+
+            showTyping();
+
+
+            /*
+               Simulated AI processing.
+        
+               Replace this section later with
+               your real AI API/backend call.
+            */
+
+            setTimeout(
+                function () {
+
+                    hideTyping();
+
+                    const response =
+                        getAIResponse(
+                            text
+                        );
+
+                    addMessage(
+                        response,
+                        "ai"
+                    );
+
+                    sendBtn.disabled =
+                        false;
+
+                    chatInput.focus();
+
+                },
+                700 +
+                Math.random() * 700
+            );
+
+        }
+
+
+        /* =========================================================
+           ASK AI FROM BUTTON
+        ========================================================= */
+
+        function askAI(question) {
+
+            chatInput.value =
+                question;
+
+            sendMessage();
+
+
+            /*
+               On mobile, automatically
+               scroll to AI assistant.
+            */
+
+            document
+                .querySelector(".ai-panel")
+                .scrollIntoView({
+                    behavior: "smooth",
+                    block: "start"
+                });
+
+        }
+
+
+        /* =========================================================
+           ENTER KEY
+        ========================================================= */
+
+        chatInput.addEventListener(
+            "keydown",
+            function (e) {
+
+                if (
+                    e.key === "Enter" &&
+                    !e.shiftKey
+                ) {
+
+                    e.preventDefault();
+
+                    sendMessage();
+
+                }
+
+            }
+        );
+
+
+        /* =========================================================
+           CLEAR CHAT
+        ========================================================= */
+
+        function clearChat() {
+
+            chatMessages.innerHTML = `
+
+        <div class="chat-welcome">
+
+            <div class="ai-avatar">
+
+                <i class="fa-solid fa-robot"></i>
+
+            </div>
+
+            <h3>
+                Hello! I'm your AI Assistant
+            </h3>
+
+            <p>
+                Ask me anything about Younes App.
+            </p>
+
+        </div>
+
+    `;
+
+
+            addMessage(
+                "Chat cleared. How can I help you?",
+                "ai"
+            );
+
+        }
+
+
+        /* =========================================================
+           LOGIN CHECK
+        ========================================================= */
+
+        if (
+            localStorage.getItem("isLoggedIn") !== "true"
+        ) {
+
+            /*
+               If you want this page to work without
+               login, remove this block.
+        
+               Current behavior matches your
+               existing Younes App login system.
+            */
+
+            // window.location.href = "index.html";
+
+        }
+
+    </script>
+
+</body>
+
+</html>
