@@ -1,0 +1,2777 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+<title>Younes App</title>
+
+<link rel="icon" href="images/blacklo.png">
+
+<link rel="stylesheet"
+href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
+
+<style>
+
+/* =========================================================
+   GLOBAL
+========================================================= */
+
+:root{
+    --green:#003626;
+    --green2:#07563f;
+    --green-light:#eaf6f0;
+    --text:#17212b;
+    --muted:#667085;
+    --border:#e5e7eb;
+    --bg:#f5f7f9;
+    --white:#ffffff;
+    --danger:#dc2626;
+    --shadow:0 2px 10px rgba(15,23,42,.06);
+}
+
+*{
+    margin:0;
+    padding:0;
+    box-sizing:border-box;
+    font-family:"Segoe UI",Arial,sans-serif;
+}
+
+html,
+body{
+    width:100%;
+    height:100%;
+}
+
+body{
+    background:var(--bg);
+    color:var(--text);
+    overflow:hidden;
+}
+
+button,
+input{
+    font-family:inherit;
+}
+
+button{
+    -webkit-tap-highlight-color:transparent;
+}
+
+
+/* =========================================================
+   APP
+========================================================= */
+
+.app{
+    width:100%;
+    height:100vh;
+    display:flex;
+    flex-direction:column;
+}
+
+
+/* =========================================================
+   TOP NAVBAR
+========================================================= */
+
+.navbar{
+    height:70px;
+    min-height:70px;
+    background:#fff;
+    border-bottom:1px solid #e7eaee;
+    display:flex;
+    align-items:center;
+    padding:0 28px;
+    position:relative;
+    z-index:1000;
+}
+
+
+/* =========================================================
+   NAV LEFT
+========================================================= */
+
+.nav-left{
+    display:flex;
+    align-items:center;
+    height:100%;
+    flex-shrink:0;
+}
+
+.brand{
+    display:flex;
+    align-items:center;
+    gap:14px;
+    padding-right:25px;
+    border-right:1px solid #e5e7eb;
+}
+
+.brand img {
+    width: 117px;
+    height: 81px;
+    object-fit: contain;
+}
+
+.brand-name{
+    font-size:15px;
+    font-weight:700;
+    color:#17212b;
+    white-space:nowrap;
+}
+
+.mobile-menu-btn{
+    display:none;
+    border:0;
+    background:none;
+    font-size:22px;
+    cursor:pointer;
+    color:var(--green);
+    margin-right:14px;
+    width:38px;
+    height:42px;
+}
+
+
+/* =========================================================
+   TOP MENU
+========================================================= */
+
+.top-menu{
+    display:flex;
+    align-items:stretch;
+    height:100%;
+    margin-left:18px;
+    gap:40px;
+    flex:1;
+    overflow:hidden;
+}
+
+.nav-item{
+    min-width:65px;
+    padding:10px 10px 6px;
+    border:0;
+    background:transparent;
+    cursor:pointer;
+    display:flex;
+    flex-direction:column;
+    justify-content:center;
+    align-items:center;
+    gap:6px;
+    color:#303943;
+    font-size:11px;
+    font-weight:600;
+    position:relative;
+    white-space:nowrap;
+    transition:.2s;
+}
+
+.nav-item i{
+    font-size:21px;
+    color:#0a4937;
+}
+
+.nav-item:hover{
+    background:#f5f8f7;
+}
+
+.nav-item.active{
+    color:#006b4f;
+}
+
+.nav-item.active i{
+    color:#006b4f;
+}
+
+.nav-item.active::after{
+    content:"";
+    position:absolute;
+    bottom:0;
+    left:16px;
+    right:16px;
+    height:3px;
+    background:#006b4f;
+    border-radius:5px 5px 0 0;
+}
+
+
+/* =========================================================
+   RIGHT NAV
+========================================================= */
+
+.nav-right{
+    display:flex;
+    align-items:center;
+    gap:4px;
+    margin-left:auto;
+    padding-left:14px;
+    border-left:1px solid #e5e7eb;
+    flex-shrink:0;
+}
+
+.utility-btn{
+    width:58px;
+    height:68px;
+    border:0;
+    background:#fff;
+    cursor:pointer;
+    display:flex;
+    flex-direction:column;
+    align-items:center;
+    justify-content:center;
+    gap:5px;
+    color:#303943;
+    font-size:10px;
+    font-weight:600;
+    border-radius:8px;
+}
+
+.utility-btn i{
+    font-size:21px;
+}
+
+.utility-btn:hover{
+    background:#f5f8f7;
+}
+
+.new-btn{
+    color:#17212b;
+}
+
+
+/* =========================================================
+   DEVELOPED BY DESKTOP
+========================================================= */
+
+.developed-card{
+    height:58px;
+    min-width:150px;
+    padding:5px 10px;
+    border:1px solid #e1e6e4;
+    background:#fff;
+    border-radius:8px;
+    display:flex;
+    align-items:center;
+    gap:9px;
+    cursor:pointer;
+    transition:.2s;
+    text-decoration:none;
+    color:inherit;
+    
+}
+
+.developed-card:hover{
+    background:#f5f9f7;
+    border-color:#b9d3c6;
+    transform:translateY(-1px);
+}
+
+.developer-image{
+    width:40px;
+    height:40px;
+    min-width:40px;
+    border-radius:50%;
+    overflow:hidden;
+    border:2px solid #07563f;
+    background:#eaf6f0;
+}
+
+.developer-image img{
+    width:100%;
+    height:100%;
+    object-fit:cover;
+}
+
+.developer-info{
+    display:flex;
+    flex-direction:column;
+    justify-content:center;
+    min-width:0;
+}
+
+.developer-info small{
+    color:#8a949e;
+    font-size:8px;
+    font-weight:600;
+    text-transform:uppercase;
+    letter-spacing:.4px;
+}
+
+.developer-info strong{
+    color:#17212b;
+    font-size:11px;
+    font-weight:700;
+    white-space:nowrap;
+}
+
+.developer-info span{
+    color:#667085;
+    font-size:9px;
+    white-space:nowrap;
+}
+
+/* =========================================================
+   PROFILE
+========================================================= */
+
+.profile-wrapper{
+    position:relative;
+    margin-left:9px;
+}
+
+.profile-icon{
+    width:50px;
+    height:50px;
+    border-radius:50%;
+    border:2px solid #173f32;
+    overflow:hidden;
+    cursor:pointer;
+    background:#eee;
+}
+
+.profile-icon img{
+    width:100%;
+    height:100%;
+    object-fit:cover;
+}
+
+.profile-dropdown{
+    position:absolute;
+    top:60px;
+    right:0;
+    width:200px;
+    background:#fff;
+    border:1px solid var(--border);
+    border-radius:10px;
+    box-shadow:0 12px 30px rgba(0,0,0,.14);
+    display:none;
+    overflow:hidden;
+    z-index:5000;
+}
+
+.profile-dropdown.show{
+    display:block;
+}
+
+.profile-user{
+    padding:14px;
+    border-bottom:1px solid var(--border);
+}
+
+.profile-user strong{
+    display:block;
+    font-size:13px;
+}
+
+.profile-user span{
+    display:block;
+    font-size:11px;
+    color:var(--muted);
+    margin-top:3px;
+}
+
+.logout-btn{
+    width:100%;
+    border:0;
+    background:#fff;
+    padding:13px 15px;
+    text-align:left;
+    cursor:pointer;
+    font-size:13px;
+    color:#333;
+}
+
+.logout-btn i{
+    width:25px;
+}
+
+.logout-btn:hover{
+    background:#fff3f3;
+    color:var(--danger);
+}
+
+
+/* =========================================================
+   MOBILE DRAWER
+========================================================= */
+
+.mobile-drawer{
+    position:fixed;
+    top:0;
+    left:-310px;
+    width:290px;
+    max-width:85vw;
+    height:100dvh;
+    background:#fff;
+    z-index:5000;
+    box-shadow:8px 0 30px rgba(0,0,0,.18);
+    transition:left .28s ease;
+    display:flex;
+    flex-direction:column;
+}
+
+.mobile-drawer.open{
+    left:0;
+}
+
+.mobile-drawer-header{
+    height:75px;
+    min-height:75px;
+    display:flex;
+    align-items:center;
+    justify-content:space-between;
+    padding:0 18px;
+    border-bottom:1px solid var(--border);
+}
+
+.mobile-brand{
+    display:flex;
+    align-items:center;
+    gap:10px;
+    min-width:0;
+}
+
+.mobile-brand img{
+    width:45px;
+    height:40px;
+    object-fit:contain;
+}
+
+.mobile-brand span{
+    font-size:14px;
+    font-weight:700;
+    white-space:nowrap;
+}
+
+.mobile-close{
+    border:0;
+    background:none;
+    font-size:22px;
+    cursor:pointer;
+    color:#344054;
+    width:40px;
+    height:40px;
+    flex-shrink:0;
+}
+
+
+/* =========================================================
+   MOBILE MENU LIST
+========================================================= */
+
+.mobile-menu-list{
+    list-style:none;
+    padding:12px;
+    overflow-y:auto;
+    flex:1;
+    min-height:0;
+}
+
+.mobile-menu-list li{
+    margin-bottom:4px;
+}
+
+.mobile-menu-list button{
+    width:100%;
+    height:47px;
+    border:0;
+    border-radius:8px;
+    background:#fff;
+    display:flex;
+    align-items:center;
+    gap:15px;
+    padding:0 15px;
+    cursor:pointer;
+    color:#344054;
+    font-size:14px;
+    font-weight:600;
+    text-align:left;
+}
+
+.mobile-menu-list button i{
+    width:22px;
+    font-size:18px;
+    color:#07563f;
+    flex-shrink:0;
+}
+
+.mobile-menu-list button:hover,
+.mobile-menu-list button.active{
+    background:#eaf6f0;
+    color:#006b4f;
+}
+
+
+/* =========================================================
+   MOBILE DEVELOPED BY
+   LEFT SIDE OF SEPARATOR / BOTTOM OF MENU
+========================================================= */
+
+.mobile-developed-area{
+    width:100%;
+    flex-shrink:0;
+    margin:0;
+    padding:12px;
+    border-top:1px solid #e5e7eb;
+    background:#fff;
+}
+
+.mobile-developed-card{
+    width:100%;
+    min-height:66px;
+    border:1px solid #e1e6e4;
+    border-radius:9px;
+    background:#fff;
+    display:flex;
+    align-items:center;
+    gap:10px;
+    padding:8px 10px;
+    text-align:left;
+    box-shadow:0 2px 7px rgba(15,23,42,.04);
+}
+
+.mobile-developed-image{
+    width:44px;
+    height:44px;
+    min-width:44px;
+    border-radius:50%;
+    overflow:hidden;
+    border:2px solid #07563f;
+    background:#eaf6f0;
+}
+
+.mobile-developed-image img{
+    width:100%;
+    height:100%;
+    object-fit:cover;
+}
+
+.mobile-developed-info{
+    display:flex;
+    flex-direction:column;
+    justify-content:center;
+    min-width:0;
+    overflow:hidden;
+}
+
+.mobile-developed-info small{
+    font-size:8px;
+    color:#8a949e;
+    text-transform:uppercase;
+    font-weight:700;
+    letter-spacing:.4px;
+}
+
+.mobile-developed-info strong{
+    font-size:12px;
+    color:#17212b;
+    white-space:nowrap;
+    overflow:hidden;
+    text-overflow:ellipsis;
+}
+
+.mobile-developed-info span{
+    font-size:9px;
+    color:#667085;
+    white-space:nowrap;
+    overflow:hidden;
+    text-overflow:ellipsis;
+}
+
+
+/* =========================================================
+   MOBILE OVERLAY
+========================================================= */
+
+.mobile-overlay{
+    position:fixed;
+    inset:0;
+    background:rgba(0,0,0,.45);
+    z-index:4500;
+    display:none;
+}
+
+.mobile-overlay.show{
+    display:block;
+}
+
+
+/* =========================================================
+   MAIN
+========================================================= */
+
+.main{
+    flex:1;
+    min-height:0;
+    overflow:hidden;
+}
+
+.content{
+    width:100%;
+    height:100%;
+    overflow-y:auto;
+    padding:22px 35px 40px;
+    -webkit-overflow-scrolling:touch;
+}
+
+
+/* =========================================================
+   PAGE HEADER
+========================================================= */
+
+.page-header{
+    background:#fff;
+    border:1px solid #e8ebee;
+    border-radius:8px;
+    padding:22px 27px;
+    margin-bottom:20px;
+    display:flex;
+    align-items:center;
+    justify-content:space-between;
+    gap:20px;
+}
+
+.page-title-small{
+    font-size:11px;
+    font-weight:700;
+    letter-spacing:.6px;
+    color:#68727d;
+    text-transform:uppercase;
+    margin-bottom:5px;
+}
+
+.page-header h1{
+    font-size:24px;
+    line-height:1.2;
+    color:#17212b;
+    margin-bottom:5px;
+}
+
+.page-header p{
+    color:#667085;
+    font-size:13px;
+}
+
+.date-box{
+    border:1px solid var(--border);
+    border-radius:7px;
+    padding:11px 15px;
+    font-size:13px;
+    display:flex;
+    align-items:center;
+    gap:9px;
+    white-space:nowrap;
+    flex-shrink:0;
+}
+
+.date-box i{
+    color:#344054;
+}
+
+
+/* =========================================================
+   COMPANY INFORMATION
+========================================================= */
+
+.company-grid{
+    display:grid;
+    grid-template-columns:repeat(4,1fr);
+    gap:16px;
+}
+
+.company-card{
+    background:#fff;
+    border:1px solid #e5e7eb;
+    border-radius:8px;
+    padding:20px;
+    min-height:145px;
+    box-shadow:var(--shadow);
+}
+
+.company-card i{
+    font-size:20px;
+    color:#07563f;
+    margin-bottom:12px;
+}
+
+.company-card h4{
+    font-size:12px;
+    color:#667085;
+    margin-bottom:7px;
+}
+
+.company-card p{
+    font-size:13px;
+    line-height:1.7;
+    color:#17212b;
+    font-weight:600;
+    word-break:break-word;
+}
+
+
+/* =========================================================
+   TODO
+========================================================= */
+
+.todo-section{
+    margin-top:20px;
+}
+
+.panel{
+    background:#fff;
+    border:1px solid #e8ebee;
+    border-radius:8px;
+    box-shadow:var(--shadow);
+    overflow:hidden;
+}
+
+.panel-header{
+    min-height:57px;
+    padding:0 17px;
+    display:flex;
+    align-items:center;
+    justify-content:space-between;
+    border-bottom:1px solid #edf0f2;
+}
+
+.panel-header h3{
+    font-size:15px;
+    color:#1e3343;
+}
+
+.panel-body{
+    padding:14px;
+}
+
+.todo-input{
+    display:flex;
+    gap:8px;
+}
+
+.todo-input input{
+    flex:1;
+    min-width:0;
+    border:1px solid #dce2e7;
+    border-radius:6px;
+    padding:12px;
+    outline:none;
+    font-size:13px;
+}
+
+.todo-input input:focus{
+    border-color:#4f9278;
+}
+
+.todo-input button{
+    width:45px;
+    min-width:45px;
+    border:0;
+    border-radius:6px;
+    background:#07563f;
+    color:#fff;
+    cursor:pointer;
+}
+
+.todo-list{
+    list-style:none;
+    margin-top:15px;
+}
+
+.todo-list li{
+    display:flex;
+    align-items:center;
+    justify-content:space-between;
+    gap:10px;
+    border-bottom:1px solid #edf0f2;
+    padding:11px 4px;
+    font-size:13px;
+}
+
+.todo-list li span{
+    cursor:pointer;
+    min-width:0;
+    overflow-wrap:anywhere;
+}
+
+.todo-list li.completed span{
+    text-decoration:line-through;
+    color:#98a2b3;
+}
+
+.todo-actions{
+    flex-shrink:0;
+}
+
+.todo-actions i{
+    cursor:pointer;
+    color:#667085;
+}
+
+.todo-actions i:hover{
+    color:#dc2626;
+}
+
+
+/* =========================================================
+   MODULE
+========================================================= */
+
+.module-page{
+    display:none;
+}
+
+.module-page.active{
+    display:block;
+}
+
+.sheet{
+    width:100%;
+    height:calc(100vh - 140px);
+    background:#fff;
+    border:1px solid #e5e7eb;
+    border-radius:8px;
+    overflow:hidden;
+}
+
+.sheet iframe{
+    width:100%;
+    height:100%;
+    border:0;
+    display:block;
+}
+
+
+/* =========================================================
+   RESPONSIVE 1300
+========================================================= */
+
+@media(max-width:1300px){
+
+    .navbar{
+        padding:0 15px;
+    }
+
+    .brand{
+        padding-right:15px;
+    }
+
+    .brand-name{
+        display:none;
+    }
+
+    .nav-item{
+        min-width:58px;
+        padding-left:6px;
+        padding-right:6px;
+    }
+
+    .nav-item i{
+        font-size:18px;
+    }
+
+    .utility-btn{
+        width:48px;
+    }
+
+    .content{
+        padding:20px;
+    }
+
+    .company-grid{
+        grid-template-columns:repeat(3,1fr);
+    }
+
+    .developed-card{
+        min-width:135px;
+    }
+
+    .developer-info span{
+        display:none;
+    }
+}
+
+
+/* =========================================================
+   RESPONSIVE 1050
+========================================================= */
+
+@media(max-width:1050px){
+
+    .top-menu{
+        gap:0;
+    }
+
+    .nav-item{
+        min-width:50px;
+    }
+
+    .nav-item span{
+        font-size:9px;
+    }
+
+    .utility-btn span{
+        display:none;
+    }
+
+    .utility-btn{
+        width:38px;
+    }
+
+    .company-grid{
+        grid-template-columns:repeat(2,1fr);
+    }
+
+    .developed-card{
+        min-width:50px;
+        width:50px;
+        padding:5px;
+        justify-content:center;
+    }
+
+    .developer-info{
+        display:none;
+    }
+
+    .developer-image{
+        width:38px;
+        height:38px;
+        min-width:38px;
+    }
+}
+
+
+/* =========================================================
+   TABLET / MOBILE
+========================================================= */
+
+@media(max-width:768px){
+
+    body{
+        overflow:hidden;
+    }
+
+    .navbar{
+        height:64px;
+        min-height:64px;
+        padding:0 14px;
+    }
+
+    .mobile-menu-btn{
+        display:flex;
+        align-items:center;
+        justify-content:center;
+    }
+
+    .brand{
+        border:0;
+        padding:0;
+        gap:9px;
+    }
+
+    .brand img{
+        width:48px;
+        height:42px;
+    }
+
+    .brand-name{
+        display:block;
+        font-size:14px;
+    }
+
+    .top-menu{
+        display:none;
+    }
+
+    .nav-right{
+        border:0;
+        padding:0;
+        gap:2px;
+    }
+
+    .utility-btn{
+        display:none;
+    }
+
+    .developed-wrapper{
+        display:none;
+    }
+
+    .profile-icon{
+        width:42px;
+        height:42px;
+    }
+
+    .profile-dropdown{
+        top:51px;
+        right:-2px;
+    }
+
+    .content{
+        padding:14px;
+    }
+
+    .page-header{
+        padding:17px;
+        margin-bottom:14px;
+    }
+
+    .page-header h1{
+        font-size:20px;
+    }
+
+    .page-header p{
+        font-size:11px;
+    }
+
+    .date-box{
+        font-size:10px;
+        padding:8px;
+    }
+
+    .company-grid{
+        grid-template-columns:1fr;
+        gap:12px;
+    }
+
+    .company-card{
+        min-height:auto;
+        padding:17px;
+    }
+
+    .sheet{
+        height:calc(100vh - 92px);
+        border-radius:6px;
+    }
+
+    .mobile-developed-area{
+        display:block;
+    }
+}
+
+
+/* =========================================================
+   SMALL MOBILE
+========================================================= */
+
+@media(max-width:480px){
+
+    .navbar{
+        padding:0 10px;
+    }
+
+    .mobile-menu-btn{
+        margin-right:7px;
+    }
+
+    .brand{
+        gap:5px;
+    }
+
+    .brand img{
+        width:42px;
+        height:38px;
+    }
+
+    .brand-name{
+        font-size:13px;
+    }
+
+    .profile-icon{
+        width:39px;
+        height:39px;
+    }
+
+    .page-header{
+        flex-direction:column;
+        align-items:flex-start;
+        gap:12px;
+    }
+
+    .date-box{
+        width:100%;
+        justify-content:center;
+    }
+
+    .mobile-drawer{
+        width:285px;
+    }
+
+    .mobile-developed-area{
+        padding:10px 12px 12px;
+    }
+
+    .mobile-developed-card{
+        min-height:64px;
+    }
+
+    .mobile-developed-image{
+        width:42px;
+        height:42px;
+        min-width:42px;
+    }
+
+    .todo-input input{
+        padding:11px;
+    }
+
+    .todo-input button{
+        width:43px;
+        min-width:43px;
+    }
+}
+
+
+/* =========================================================
+   VERY SMALL PHONES
+========================================================= */
+
+@media(max-width:360px){
+
+    .brand-name{
+        font-size:12px;
+    }
+
+    .mobile-menu-btn{
+        margin-right:3px;
+        width:34px;
+    }
+
+    .brand img{
+        width:38px;
+    }
+
+    .profile-icon{
+        width:36px;
+        height:36px;
+    }
+
+    .mobile-drawer{
+        width:275px;
+    }
+
+}
+
+</style>
+</head>
+
+<body>
+
+<div class="app">
+
+
+<!-- =====================================================
+     DESKTOP / MAIN NAVBAR
+===================================================== -->
+
+<header class="navbar">
+
+    <div class="nav-left">
+
+        <button
+            class="mobile-menu-btn"
+            id="mobileMenuBtn"
+            type="button"
+            aria-label="Open menu"
+        >
+            <i class="fa-solid fa-bars"></i>
+        </button>
+
+        <div class="brand">
+
+            <img
+                src="images/blacklo.png"
+                alt="Younes App"
+            >
+
+            <span class="brand-name">
+                Younes App
+            </span>
+
+        </div>
+
+    </div>
+
+
+    <!-- =================================================
+         MAIN TOP NAV
+    ================================================== -->
+
+    <nav class="top-menu">
+
+        <button
+            class="nav-item active"
+            data-page="dashboard"
+            type="button"
+        >
+            <i class="fa-solid fa-house"></i>
+            <span>Home</span>
+        </button>
+
+        <button
+            class="nav-item"
+            data-page="sales"
+            type="button"
+        >
+            <i class="fa-solid fa-file-invoice"></i>
+            <span>Accounts</span>
+        </button>
+
+        <button
+            class="nav-item"
+            data-page="expenses"
+            type="button"
+        >
+            <i class="fa-solid fa-receipt"></i>
+            <span>HT Luggage</span>
+        </button>
+
+        <button
+            class="nav-item"
+            data-page="banking"
+            type="button"
+        >
+            <i class="fa-solid fa-building-columns"></i>
+            <span>IT Luggage</span>
+        </button>
+
+        <button
+            class="nav-item"
+            data-page="customers"
+            type="button"
+        >
+            <i class="fa-solid fa-user-group"></i>
+            <span>ATM Cards</span>
+        </button>
+
+    </nav>
+
+
+    <!-- =================================================
+         DEVELOPED BY DESKTOP
+    ================================================== -->
+
+    <div class="developed-wrapper" style="padding-right: 15px;">
+
+    <a
+        href="help.html#developerfaisan"
+        target="_blank"
+        rel="noopener noreferrer"
+        class="developed-card"
+    >
+
+        <div class="developer-image">
+
+            <img
+                src="images/FAISAN.jpg"
+                alt="Muhammed Faisan"
+            >
+
+        </div>
+
+        <div class="developer-info">
+
+            <small>
+                Developed By
+            </small>
+
+            <strong>
+                MUHAMMED FAISAN
+            </strong>
+
+            <span>
+                Software Developer
+            </span>
+
+        </div>
+
+    </a>
+
+</div>
+
+
+    <!-- =================================================
+         RIGHT NAV
+    ================================================== -->
+
+    <div class="nav-right">
+
+        <button
+            class="utility-btn new-btn"
+            data-page="new"
+            type="button"
+        >
+            <i class="fa-solid fa-plus-circle"></i>
+            <span>Lists</span>
+        </button>
+
+        <button
+            class="utility-btn"
+            data-page="help"
+            type="button"
+        >
+            <i class="fa-regular fa-circle-question"></i>
+            <span>Help</span>
+        </button>
+
+
+        <!-- PROFILE -->
+
+        <div class="profile-wrapper">
+
+            <div
+                class="profile-icon"
+                id="profileIcon"
+                role="button"
+                tabindex="0"
+                aria-label="Profile"
+            >
+
+                <img
+                    src="images/back.jpg"
+                    alt="Profile"
+                >
+
+            </div>
+
+
+            <div
+                class="profile-dropdown"
+                id="profileDropdown"
+            >
+
+                <div class="profile-user">
+
+                    <strong>
+                        Younes App
+                    </strong>
+
+                    <span>
+                        Account Administrator
+                    </span>
+
+                </div>
+
+
+                <button
+                    class="logout-btn"
+                    id="logoutBtn"
+                    type="button"
+                >
+
+                    <i class="fa-solid fa-right-from-bracket"></i>
+
+                    Logout
+
+                </button>
+
+            </div>
+
+        </div>
+
+    </div>
+
+</header>
+
+
+<!-- =====================================================
+     MOBILE OVERLAY
+===================================================== -->
+
+<div
+    class="mobile-overlay"
+    id="mobileOverlay"
+></div>
+
+
+<!-- =====================================================
+     MOBILE DRAWER
+===================================================== -->
+
+<aside
+    class="mobile-drawer"
+    id="mobileDrawer"
+    aria-hidden="true"
+>
+
+    <div class="mobile-drawer-header">
+
+        <div class="mobile-brand">
+
+            <img
+                src="images/CURRENT.png"
+                alt="Younes App"
+            >
+
+            <span>
+                Younes App
+            </span>
+
+        </div>
+
+
+        <button
+            class="mobile-close"
+            id="mobileClose"
+            type="button"
+            aria-label="Close menu"
+        >
+
+            <i class="fa-solid fa-xmark"></i>
+
+        </button>
+
+    </div>
+
+
+    <!-- =================================================
+         MOBILE MENU
+    ================================================== -->
+
+    <ul class="mobile-menu-list">
+
+        <li>
+
+            <button
+                class="mobile-nav active"
+                data-page="dashboard"
+                type="button"
+            >
+
+                <i class="fa-solid fa-house"></i>
+
+                Dashboard
+
+            </button>
+
+        </li>
+
+
+        <li>
+
+            <button
+                class="mobile-nav"
+                data-page="sales"
+                type="button"
+            >
+
+                <i class="fa-solid fa-file-invoice"></i>
+
+                Accounts
+
+            </button>
+
+        </li>
+
+
+        <li>
+
+            <button
+                class="mobile-nav"
+                data-page="expenses"
+                type="button"
+            >
+
+                <i class="fa-solid fa-receipt"></i>
+
+                HT Luggage
+
+            </button>
+
+        </li>
+
+
+        <li>
+
+            <button
+                class="mobile-nav"
+                data-page="banking"
+                type="button"
+            >
+
+                <i class="fa-solid fa-building-columns"></i>
+
+                IT Luggage
+
+            </button>
+
+        </li>
+
+
+        <li>
+
+            <button
+                class="mobile-nav"
+                data-page="customers"
+                type="button"
+            >
+
+                <i class="fa-solid fa-user-group"></i>
+
+                ATM Cards
+
+            </button>
+
+        </li>
+
+
+        <li>
+
+            <button
+                class="mobile-nav"
+                data-page="new"
+                type="button"
+            >
+
+                <i class="fa-solid fa-plus-circle"></i>
+
+                Lists
+
+            </button>
+
+        </li>
+
+
+        <li>
+
+            <button
+                class="mobile-nav"
+                data-page="help"
+                type="button"
+            >
+
+                <i class="fa-regular fa-circle-question"></i>
+
+                Help
+
+            </button>
+
+        </li>
+
+
+        <li>
+
+            <button
+                id="mobileLogout"
+                type="button"
+            >
+
+                <i class="fa-solid fa-right-from-bracket"></i>
+
+                Logout
+
+            </button>
+
+        </li>
+
+    </ul>
+
+
+    <!-- =================================================
+         DEVELOPED BY
+         Fixed at bottom-left below separator
+    ================================================== -->
+
+    <div class="mobile-developed-area">
+
+        <div class="mobile-developed-card">
+
+            <div class="mobile-developed-image">
+
+                <img
+                    src="images/FAISAN.jpg"
+                    alt="Developer"
+                >
+
+            </div>
+
+
+            <div class="mobile-developed-info">
+
+                <small>
+                    Developed By
+                </small>
+
+                <strong>
+                    MUHAMMED FAISAN
+                </strong>
+
+                <span>
+                    Software Developer
+                </span>
+
+            </div>
+
+        </div>
+
+    </div>
+
+</aside>
+
+
+<!-- =====================================================
+     MAIN
+===================================================== -->
+
+<main class="main">
+
+<div class="content">
+
+
+<!-- =====================================================
+     DASHBOARD
+===================================================== -->
+
+<section
+    class="module-page active"
+    id="page-dashboard"
+>
+
+    <div class="page-header">
+
+        <div>
+
+            <div class="page-title-small">
+                Business Management
+            </div>
+
+            <h1>
+                Home Dashboard
+            </h1>
+
+            <p>
+                Quick access to your accounting and business activities.
+            </p>
+
+        </div>
+
+
+        <div class="date-box">
+
+            <i class="fa-regular fa-calendar"></i>
+
+            <span id="date"></span>
+
+        </div>
+
+    </div>
+
+
+    <!-- =================================================
+         COMPANY INFORMATION
+    ================================================== -->
+
+    <div style="margin-top:20px;">
+
+        <div
+            class="panel-header"
+            style="
+                background:#fff;
+                border:1px solid #e8ebee;
+                border-radius:8px 8px 0 0;
+            "
+        >
+
+            <h3>
+                Company Information
+            </h3>
+
+        </div>
+
+
+        <div
+            class="company-grid"
+            style="margin-top:10px;"
+        >
+
+            <div class="company-card">
+
+                <i class="fa-solid fa-building"></i>
+
+                <h4>Name</h4>
+
+                <p>
+                    Younes App
+                </p>
+
+            </div>
+
+
+            <div class="company-card">
+
+                <i class="fa-solid fa-location-dot"></i>
+
+                <h4>Address</h4>
+
+                <p>
+                    Hor Al Anz, Deira, Dubai, UAE
+                </p>
+
+            </div>
+
+
+            <div class="company-card">
+
+                <i class="fa-solid fa-phone"></i>
+
+                <h4>Contact</h4>
+
+                <p>
+                    +971 55 929 7977
+                </p>
+
+            </div>
+
+
+            <div class="company-card">
+
+                <i class="fa-solid fa-envelope"></i>
+
+                <h4>Email</h4>
+
+                <p>
+                    younesshabani2011@gmail.com
+                </p>
+
+            </div>
+
+
+            <div class="company-card">
+
+                <i class="fa-solid fa-id-card"></i>
+
+                <h4>Mobile</h4>
+
+                <p>
+                    +971 55 929 7977
+                </p>
+
+            </div>
+
+
+            <div class="company-card">
+
+                <i class="fa-solid fa-users"></i>
+
+                <h4>Profession</h4>
+
+                <p>
+                    General Manager
+                </p>
+
+            </div>
+
+
+            <div class="company-card">
+
+                <i class="fa-solid fa-globe"></i>
+
+                <h4>Home Number</h4>
+
+                <p>
+                    +971 55 929 7977
+                </p>
+
+            </div>
+
+
+            <div class="company-card">
+
+                <i class="fa-solid fa-building-columns"></i>
+
+                <h4>Bank Account</h4>
+
+                <p>
+                    CBD Bank<br>
+                    Account Name: YOUNES HOSSEINALI SHABANI<br>
+                    Acc No: 1000894269
+                </p>
+
+            </div>
+
+
+            <div class="company-card">
+
+                <i class="fa-solid fa-credit-card"></i>
+
+                <h4>Credit Card</h4>
+
+                <p>
+                    CBD SUPER SAVER CREDIT CARD<br>
+                    Account Name: YOUNES HOSSEINALI SHABANI<br>
+                    Card No: 4451 3531 0261 0069
+                </p>
+
+            </div>
+
+
+            <div class="company-card">
+
+                <i class="fa-solid fa-credit-card"></i>
+
+                <h4>Credit Card</h4>
+
+                <p>
+                    CBD SMILES VISA SIGNATURE CREDIT CARD<br>
+                    Account Name: YOUNES HOSSEINALI SHABANI<br>
+                    Card No: 4451 3530 1084 2283
+                </p>
+
+            </div>
+
+
+            <div class="company-card">
+
+                <i class="fa-solid fa-building-columns"></i>
+
+                <h4>Gold Account</h4>
+
+                <p>
+                    CBD Gold Account<br>
+                    Account Name: YOUNES HOSSEINALI SHABANI<br>
+                    Acc No: 1010158598
+                </p>
+
+            </div>
+
+        </div>
+
+    </div>
+
+
+    <!-- =================================================
+         TODO LIST
+    ================================================== -->
+
+    <div class="todo-section">
+
+        <div class="panel">
+
+            <div class="panel-header">
+
+                <h3>
+                    Today's To-Do List
+                </h3>
+
+            </div>
+
+
+            <div class="panel-body">
+
+                <div class="todo-input">
+
+                    <input
+                        type="text"
+                        id="todoInput"
+                        placeholder="Add a new task..."
+                    >
+
+                    <button
+                        id="addTodoBtn"
+                        type="button"
+                        aria-label="Add task"
+                    >
+
+                        <i class="fa-solid fa-plus"></i>
+
+                    </button>
+
+                </div>
+
+
+                <ul
+                    id="todoList"
+                    class="todo-list"
+                ></ul>
+
+            </div>
+
+        </div>
+
+    </div>
+
+</section>
+
+
+<!-- =====================================================
+     ACCOUNTS
+===================================================== -->
+
+<section
+    class="module-page"
+    id="page-sales"
+>
+
+    <div class="sheet">
+
+        <iframe
+            src="https://docs.google.com/spreadsheets/d/12sSuqPRfaHnNN0yHdTQhZvLlmdKR0yoHDkI_mvQygO4/edit?usp=sharing"
+            title="Accounts"
+        ></iframe>
+
+    </div>
+
+</section>
+
+
+<!-- =====================================================
+     HT LUGGAGE
+===================================================== -->
+
+<section
+    class="module-page"
+    id="page-expenses"
+>
+
+    <div class="sheet">
+
+        <iframe
+            src="ht.html"
+            title="HT Luggage"
+        ></iframe>
+
+    </div>
+
+</section>
+
+
+<!-- =====================================================
+     IT LUGGAGE
+===================================================== -->
+
+<section
+    class="module-page"
+    id="page-banking"
+>
+
+    <div class="sheet">
+
+        <iframe
+            src="it.html"
+            title="IT Luggage"
+        ></iframe>
+
+    </div>
+
+</section>
+
+
+<!-- =====================================================
+     ATM CARDS
+===================================================== -->
+
+<section
+    class="module-page"
+    id="page-customers"
+>
+
+    <div class="sheet">
+
+        <iframe
+            src="atm.html"
+            title="ATM Cards"
+        ></iframe>
+
+    </div>
+
+</section>
+
+
+<!-- =====================================================
+     LISTS
+===================================================== -->
+
+<section
+    class="module-page"
+    id="page-new"
+>
+
+    <div class="sheet">
+
+        <iframe
+            src="productlist.html"
+            title="Lists"
+        ></iframe>
+
+    </div>
+
+</section>
+
+
+<!-- =====================================================
+     HELP
+===================================================== -->
+
+<section
+    class="module-page"
+    id="page-help"
+>
+
+     <div class="sheet">
+
+        <iframe
+            src="help.html"
+            title="Lists"
+        ></iframe>
+
+    </div>
+
+</section>
+
+
+</div>
+</main>
+
+</div>
+
+
+<!-- =====================================================
+     JAVASCRIPT
+===================================================== -->
+
+<script>
+
+/* =========================================================
+   LOGIN CHECK
+========================================================= */
+
+if(localStorage.getItem("isLoggedIn") !== "true"){
+
+    window.location.href = "index.html";
+
+}
+
+
+/* =========================================================
+   ELEMENTS
+========================================================= */
+
+const mobileMenuBtn =
+    document.getElementById("mobileMenuBtn");
+
+const mobileDrawer =
+    document.getElementById("mobileDrawer");
+
+const mobileOverlay =
+    document.getElementById("mobileOverlay");
+
+const mobileClose =
+    document.getElementById("mobileClose");
+
+const profileIcon =
+    document.getElementById("profileIcon");
+
+const profileDropdown =
+    document.getElementById("profileDropdown");
+
+const logoutBtn =
+    document.getElementById("logoutBtn");
+
+const mobileLogout =
+    document.getElementById("mobileLogout");
+
+
+/* =========================================================
+   MOBILE MENU OPEN
+========================================================= */
+
+function openMobileMenu(){
+
+    mobileDrawer.classList.add("open");
+
+    mobileOverlay.classList.add("show");
+
+    mobileDrawer.setAttribute(
+        "aria-hidden",
+        "false"
+    );
+
+}
+
+
+/* =========================================================
+   MOBILE MENU CLOSE
+========================================================= */
+
+function closeMobileMenu(){
+
+    mobileDrawer.classList.remove("open");
+
+    mobileOverlay.classList.remove("show");
+
+    mobileDrawer.setAttribute(
+        "aria-hidden",
+        "true"
+    );
+
+}
+
+
+/* =========================================================
+   MOBILE BUTTON
+========================================================= */
+
+mobileMenuBtn.addEventListener(
+    "click",
+    function(e){
+
+        e.stopPropagation();
+
+        if(
+            mobileDrawer.classList.contains("open")
+        ){
+
+            closeMobileMenu();
+
+        }else{
+
+            openMobileMenu();
+
+        }
+
+    }
+);
+
+
+/* =========================================================
+   CLOSE BUTTON
+========================================================= */
+
+mobileClose.addEventListener(
+    "click",
+    function(){
+
+        closeMobileMenu();
+
+    }
+);
+
+
+/* =========================================================
+   OVERLAY
+========================================================= */
+
+mobileOverlay.addEventListener(
+    "click",
+    function(){
+
+        closeMobileMenu();
+
+    }
+);
+
+
+/* =========================================================
+   PAGE SWITCHING
+========================================================= */
+
+function openPage(pageName){
+
+    document
+        .querySelectorAll(".module-page")
+        .forEach(function(page){
+
+            page.classList.remove("active");
+
+        });
+
+
+    const selectedPage =
+        document.getElementById(
+            "page-" + pageName
+        );
+
+
+    if(selectedPage){
+
+        selectedPage.classList.add("active");
+
+    }else{
+
+        const dashboard =
+            document.getElementById(
+                "page-dashboard"
+            );
+
+        if(dashboard){
+
+            dashboard.classList.add("active");
+
+        }
+
+        pageName = "dashboard";
+
+    }
+
+
+    /* Desktop navigation */
+
+    document
+        .querySelectorAll(".nav-item")
+        .forEach(function(item){
+
+            item.classList.remove("active");
+
+            if(
+                item.dataset.page === pageName
+            ){
+
+                item.classList.add("active");
+
+            }
+
+        });
+
+
+    /* Mobile navigation */
+
+    document
+        .querySelectorAll(".mobile-nav")
+        .forEach(function(item){
+
+            item.classList.remove("active");
+
+            if(
+                item.dataset.page === pageName
+            ){
+
+                item.classList.add("active");
+
+            }
+
+        });
+
+
+    closeMobileMenu();
+
+    profileDropdown.classList.remove("show");
+
+
+    const content =
+        document.querySelector(".content");
+
+    if(content){
+
+        content.scrollTop = 0;
+
+    }
+
+}
+
+
+/* =========================================================
+   DESKTOP NAVIGATION
+========================================================= */
+
+document
+    .querySelectorAll(".nav-item")
+    .forEach(function(item){
+
+        item.addEventListener(
+            "click",
+            function(){
+
+                openPage(
+                    item.dataset.page
+                );
+
+            }
+        );
+
+    });
+
+
+/* =========================================================
+   MOBILE NAVIGATION
+========================================================= */
+
+document
+    .querySelectorAll(".mobile-nav")
+    .forEach(function(item){
+
+        item.addEventListener(
+            "click",
+            function(){
+
+                openPage(
+                    item.dataset.page
+                );
+
+            }
+        );
+
+    });
+
+
+/* =========================================================
+   OTHER DATA-PAGE BUTTONS
+========================================================= */
+
+document
+    .querySelectorAll("[data-page]")
+    .forEach(function(button){
+
+        if(
+            button.classList.contains("nav-item") ||
+            button.classList.contains("mobile-nav")
+        ){
+
+            return;
+
+        }
+
+
+        button.addEventListener(
+            "click",
+            function(){
+
+                openPage(
+                    button.dataset.page
+                );
+
+            }
+        );
+
+    });
+
+
+/* =========================================================
+   PROFILE DROPDOWN
+========================================================= */
+
+profileIcon.addEventListener(
+    "click",
+    function(e){
+
+        e.stopPropagation();
+
+        profileDropdown.classList.toggle(
+            "show"
+        );
+
+    }
+);
+
+
+/* =========================================================
+   PROFILE KEYBOARD
+========================================================= */
+
+profileIcon.addEventListener(
+    "keydown",
+    function(e){
+
+        if(
+            e.key === "Enter" ||
+            e.key === " "
+        ){
+
+            e.preventDefault();
+
+            profileDropdown.classList.toggle(
+                "show"
+            );
+
+        }
+
+    }
+);
+
+
+/* =========================================================
+   CLOSE PROFILE
+========================================================= */
+
+document.addEventListener(
+    "click",
+    function(e){
+
+        if(
+            !profileDropdown.contains(e.target) &&
+            !profileIcon.contains(e.target)
+        ){
+
+            profileDropdown.classList.remove(
+                "show"
+            );
+
+        }
+
+    }
+);
+
+
+/* =========================================================
+   LOGOUT
+========================================================= */
+
+function logout(){
+
+    localStorage.setItem(
+        "isLoggedIn",
+        "false"
+    );
+
+    localStorage.removeItem(
+        "userEmail"
+    );
+
+    window.location.href =
+        "index.html";
+
+}
+
+
+logoutBtn.addEventListener(
+    "click",
+    logout
+);
+
+mobileLogout.addEventListener(
+    "click",
+    logout
+);
+
+
+/* =========================================================
+   DATE
+========================================================= */
+
+function updateDate(){
+
+    const now = new Date();
+
+    const options = {
+        day:"2-digit",
+        month:"short",
+        year:"numeric"
+    };
+
+    const dateElement =
+        document.getElementById("date");
+
+    if(dateElement){
+
+        dateElement.innerText =
+            now.toLocaleDateString(
+                "en-GB",
+                options
+            );
+
+    }
+
+}
+
+updateDate();
+
+
+/* =========================================================
+   TODO LIST
+========================================================= */
+
+let todos = [];
+
+try{
+
+    todos =
+        JSON.parse(
+            localStorage.getItem("todos")
+        ) || [];
+
+    if(!Array.isArray(todos)){
+
+        todos = [];
+
+    }
+
+}catch(error){
+
+    todos = [];
+
+}
+
+
+/* =========================================================
+   RENDER TODO
+========================================================= */
+
+function renderTodos(){
+
+    const list =
+        document.getElementById(
+            "todoList"
+        );
+
+    if(!list){
+
+        return;
+
+    }
+
+    list.innerHTML = "";
+
+
+    todos.forEach(
+        function(todo,index){
+
+            const li =
+                document.createElement("li");
+
+
+            if(todo.completed){
+
+                li.classList.add(
+                    "completed"
+                );
+
+            }
+
+
+            const span =
+                document.createElement("span");
+
+            span.innerText =
+                todo.text;
+
+
+            span.addEventListener(
+                "click",
+                function(){
+
+                    toggleTodo(index);
+
+                }
+            );
+
+
+            const actions =
+                document.createElement("div");
+
+            actions.className =
+                "todo-actions";
+
+
+            const trash =
+                document.createElement("i");
+
+            trash.className =
+                "fa-solid fa-trash";
+
+            trash.setAttribute(
+                "title",
+                "Delete"
+            );
+
+
+            trash.addEventListener(
+                "click",
+                function(){
+
+                    deleteTodo(index);
+
+                }
+            );
+
+
+            actions.appendChild(
+                trash
+            );
+
+            li.appendChild(
+                span
+            );
+
+            li.appendChild(
+                actions
+            );
+
+            list.appendChild(
+                li
+            );
+
+        }
+    );
+
+
+    localStorage.setItem(
+        "todos",
+        JSON.stringify(todos)
+    );
+
+}
+
+
+/* =========================================================
+   ADD TODO
+========================================================= */
+
+function addTodo(){
+
+    const input =
+        document.getElementById(
+            "todoInput"
+        );
+
+    if(!input){
+
+        return;
+
+    }
+
+
+    const text =
+        input.value.trim();
+
+
+    if(text === ""){
+
+        input.focus();
+
+        return;
+
+    }
+
+
+    todos.push({
+
+        text:text,
+
+        completed:false
+
+    });
+
+
+    input.value = "";
+
+    renderTodos();
+
+    input.focus();
+
+}
+
+
+/* =========================================================
+   TOGGLE TODO
+========================================================= */
+
+function toggleTodo(index){
+
+    if(
+        !todos[index]
+    ){
+
+        return;
+
+    }
+
+    todos[index].completed =
+        !todos[index].completed;
+
+    renderTodos();
+
+}
+
+
+/* =========================================================
+   DELETE TODO
+========================================================= */
+
+function deleteTodo(index){
+
+    todos.splice(
+        index,
+        1
+    );
+
+    renderTodos();
+
+}
+
+
+/* =========================================================
+   ADD BUTTON
+========================================================= */
+
+const addTodoBtn =
+    document.getElementById(
+        "addTodoBtn"
+    );
+
+if(addTodoBtn){
+
+    addTodoBtn.addEventListener(
+        "click",
+        addTodo
+    );
+
+}
+
+
+/* =========================================================
+   ENTER KEY
+========================================================= */
+
+const todoInput =
+    document.getElementById(
+        "todoInput"
+    );
+
+if(todoInput){
+
+    todoInput.addEventListener(
+        "keydown",
+        function(e){
+
+            if(e.key === "Enter"){
+
+                e.preventDefault();
+
+                addTodo();
+
+            }
+
+        }
+    );
+
+}
+
+
+/* =========================================================
+   ESCAPE KEY
+========================================================= */
+
+document.addEventListener(
+    "keydown",
+    function(e){
+
+        if(e.key === "Escape"){
+
+            closeMobileMenu();
+
+            profileDropdown.classList.remove(
+                "show"
+            );
+
+        }
+
+    }
+);
+
+
+/* =========================================================
+   INITIAL LOAD
+========================================================= */
+
+renderTodos();
+
+openPage("dashboard");
+
+closeMobileMenu();
+
+profileDropdown.classList.remove(
+    "show"
+);
+
+</script>
+
+</body>
+</html>
