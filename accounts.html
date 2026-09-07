@@ -144,7 +144,7 @@ button{
     margin-left:18px;
     gap:40px;
     flex:1;
-    overflow:hidden;
+    overflow:visible;
 }
 
 .nav-item{
@@ -841,6 +841,192 @@ button{
 }
 
 
+
+/* =========================================================
+   BANK DROPDOWN
+========================================================= */
+
+.bank-nav{
+    position:relative;
+    height:100%;
+    display:flex;
+    align-items:stretch;
+}
+
+.bank-nav > .nav-item{
+    height:100%;
+}
+
+.bank-dropdown{
+    position:absolute;
+    top:calc(100% - 1px);
+    left:50%;
+    transform:translateX(-50%) translateY(8px);
+    min-width:190px;
+    background:#fff;
+    border:1px solid #e5e7eb;
+    border-radius:10px;
+    box-shadow:0 12px 30px rgba(15,23,42,.14);
+    padding:7px;
+    z-index:9999;
+    opacity:0;
+    visibility:hidden;
+    pointer-events:none;
+    transition:.18s ease;
+}
+
+.bank-nav.open .bank-dropdown{
+    opacity:1;
+    visibility:visible;
+    pointer-events:auto;
+    transform:translateX(-50%) translateY(0);
+}
+
+.bank-option{
+    width:100%;
+    display:flex;
+    align-items:center;
+    gap:10px;
+    border:0;
+    background:transparent;
+    padding:11px 12px;
+    border-radius:7px;
+    color:#344054;
+    font-size:13px;
+    font-weight:600;
+    cursor:pointer;
+    text-align:left;
+    transition:.15s;
+}
+
+.bank-option i{
+    width:18px;
+    color:#07563f;
+    text-align:center;
+}
+
+.bank-option:hover,
+.bank-option.active{
+    background:#eaf6f0;
+    color:#006b4f;
+}
+
+.bank-pages{
+    width:100%;
+}
+
+.bank-section{
+    display:none;
+    width:100%;
+    height:100%;
+}
+
+.bank-section.active{
+    display:block;
+}
+
+.bank-section .sheet{
+    height:calc(100vh - 92px);
+}
+
+/* Bank selector inside the bank page */
+.bank-page-header{
+    display:flex;
+    align-items:center;
+    justify-content:space-between;
+    gap:15px;
+    margin-bottom:15px;
+}
+
+.bank-page-title{
+    font-size:20px;
+    font-weight:700;
+}
+
+.bank-page-subtitle{
+    margin-top:4px;
+    color:#667085;
+    font-size:12px;
+}
+
+.bank-selector{
+    border:1px solid #d9dee5;
+    background:#fff;
+    border-radius:8px;
+    padding:10px 35px 10px 12px;
+    font-size:13px;
+    font-weight:600;
+    color:#344054;
+}
+
+/* Mobile bank submenu */
+.mobile-bank-toggle{
+    width:100%;
+    border:0;
+    background:transparent;
+    display:flex;
+    align-items:center;
+    gap:12px;
+    padding:14px 18px;
+    color:#344054;
+    font-size:14px;
+    font-weight:600;
+    cursor:pointer;
+    text-align:left;
+}
+
+.mobile-bank-toggle .bank-arrow{
+    margin-left:auto;
+    transition:.2s;
+}
+
+.mobile-bank-group.open .bank-arrow{
+    transform:rotate(180deg);
+}
+
+.mobile-bank-submenu{
+    display:none;
+    padding:0 10px 8px 45px;
+}
+
+.mobile-bank-group.open .mobile-bank-submenu{
+    display:block;
+}
+
+.mobile-bank-option{
+    width:100%;
+    border:0;
+    background:transparent;
+    padding:10px 12px;
+    border-radius:7px;
+    text-align:left;
+    font-size:13px;
+    color:#667085;
+    cursor:pointer;
+}
+
+.mobile-bank-option:hover,
+.mobile-bank-option.active{
+    background:#eaf6f0;
+    color:#006b4f;
+    font-weight:600;
+}
+
+@media(max-width:700px){
+    .bank-dropdown{
+        display:none;
+    }
+
+    .bank-page-header{
+        align-items:flex-start;
+        flex-direction:column;
+    }
+
+    .bank-selector{
+        width:100%;
+    }
+}
+
 /* =========================================================
    RESPONSIVE 1300
 ========================================================= */
@@ -1207,14 +1393,36 @@ button{
             <span>Home</span>
         </button>
 
-        <button
-            class="nav-item"
-            data-page="sales"
-            type="button"
-        >
-            <i class="fa-solid fa-file-invoice"></i>
-            <span>Accounts</span>
-        </button>
+        <div class="bank-nav" id="bankNav">
+            <button
+                class="nav-item"
+                data-page="bank-cbd"
+                type="button"
+                aria-haspopup="true"
+                aria-expanded="false"
+            >
+                <i class="fa-solid fa-building-columns"></i>
+                <span>Bank</span>
+            </button>
+
+            <div class="bank-dropdown" id="bankDropdown">
+                <button class="bank-option" data-bank="cbd" type="button">
+                    <i class="fa-solid fa-building-columns"></i> CBD
+                </button>
+                <button class="bank-option" data-bank="adcb" type="button">
+                    <i class="fa-solid fa-building-columns"></i> ADCB
+                </button>
+                <button class="bank-option" data-bank="fab" type="button">
+                    <i class="fa-solid fa-building-columns"></i> FAB
+                </button>
+                <button class="bank-option" data-bank="eib" type="button">
+                    <i class="fa-solid fa-building-columns"></i> EIB
+                </button>
+                <button class="bank-option" data-bank="adib" type="button">
+                    <i class="fa-solid fa-building-columns"></i> ADIB
+                </button>
+            </div>
+        </div>
 
         <button
             class="nav-item"
@@ -1455,19 +1663,26 @@ button{
         </li>
 
 
-        <li>
+        <li class="mobile-bank-group" id="mobileBankGroup">
 
             <button
-                class="mobile-nav"
-                data-page="sales"
+                class="mobile-bank-toggle"
+                id="mobileBankToggle"
                 type="button"
+                aria-expanded="false"
             >
-
-                <i class="fa-solid fa-file-invoice"></i>
-
-                Accounts
-
+                <i class="fa-solid fa-building-columns"></i>
+                <span>Bank</span>
+                <i class="fa-solid fa-chevron-down bank-arrow"></i>
             </button>
+
+            <div class="mobile-bank-submenu">
+                <button class="mobile-bank-option" data-bank="cbd" type="button">CBD</button>
+                <button class="mobile-bank-option" data-bank="adcb" type="button">ADCB</button>
+                <button class="mobile-bank-option" data-bank="fab" type="button">FAB</button>
+                <button class="mobile-bank-option" data-bank="eib" type="button">EIB</button>
+                <button class="mobile-bank-option" data-bank="adib" type="button">ADIB</button>
+            </div>
 
         </li>
 
@@ -1918,23 +2133,39 @@ button{
 
 
 <!-- =====================================================
-     ACCOUNTS
+     BANK - SEPARATE SECTION FOR EACH BANK
 ===================================================== -->
 
-<section
-    class="module-page"
-    id="page-sales"
->
-
+<section class="module-page" id="page-bank-cbd">
     <div class="sheet">
-
-        <iframe
-            src="https://docs.google.com/spreadsheets/d/12sSuqPRfaHnNN0yHdTQhZvLlmdKR0yoHDkI_mvQygO4/edit?usp=sharing"
-            title="Accounts"
-        ></iframe>
-
+        <iframe src="https://docs.google.com/spreadsheets/d/12sSuqPRfaHnNN0yHdTQhZvLlmdKR0yoHDkI_mvQygO4/edit?usp=sharing" title="CBD Bank Sheet"></iframe>
     </div>
+</section>
 
+<section class="module-page" id="page-bank-adcb">
+    <div class="sheet">
+        <iframe src="about:blank" title="ADCB Bank Sheet"></iframe>
+    </div>
+</section>
+
+<section class="module-page" id="page-bank-fab">
+    <div class="sheet">
+        <iframe src="about:blank" title="FAB Bank Sheet"></iframe>
+    </div>
+</section>
+
+<section class="module-page" id="page-bank-eib">
+    
+    <div class="sheet">
+        <iframe src="about:blank" title="EIB Bank Sheet"></iframe>
+    </div>
+</section>
+
+
+<section class="module-page" id="page-bank-adib">
+    <div class="sheet">
+        <iframe src="about:blank" title="ADIB Bank Sheet"></iframe>
+    </div>
 </section>
 
 
@@ -2207,6 +2438,135 @@ mobileOverlay.addEventListener(
 
 
 /* =========================================================
+   BANK NAVIGATION
+========================================================= */
+
+const bankNav = document.getElementById("bankNav");
+const mobileBankGroup = document.getElementById("mobileBankGroup");
+const mobileBankToggle = document.getElementById("mobileBankToggle");
+
+const BANK_PAGES = {
+    cbd: "bank-cbd",
+    adcb: "bank-adcb",
+    fab: "bank-fab",
+    eib: "bank-eib",
+    adib: "bank-adib"
+};
+
+function openBank(bankKey){
+
+    const pageName = BANK_PAGES[bankKey];
+
+    if(!pageName){
+        return;
+    }
+
+    openPage(pageName);
+
+    document.querySelectorAll(".bank-option").forEach(function(btn){
+        btn.classList.toggle("active", btn.dataset.bank === bankKey);
+    });
+
+    document.querySelectorAll(".mobile-bank-option").forEach(function(btn){
+        btn.classList.toggle("active", btn.dataset.bank === bankKey);
+    });
+
+    document.querySelectorAll("[data-bank-selector]").forEach(function(select){
+        select.value = bankKey;
+    });
+
+    if(mobileBankGroup){
+        mobileBankGroup.classList.remove("open");
+    }
+
+    if(mobileBankToggle){
+        mobileBankToggle.setAttribute("aria-expanded","false");
+    }
+}
+
+if(bankNav){
+
+    const bankMainButton = bankNav.querySelector(".nav-item");
+
+    bankMainButton.addEventListener("click", function(e){
+        e.preventDefault();
+        e.stopPropagation();
+
+        const isOpen = bankNav.classList.toggle("open");
+
+        bankMainButton.setAttribute(
+            "aria-expanded",
+            isOpen ? "true" : "false"
+        );
+    });
+
+    bankNav.querySelectorAll(".bank-option").forEach(function(button){
+
+        button.addEventListener("click", function(e){
+            e.preventDefault();
+            e.stopPropagation();
+            openBank(button.dataset.bank);
+            bankNav.classList.remove("open");
+            bankMainButton.setAttribute("aria-expanded","false");
+        });
+
+    });
+}
+
+if(mobileBankToggle){
+
+    mobileBankToggle.addEventListener("click", function(e){
+
+        e.stopPropagation();
+
+        const isOpen =
+            mobileBankGroup.classList.toggle("open");
+
+        mobileBankToggle.setAttribute(
+            "aria-expanded",
+            isOpen ? "true" : "false"
+        );
+
+    });
+}
+
+document.querySelectorAll(".mobile-bank-option").forEach(function(button){
+
+    button.addEventListener("click", function(){
+
+        openBank(button.dataset.bank);
+        closeMobileMenu();
+
+    });
+
+});
+
+document.querySelectorAll("[data-bank-selector]").forEach(function(select){
+
+    select.addEventListener("change", function(){
+
+        openBank(select.value);
+
+    });
+
+});
+
+document.addEventListener("click", function(e){
+
+    if(bankNav && !bankNav.contains(e.target)){
+        bankNav.classList.remove("open");
+
+        const mainButton = bankNav.querySelector(".nav-item");
+
+        if(mainButton){
+            mainButton.setAttribute("aria-expanded","false");
+        }
+    }
+
+});
+
+
+/* =========================================================
    PAGE SWITCHING
 ========================================================= */
 
@@ -2258,7 +2618,11 @@ function openPage(pageName){
             item.classList.remove("active");
 
             if(
-                item.dataset.page === pageName
+                item.dataset.page === pageName ||
+                (
+                    item.dataset.page === "bank-cbd" &&
+                    pageName.indexOf("bank-") === 0
+                )
             ){
 
                 item.classList.add("active");
@@ -2311,6 +2675,10 @@ function openPage(pageName){
 document
     .querySelectorAll(".nav-item")
     .forEach(function(item){
+
+        if(item.closest("#bankNav")){
+            return;
+        }
 
         item.addEventListener(
             "click",
