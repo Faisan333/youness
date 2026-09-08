@@ -1682,141 +1682,6 @@
             }
         }
     </style>
-
-<style id="CBD_PROFILE_IFRAME_STYLE">
-#cbdDashboard[hidden], #cbdSheetView[hidden] { display:none !important; }
-#cbdProfileBtn, #cbdProfileBtn * { pointer-events:auto !important; }
-#page-bank-cbd .bank-sheet-view { width:100%; max-width:1200px; margin:0 auto; }
-#page-bank-cbd .bank-sheet-view .sheet {
-    width:100%; height:calc(100vh - 205px); min-height:500px;
-    margin:0; overflow:hidden;
-}
-#page-bank-cbd .bank-sheet-view .sheet iframe {
-    width:100%; height:100%; display:block; border:0;
-}
-@media(max-width:700px){
-    #page-bank-cbd .bank-sheet-view .sheet {
-        height:calc(100vh - 165px); min-height:450px;
-    }
-}
-</style>
-
-
-<style id="FULLSCREEN_BANK_SHEET_FIX">
-/* =========================================================
-   FULL SCREEN BANK STATEMENT / GOOGLE SHEET
-   Removes unused outer space and lets the statement use the
-   complete content area below the top navigation.
-========================================================= */
-html, body { height:100%; }
-body { overflow:hidden; }
-
-.main { min-height:0 !important; height:calc(100vh - 68px) !important; overflow:hidden !important; }
-.content {
-    height:100% !important;
-    min-height:0 !important;
-    padding:0 !important;
-    overflow:hidden !important;
-}
-
-.module-page.bank-dashboard-page.active {
-    width:100% !important;
-    height:100% !important;
-    min-height:0 !important;
-    margin:0 !important;
-    padding:0 !important;
-}
-
-.bank-dashboard-page.active .bank-app {
-    width:100% !important;
-    height:100% !important;
-    min-height:0 !important;
-    max-height:none !important;
-    margin:0 !important;
-    padding:0 !important;
-    overflow:hidden !important;
-    box-sizing:border-box !important;
-}
-
-.bank-dashboard-page.active .bank-home {
-    width:100% !important;
-    max-width:1080px;
-    margin:0 auto !important;
-    box-sizing:border-box !important;
-    padding:24px;
-}
-
-.bank-dashboard-page.active .bank-sheet-view {
-    width:100% !important;
-    max-width:none !important;
-    height:100% !important;
-    min-height:0 !important;
-    margin:0 !important;
-    padding:0 !important;
-    box-sizing:border-box !important;
-    display:flex !important;
-    flex-direction:column !important;
-}
-
-.bank-dashboard-page.active .bank-sheet-view[hidden] { display:none !important; }
-
-.bank-dashboard-page.active .bank-sheet-head {
-    flex:0 0 56px !important;
-    width:100% !important;
-    min-height:56px !important;
-    height:56px !important;
-    margin:0 !important;
-    padding:8px 14px !important;
-    background:#fff !important;
-    border-bottom:1px solid #e6e9ed !important;
-    box-sizing:border-box !important;
-    border-radius:0 !important;
-    box-shadow:0 2px 8px rgba(0,0,0,.06) !important;
-    z-index:5 !important;
-}
-
-.bank-dashboard-page.active .bank-sheet-head b {
-    font-size:16px !important;
-    white-space:nowrap;
-}
-
-.bank-dashboard-page.active .bank-sheet-view .sheet {
-    flex:1 1 auto !important;
-    width:100% !important;
-    height:auto !important;
-    min-height:0 !important;
-    margin:0 !important;
-    border:0 !important;
-    border-radius:0 !important;
-    box-shadow:none !important;
-    overflow:hidden !important;
-    background:#fff !important;
-}
-
-.bank-dashboard-page.active .bank-sheet-view .sheet iframe {
-    display:block !important;
-    width:100% !important;
-    height:100% !important;
-    min-height:0 !important;
-    border:0 !important;
-}
-
-@media (max-width:700px) {
-    .main { height:calc(100vh - 60px) !important; }
-    .bank-dashboard-page.active .bank-sheet-head {
-        flex-basis:52px !important;
-        height:52px !important;
-        min-height:52px !important;
-        padding:7px 10px !important;
-    }
-    .bank-dashboard-page.active .bank-sheet-head b { font-size:14px !important; }
-    .bank-dashboard-page.active .bank-sheet-head .bank-back {
-        padding:8px 10px !important;
-        font-size:12px !important;
-    }
-}
-</style>
-
 </head>
 
 <body>
@@ -2244,7 +2109,7 @@ body { overflow:hidden; }
                             </div>
                         </div>
 
-                        <div class="bank-sheet-view" hidden="" id="cbdSheetView">
+                        <!-- <div class="bank-sheet-view" hidden="" id="cbdSheetView">
                             <div class="bank-sheet-head">
                                 <button class="bank-back" data-back-bank="cbd" id="cbdBackBtn" type="button">← Back to
                                     Dashboard</button>
@@ -2253,7 +2118,7 @@ body { overflow:hidden; }
                             <div class="sheet"><iframe
                                     src="https://docs.google.com/spreadsheets/d/12sSuqPRfaHnNN0yHdTQhZvLlmdKR0yoHDkI_mvQygO4/edit?usp=sharing"
                                     title="CBD Bank Sheet"></iframe></div>
-                        </div>
+                        </div> -->
                     </div>
                 </section>
                 <section class="module-page bank-dashboard-page" id="page-bank-adcb">
@@ -3464,54 +3329,6 @@ body { overflow:hidden; }
             }
         })();
     </script>
-
-<script id="CBD_PROFILE_IFRAME_FIX">
-(function () {
-    "use strict";
-
-    document.addEventListener("click", function (e) {
-        var profile = e.target.closest ? e.target.closest("#cbdProfileBtn") : null;
-        if (profile) {
-            e.preventDefault();
-            e.stopPropagation();
-            if (e.stopImmediatePropagation) e.stopImmediatePropagation();
-
-            var home = document.getElementById("cbdDashboard");
-            var sheet = document.getElementById("cbdSheetView");
-            if (home && sheet) {
-                home.hidden = true;
-                home.style.display = "none";
-                sheet.hidden = false;
-                sheet.style.display = "block";
-
-                var content = document.querySelector(".content");
-                if (content) content.scrollTop = 0;
-            }
-            return;
-        }
-
-        var back = e.target.closest ? e.target.closest("#cbdBackBtn") : null;
-        if (back) {
-            e.preventDefault();
-            e.stopPropagation();
-            if (e.stopImmediatePropagation) e.stopImmediatePropagation();
-
-            var home2 = document.getElementById("cbdDashboard");
-            var sheet2 = document.getElementById("cbdSheetView");
-            if (home2 && sheet2) {
-                sheet2.hidden = true;
-                sheet2.style.display = "none";
-                home2.hidden = false;
-                home2.style.display = "";
-
-                var content2 = document.querySelector(".content");
-                if (content2) content2.scrollTop = 0;
-            }
-        }
-    }, true);
-})();
-</script>
-
 </body>
 
 </html>
