@@ -1,0 +1,113 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Younes Alhilal — Monthly Accounts</title>
+<style>
+:root{--ink:#172033;--muted:#657087;--line:#e2e7ef;--blue:#2457d6;--bg:#f4f7fb;--green:#12805c}
+*{box-sizing:border-box}body{margin:0;font-family:Arial,Helvetica,sans-serif;background:var(--bg);color:var(--ink)}
+.wrap{max-width:1050px;margin:32px auto;padding:0 18px}.header{display:flex;justify-content:space-between;align-items:center;gap:16px;margin-bottom:22px}
+h1{margin:0;font-size:26px}.subtitle{color:var(--muted);margin-top:6px;font-size:14px}
+.actions{display:flex;gap:9px;flex-wrap:wrap}button{border:0;border-radius:9px;padding:11px 15px;font-weight:700;cursor:pointer;background:var(--blue);color:#fff}button.secondary{background:#e8edf7;color:#23314d}button.danger{background:#fff0f0;color:#b42318}
+.panel{background:white;border:1px solid var(--line);border-radius:15px;padding:22px;margin-bottom:18px;box-shadow:0 5px 18px #1c2c4810}
+.controls{display:flex;gap:14px;flex-wrap:wrap;align-items:end}.field{display:flex;flex-direction:column;gap:7px;min-width:170px}label{font-size:12px;color:var(--muted);font-weight:700;text-transform:uppercase;letter-spacing:.04em}input,select{padding:11px;border:1px solid #d5dce8;border-radius:8px;font:inherit;color:var(--ink);background:white}
+table{width:100%;border-collapse:collapse;margin-top:14px}th{text-align:left;background:#f6f8fc;color:#59657b;font-size:12px;text-transform:uppercase;letter-spacing:.04em}th,td{padding:12px 10px;border-bottom:1px solid var(--line)}td input{width:100%;min-width:90px}td.amount input{text-align:right}td:last-child,th:last-child{text-align:center}.remove{padding:7px 10px;background:#fff0f0;color:#b42318}
+.totals{display:grid;grid-template-columns:repeat(3,1fr);gap:12px}.metric{padding:17px;border:1px solid var(--line);border-radius:12px;background:#fbfcff}.metric span{display:block;color:var(--muted);font-size:12px;font-weight:bold;text-transform:uppercase}.metric strong{display:block;font-size:24px;margin-top:9px}.metric.balance{background:#eefaf4;border-color:#cdebdc}.metric.balance strong{color:var(--green)}
+.note{color:var(--muted);font-size:12px;margin-top:15px}
+@media(max-width:700px){.header{align-items:flex-start;flex-direction:column}.totals{grid-template-columns:1fr}.panel{padding:15px}table{font-size:13px}th,td{padding:8px 5px}}
+@media print{body{background:white}.wrap{margin:0;max-width:none}.actions,.remove,.add-row,.note{display:none!important}.panel{box-shadow:none;break-inside:avoid}.header{margin-bottom:10px}}
+</style>
+</head>
+<body>
+<div class="wrap">
+  <header class="header">
+    <div><h1>YOUNES ALHILAL</h1><div class="subtitle">Monthly cash & bank account statement</div></div>
+    <div class="actions">
+      <button class="secondary" onclick="addRow('received')">+ Received</button>
+      <button class="secondary" onclick="addRow('payment')">+ Payment</button>
+      <button class="secondary" onclick="addRow('expense')">+ Expense</button>
+      <button onclick="downloadPDF()">Download PDF</button>
+    </div>
+  </header>
+  <section class="panel">
+    <div class="controls">
+      <div class="field"><label>Account / Name</label><input id="account" value="YOUNES ALHILAL"></div>
+      <div class="field"><label>Month</label><input id="month" type="month" value="2026-09"></div>
+      <div class="field"><label>Currency</label><select id="currency"><option>AED</option><option>INR</option><option>USD</option></select></div>
+      <div class="field"><label>Opening balance</label><input id="opening" type="number" step="0.01" value="0"></div>
+    </div>
+  </section>
+  <section class="panel">
+    <h2 style="margin:0;font-size:18px">Transactions</h2>
+    <table>
+      <thead><tr><th style="width:15%">Type</th><th>Description</th><th style="width:23%">Amount</th><th style="width:8%"> </th></tr></thead>
+      <tbody id="rows"></tbody>
+    </table>
+    <button class="secondary add-row" style="margin-top:14px" onclick="addRow()">+ Add transaction</button>
+  </section>
+  <section class="panel">
+    <h2 style="margin:0 0 15px;font-size:18px">Account Summary</h2>
+    <div class="totals">
+      <div class="metric"><span>Total Received</span><strong id="received">AED 0.00</strong></div>
+      <div class="metric"><span>Total Payments</span><strong id="payments">AED 0.00</strong></div>
+      <div class="metric"><span>Total Expenses</span><strong id="expenses">AED 0.00</strong></div>
+      <div class="metric"><span>Total Inflow</span><strong id="inflow">AED 0.00</strong></div>
+      <div class="metric"><span>Total Outflow</span><strong id="outflow">AED 0.00</strong></div>
+      <div class="metric balance"><span>Balance in Bank</span><strong id="balance">AED 0.00</strong></div>
+    </div>
+    <div class="note">Balance = Opening balance + Received − Payments − Expenses. Values update automatically.</div>
+  </section>
+</div>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/jspdf/2.5.1/jspdf.umd.min.js"></script>
+<script>
+const tbody=document.getElementById('rows');
+const currency=()=>document.getElementById('currency').value;
+function money(n){return currency()+' '+Number(n||0).toLocaleString('en-US',{minimumFractionDigits:2,maximumFractionDigits:2})}
+function addRow(type='expense',description='',amount=''){
+ const tr=document.createElement('tr');
+ tr.innerHTML=`<td><select class="type"><option value="received">Received</option><option value="payment">Payment</option><option value="expense">Expense</option></select></td><td><input class="description" placeholder="Enter description" value="${description}"></td><td class="amount"><input class="amount-input" type="number" min="0" step="0.01" placeholder="0.00" value="${amount}"></td><td><button class="remove" onclick="this.closest('tr').remove();calculate()">×</button></td>`;
+ tr.querySelector('.type').value=type;
+ tr.querySelectorAll('input,select').forEach(el=>el.addEventListener('input',calculate));
+ tbody.appendChild(tr);calculate();
+}
+function calculate(){
+ let received=0,payments=0,expenses=0;
+ tbody.querySelectorAll('tr').forEach(tr=>{let n=Number(tr.querySelector('.amount-input').value)||0;let t=tr.querySelector('.type').value;if(t==='received')received+=n;else if(t==='payment')payments+=n;else expenses+=n;});
+ let opening=Number(document.getElementById('opening').value)||0;
+ let inflow=received, outflow=payments+expenses, balance=opening+inflow-outflow;
+ document.getElementById('received').textContent=money(received);
+ document.getElementById('payments').textContent=money(payments);
+ document.getElementById('expenses').textContent=money(expenses);
+ document.getElementById('inflow').textContent=money(inflow);
+ document.getElementById('outflow').textContent=money(outflow);
+ document.getElementById('balance').textContent=money(balance);
+}
+document.getElementById('opening').addEventListener('input',calculate);
+document.getElementById('currency').addEventListener('change',calculate);
+function downloadPDF(){
+ if(!window.jspdf){window.print();return}
+ const {jsPDF}=window.jspdf;const doc=new jsPDF();
+ const name=document.getElementById('account').value,month=document.getElementById('month').value;
+ doc.setFontSize(18);doc.text(name,14,18);doc.setFontSize(11);doc.text('Monthly Account Statement: '+month,14,26);
+ let y=38;doc.setFontSize(10);doc.text('Type',14,y);doc.text('Description',48,y);doc.text('Amount ('+currency()+')',160,y);y+=7;
+ tbody.querySelectorAll('tr').forEach(tr=>{
+  const type=tr.querySelector('.type').selectedOptions[0].text;
+  const desc=tr.querySelector('.description').value||'-';
+  const amount=Number(tr.querySelector('.amount-input').value)||0;
+  if(y>270){doc.addPage();y=18}
+  doc.text(type,14,y);doc.text(desc.substring(0,55),48,y);doc.text(amount.toLocaleString('en-US',{minimumFractionDigits:2,maximumFractionDigits:2}),196,y,{align:'right'});y+=7;
+ });
+ y+=6;doc.setFontSize(12);doc.text('ACCOUNT SUMMARY',14,y);y+=8;doc.setFontSize(10);
+ ['Total Received','Total Payments','Total Expenses','Total Inflow','Total Outflow','Balance in Bank'].forEach((label,i)=>{
+  const val=document.getElementById(['received','payments','expenses','inflow','outflow','balance'][i]).textContent;
+  doc.text(label,14,y);doc.text(val,196,y,{align:'right'});y+=7;
+ });
+ doc.save(name.replace(/[^a-z0-9]/gi,'_')+'_'+month+'_statement.pdf');
+}
+addRow('received','Received',11757.05);
+addRow('expense','Expense',11685.40);
+calculate();
+</script>
+</body>
+</html>
