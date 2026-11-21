@@ -4,7 +4,7 @@
 <meta charset="UTF-8"><meta name="viewport" content="width=device-width,initial-scale=1">
 <title>Younes File Manager</title>
 <style>
-:root{--navy:#10243d;--blue:#176bd1;--cyan:#22bed7;--bg:#f4f7fb;--white:#fff;--ink:#1b2b42;--muted:#8290a4;--line:#e5ebf3;--gold:#f2b544}
+:root{--navy:#10243d;--blue:#006b4f;--cyan:#22bed7;--bg:#f4f7fb;--white:#fff;--ink:#1b2b42;--muted:#8290a4;--line:#e5ebf3;--gold:#f2b544}
 *{box-sizing:border-box}body{margin:0;background:var(--bg);color:var(--ink);font:14px Inter,Segoe UI,Arial,sans-serif}
 button,input{font:inherit}button{cursor:pointer}.shell{min-height:100vh;display:flex}
 aside{width:180px;background:white;color:#e8f1fc;padding:22px 15px;display:flex;flex-direction:column;flex-shrink:0}
@@ -14,7 +14,7 @@ aside{width:180px;background:white;color:#e8f1fc;padding:22px 15px;display:flex;
 .side-bottom{margin-top:auto;color:#93a8c2;font-size:10px;line-height:1.7;padding:13px 10px;border-top:1px solid #2b405a}
 main{flex:1;min-width:0;padding:25px 34px 40px}
 .top{display:flex;justify-content:space-between;align-items:center;gap:15px;margin-bottom:24px}.title h1{font-size:23px;margin:0 0 5px;letter-spacing:-.5px}.title p{font-size:12px;color:var(--muted);margin:0}
-.actions{display:flex;gap:8px;align-items:center;flex-wrap:wrap}.btn{border:1px solid var(--line);background:white;color:#52647b;border-radius:9px;padding:10px 13px;font-size:12px;font-weight:650}.btn:hover{border-color:#a9c9ef;color:var(--blue)}.btn.primary{background:linear-gradient(110deg,var(--blue),#168bdc);border:0;color:white;box-shadow:0 6px 15px #176bd126}.btn.primary:hover{color:white;filter:brightness(1.06)}.btn.danger{color:#d44e5a}
+.actions{display:flex;gap:8px;align-items:center;flex-wrap:wrap}.btn{border:1px solid var(--line);background:white;color:#52647b;border-radius:9px;padding:10px 13px;font-size:12px;font-weight:650}.btn:hover{border-color:#a9c9ef;color:var(--blue)}.btn.primary{background:linear-gradient(110deg,var(--blue),#168bdc);border:0;color:white;box-shadow:0 6px 15px #006b4f26}.btn.primary:hover{color:white;filter:brightness(1.06)}.btn.danger{color:#d44e5a}
 .search{position:relative}.search input{width:230px;border:1px solid var(--line);border-radius:9px;padding:10px 12px 10px 34px;background:white;outline:none;font-size:12px}.search span{position:absolute;left:12px;top:8px;color:#93a0b2}
 .pathbar{display:flex;align-items:center;justify-content:space-between;gap:12px;margin-bottom:18px;flex-wrap:wrap}.crumbs{display:flex;align-items:center;gap:7px;flex-wrap:wrap;font-size:12px;color:#8b99ac}.crumb{border:0;background:none;padding:3px;color:#6e8098}.crumb:hover{color:var(--blue)}.crumb.current{color:var(--ink);font-weight:750;cursor:default}
 .hint{font-size:11px;color:#93a0b2}.drop{border:1.5px dashed #bfd0e4;background:#fafdff;border-radius:12px;padding:14px 17px;display:flex;align-items:center;gap:12px;margin-bottom:20px;transition:.2s}.drop.over{background:#e8f4ff;border-color:#2385df}.dropicon{height:36px;width:36px;border-radius:10px;background:#e5f1ff;color:var(--blue);display:grid;place-items:center;font-size:19px}.drop b{font-size:12px}.drop p{margin:3px 0 0;font-size:10px;color:var(--muted)}.drop .btn{margin-left:auto}
